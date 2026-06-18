@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Les Ateliers Angevins — nouveau site
 
-## Getting Started
+Site Next.js (App Router) + TypeScript + Tailwind CSS, remplaçant ateliersangevins.org. Inclut un
+espace équipe protégé pour gérer les articles du blog (lien discret « Espace équipe » en pied de
+page).
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router) + TypeScript + Tailwind CSS v4
+- **Prisma** + PostgreSQL (compatible Neon, Supabase, Railway, ou un Postgres auto-hébergé)
+- **Auth.js (NextAuth v5)** — comptes admin fixes (Credentials), session JWT
+- **Cloudinary** — upload des images de couverture d'articles
+- **react-markdown** — rendu du contenu des articles (écrits en Markdown)
+
+## Installation
+
+```bash
+npm install
+cp .env.example .env
+```
+
+Remplissez `.env` :
+
+| Variable | Description |
+| --- | --- |
+| `DATABASE_URL` | Connexion PostgreSQL (ex: créez une base gratuite sur [neon.tech](https://neon.tech)) |
+| `AUTH_SECRET` | Générez avec `npx auth secret` |
+| `CLOUDINARY_CLOUD_NAME` / `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` | Créez un compte gratuit sur [cloudinary.com](https://cloudinary.com) → Dashboard |
+| `ADMIN_EMAIL` / `ADMIN_NAME` / `ADMIN_PASSWORD` | Premier compte admin (ex: Raymond) |
+| `ADMIN2_EMAIL` / `ADMIN2_NAME` / `ADMIN2_PASSWORD` | Second compte admin, optionnel (ex: Marie) |
+
+Puis créez les tables et les comptes admin :
+
+```bash
+npm run db:push    # crée les tables à partir de prisma/schema.prisma
+npm run db:seed    # crée les comptes admin à partir des variables ADMIN_*
+```
+
+Lancez le serveur de développement :
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Le site est sur http://localhost:3000, l'espace équipe sur http://localhost:3000/espace-equipe.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Gérer les articles
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Une fois connecté sur `/espace-equipe`, vous arrivez sur `/espace-equipe/articles` :
+créer, modifier, publier/dépublier ou supprimer un article. Le contenu s'écrit en Markdown
+(titres `##`, **gras**, *italique*, listes, liens...). L'image de couverture est envoyée
+directement sur Cloudinary depuis le formulaire.
 
-## Learn More
+Pour ajouter un nouveau compte admin plus tard, ajoutez son email/mot de passe dans `.env`
+(`ADMIN2_*` ou modifiez `prisma/seed.ts` pour en ajouter d'autres) puis relancez
+`npm run db:seed`.
 
-To learn more about Next.js, take a look at the following resources:
+## Contenu à compléter
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Photos** : les visuels sont actuellement des aplats de couleur en attendant les vraies
+  photos de l'association (stages, lieux, équipe). Remplacez-les en uploadant les images via
+  l'espace équipe (articles) ou en remplaçant les composants `PlaceholderImage`.
+- **Documents PDF** : les boutons de téléchargement sur `/programmes` pointent vers
+  `public/documents/programme-geobiologie.pdf`, `programme-therapies-energetiques.pdf` et
+  `bulletin-inscription.pdf`. Déposez les vrais fichiers dans ce dossier avec ces noms.
+- **Agenda** : les dates sont des exemples à modifier dans `src/lib/site-data.ts`
+  (`agendaEvents`). Ce n'est pas géré depuis l'espace équipe (hors périmètre initial).
+- **Témoignages** : non repris du site actuel pour éviter d'attribuer des propos non vérifiés à
+  de vraies personnes — à ajouter manuellement si vous voulez les reprendre.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Déploiement
 
-## Deploy on Vercel
+Le projet n'est lié à aucun hébergeur en particulier :
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Vercel** : connectez le repo, ajoutez les variables d'environnement ci-dessus, c'est prêt.
+- **VPS / serveur perso** : `npm run build` puis `npm run start` (Node 20+), avec un reverse
+  proxy (nginx) devant. La base PostgreSQL et Cloudinary fonctionnent indépendamment de
+  l'hébergeur choisi.

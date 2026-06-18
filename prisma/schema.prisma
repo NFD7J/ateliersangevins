@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  name      String
+  password  String
+  createdAt DateTime  @default(now())
+  articles  Article[]
+}
+
+enum ArticleCategory {
+  GEOBIOLOGIE
+  MAGNETISME
+  THERAPIES_ENERGETIQUES
+  SOURCELLERIE
+  SYLVOTHERAPIE
+  FENG_SHUI
+  RADIESTHESIE
+  FORMATIONS
+  ACTUALITE
+}
+
+model Article {
+  id         String            @id @default(cuid())
+  slug       String            @unique
+  title      String
+  excerpt    String
+  content    String            @db.Text
+  coverImage String?
+  categories ArticleCategory[]
+  published  Boolean           @default(true)
+  authorId   String
+  author     Admin             @relation(fields: [authorId], references: [id])
+  createdAt  DateTime          @default(now())
+  updatedAt  DateTime          @updatedAt
+
+  @@index([published, createdAt])
+}

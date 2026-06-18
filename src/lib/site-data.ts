@@ -1,0 +1,157 @@
+export const nav = [
+  { href: "/", label: "Accueil" },
+  { href: "/a-propos", label: "À propos" },
+  { href: "/programmes", label: "Programmes" },
+  { href: "/agenda", label: "Agenda" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
+] as const;
+
+export const contact = {
+  address: ["5, rue des Mimosas", "Lotissement Les Tilleuls", "49640 Daumeray"],
+  phones: [
+    { name: "Raymond Denis", number: "06 08 67 05 01" },
+    { name: "Marie Brisseau", number: "06 61 75 66 78" },
+  ],
+  emails: ["ateliersangevins@hotmail.com", "brissmarie35@gmail.com"],
+  facebook: "https://www.facebook.com/",
+  mapsQuery: "5 rue des Mimosas, Lotissement Les Tilleuls, 49640 Daumeray",
+};
+
+export type Domain = {
+  slug: string;
+  name: string;
+  shortDescription: string;
+  description: string;
+  icon: string;
+};
+
+export const domains: Domain[] = [
+  {
+    slug: "geobiologie",
+    name: "Géobiologie",
+    shortDescription:
+      "L'étude des relations entre l'environnement, les ondes et leurs influences sur le vivant.",
+    description:
+      "La géobiologie consiste en l'étude des relations de l'environnement, des ondes liées aux champs électromagnétiques et de l'ensemble des influences sur le vivant. Elle permet d'identifier les perturbations d'un lieu (réseaux telluriques, ondes électromagnétiques, pollutions diverses) afin de retrouver un habitat sain et harmonieux.",
+    icon: "🌳",
+  },
+  {
+    slug: "magnetisme",
+    name: "Magnétisme & thérapies énergétiques",
+    shortDescription:
+      "Chromothérapie, thérapie par les formes et techniques de soin par l'énergie.",
+    description:
+      "Le magnétisme et les thérapies énergétiques regroupent un ensemble de techniques de soin visant à rétablir l'équilibre énergétique de la personne : magnétisme, chromothérapie, thérapie par les formes et autres outils de bio-énergie.",
+    icon: "✋",
+  },
+  {
+    slug: "sourcellerie",
+    name: "Sourcellerie",
+    shortDescription: "La détection de l'eau souterraine à l'aide de techniques traditionnelles.",
+    description:
+      "La sourcellerie est l'art de détecter la présence d'eau souterraine grâce à des outils simples (baguette, pendule) et à une sensibilité affinée par la pratique. Une compétence ancestrale toujours utile aujourd'hui.",
+    icon: "💧",
+  },
+  {
+    slug: "sylvotherapie",
+    name: "Sylvothérapie",
+    shortDescription: "Se ressourcer et se soigner au contact des arbres et de la forêt.",
+    description:
+      "La sylvothérapie, ou « bain de forêt », propose de se reconnecter à la nature et aux arbres pour apaiser le corps et l'esprit. Nos sorties en forêt allient marche consciente, respiration et exercices de reconnexion énergétique.",
+    icon: "🌲",
+  },
+  {
+    slug: "feng-shui",
+    name: "Feng Shui",
+    shortDescription: "L'art chinois d'harmoniser et d'optimiser les espaces de vie.",
+    description:
+      "Le Feng Shui est un art traditionnel chinois visant à harmoniser la circulation de l'énergie (le Qi) dans un espace de vie ou de travail, afin d'en optimiser le confort, la sérénité et l'équilibre.",
+    icon: "🏠",
+  },
+  {
+    slug: "radiesthesie",
+    name: "Radiesthésie",
+    shortDescription: "La détection bio-sensible à l'aide du pendule et de la baguette.",
+    description:
+      "La radiesthésie est une pratique de détection bio-sensible utilisant des outils tels que le pendule ou la baguette, permettant d'explorer des informations non perceptibles par les sens habituels.",
+    icon: "🔮",
+  },
+  {
+    slug: "traces-des-batisseurs",
+    name: "Tracés des bâtisseurs",
+    shortDescription: "L'harmonisation des lieux par les tracés régulateurs anciens.",
+    description:
+      "Les tracés des bâtisseurs sont des techniques géométriques anciennes utilisées pour harmoniser un lieu, en s'appuyant sur les tracés régulateurs employés depuis des siècles dans l'architecture sacrée.",
+    icon: "📐",
+  },
+];
+
+export type AgendaEvent = {
+  date: string;
+  title: string;
+  description: string;
+  category: string;
+};
+
+// Données d'exemple — à mettre à jour avec les dates réelles de l'association.
+export const agendaEvents: AgendaEvent[] = [
+  {
+    date: "2026-03-14",
+    title: "Journée Portes Ouvertes",
+    description:
+      "Découvrez le programme 2026, rencontrez l'équipe de formateurs et posez toutes vos questions sur nos formations.",
+    category: "Portes ouvertes",
+  },
+  {
+    date: "2026-04-18",
+    title: "Sortie Sylvothérapie en forêt",
+    description: "Une matinée de reconnexion à la nature, marche consciente et exercices respiratoires en forêt.",
+    category: "Sylvothérapie",
+  },
+  {
+    date: "2026-05-09",
+    title: "Stage Initiation Géobiologie",
+    description: "Premier module de la formation Géobiologie 2026 : bases théoriques et premiers outils de terrain.",
+    category: "Géobiologie",
+  },
+];
+
+export type TeamMember = {
+  name: string;
+  role: string;
+  bio: string;
+};
+
+export const team: TeamMember[] = [
+  {
+    name: "Raymond Denis",
+    role: "Président & formateur",
+    bio: "Sourcier et géobiologue, il dirige le programme de formation en géobiologie de l'association.",
+  },
+  {
+    name: "Marie Brisseau",
+    role: "Fondatrice & trésorière adjointe",
+    bio: "Experte en magnétisme, chromothérapie et thérapie par les formes, formée par diverses institutions reconnues.",
+  },
+  {
+    name: "Jean-Pierre Brisseau",
+    role: "Fondateur & trésorier",
+    bio: "Spécialiste en géobiologie et tracés régulateurs, avec une formation complète en bio-énergie.",
+  },
+  {
+    name: "Jocelyne Pivette",
+    role: "Intervenante",
+    bio: "Consultante en Feng Shui, elle accompagne particuliers et professionnels dans l'harmonisation de leurs espaces.",
+  },
+  {
+    name: "Christelle Le Bot",
+    role: "Consultante & formatrice",
+    bio: "Spécialisée en thérapies énergétiques, elle anime des ateliers pratiques tout au long de l'année.",
+  },
+  {
+    name: "Jérôme Crosnier",
+    role: "Formateur",
+    bio: "Expert en géobiologie, magnétisme et thérapie énergétique.",
+  },
+];

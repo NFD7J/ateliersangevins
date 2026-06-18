@@ -1,26 +1,119 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf6ee;
+  --foreground: #2b2a25;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Palette nature / apaisante */
+  --color-forest-50: #f1f6f0;
+  --color-forest-100: #dfeadb;
+  --color-forest-200: #bdd6b6;
+  --color-forest-300: #97bf8c;
+  --color-forest-400: #6fa161;
+  --color-forest-500: #4f8242;
+  --color-forest-600: #3a6731;
+  --color-forest-700: #2e5128;
+  --color-forest-800: #264020;
+  --color-forest-900: #1c2f17;
+
+  --color-terracotta-50: #fdf3ee;
+  --color-terracotta-100: #fae1d4;
+  --color-terracotta-200: #f4c1a7;
+  --color-terracotta-300: #ec9c75;
+  --color-terracotta-400: #df7a4d;
+  --color-terracotta-500: #cb5d33;
+  --color-terracotta-600: #ab4727;
+  --color-terracotta-700: #883822;
+  --color-terracotta-800: #6c2e20;
+  --color-terracotta-900: #59271d;
+
+  --color-gold-300: #e9cf8d;
+  --color-gold-400: #ddb961;
+  --color-gold-500: #c89c3f;
+
+  --color-stone: #faf6ee;
+  --color-stone-deep: #f1e9d8;
+  --color-ink: #2b2a25;
+  --color-ink-soft: #5b5648;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+.prose-article {
+  color: var(--color-ink);
+}
+
+.prose-article h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-forest-800);
+}
+
+.prose-article h3 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-forest-800);
+}
+
+.prose-article p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.prose-article ul,
+.prose-article ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.prose-article li {
+  margin-bottom: 0.4rem;
+  line-height: 1.7;
+}
+
+.prose-article a {
+  color: var(--color-forest-600);
+  text-decoration: underline;
+}
+
+.prose-article img {
+  border-radius: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.prose-article strong {
+  color: var(--color-forest-800);
+}
+
+.prose-article blockquote {
+  border-left: 3px solid var(--color-gold-400);
+  padding-left: 1rem;
+  font-style: italic;
+  color: var(--color-ink-soft);
+  margin: 1.5rem 0;
 }

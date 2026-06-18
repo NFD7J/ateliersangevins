@@ -1,65 +1,196 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Container } from "@/components/ui/container";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { PlaceholderImage } from "@/components/ui/placeholder-image";
+import { Badge } from "@/components/ui/badge";
+import { domains, contact } from "@/lib/site-data";
+import { categoryLabels } from "@/lib/categories";
+import { formatDate } from "@/lib/utils";
+import { prisma } from "@/lib/prisma";
 
-export default function Home() {
+async function getLatestArticles() {
+  try {
+    return await prisma.article.findMany({
+      where: { published: true },
+      orderBy: { createdAt: "desc" },
+      take: 3,
+    });
+  } catch {
+    return [];
+  }
+}
+
+export default async function HomePage() {
+  const latestArticles = await getLatestArticles();
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      {/* Hero */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <PlaceholderImage icon="🌲" variant={0} className="h-full w-full" />
+          <div className="absolute inset-0 bg-forest-900/55" />
+        </div>
+        <Container className="flex min-h-[34rem] flex-col items-start justify-center py-24 text-white">
+          <p className="text-sm font-semibold uppercase tracking-widest text-gold-300">
+            Depuis 2005, à Daumeray
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+          <h1 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight sm:text-5xl">
+            Géobiologie, thérapies énergétiques et bien-être au cœur de l&apos;Anjou
+          </h1>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-forest-50/90">
+            L&apos;association Les Ateliers Angevins favorise le bien-être physique et psychique
+            par l&apos;apprentissage et la pratique de techniques de connaissance de soi, de
+            développement personnel et d&apos;harmonisation des lieux.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              href="/programmes"
+              className="rounded-full bg-terracotta-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-terracotta-600"
+            >
+              Découvrir nos programmes
+            </Link>
+            <Link
+              href="/contact"
+              className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              Nous contacter
+            </Link>
+          </div>
+        </Container>
+      </section>
+
+      {/* Domaines */}
+      <section className="py-20">
+        <Container>
+          <SectionHeading
+            eyebrow="Nos domaines"
+            title="Sept disciplines pour se reconnecter à soi et à son environnement"
+            description="Des ateliers, formations et accompagnements pensés pour découvrir ou approfondir chaque thématique, à votre rythme."
+            align="center"
+            className="mx-auto"
+          />
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {domains.map((domain) => (
+              <Link
+                key={domain.slug}
+                href={`/programmes#${domain.slug}`}
+                className="group rounded-2xl border border-forest-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+              >
+                <span className="text-3xl">{domain.icon}</span>
+                <h3 className="mt-4 font-display text-lg font-semibold text-forest-900">
+                  {domain.name}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+                  {domain.shortDescription}
+                </p>
+                <span className="mt-4 inline-flex items-center text-sm font-semibold text-forest-600 group-hover:text-forest-800">
+                  En savoir plus →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Mission */}
+      <section className="bg-forest-50 py-20">
+        <Container className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <PlaceholderImage icon="🍃" variant={1} className="h-80 w-full rounded-2xl" />
+          <div>
+            <SectionHeading
+              eyebrow="Notre mission"
+              title="Apprendre, pratiquer, transmettre"
+              description="Fondée en septembre 2005 par Marie et Jean-Pierre Brisseau, l'association Les Ateliers Angevins réunit aujourd'hui une équipe de formateurs passionnés autour d'un objectif commun : favoriser le bien-être de chacun grâce à des outils concrets de connaissance de soi et d'harmonisation des lieux de vie."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <ul className="mt-6 space-y-3 text-sm text-ink-soft">
+              <li>✓ Des formations annuelles structurées, théoriques et pratiques</li>
+              <li>✓ Des ateliers complémentaires accessibles à tous les niveaux</li>
+              <li>✓ Une équipe accréditée par la Confédération Nationale de Géobiologie</li>
+            </ul>
+            <Link
+              href="/a-propos"
+              className="mt-8 inline-flex items-center font-semibold text-forest-700 hover:text-forest-900"
+            >
+              Découvrir l&apos;association →
+            </Link>
+          </div>
+        </Container>
+      </section>
+
+      {/* Derniers articles */}
+      {latestArticles.length > 0 && (
+        <section className="py-20">
+          <Container>
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <SectionHeading eyebrow="Blog" title="Nos derniers articles" />
+              <Link href="/blog" className="font-semibold text-forest-700 hover:text-forest-900">
+                Tous les articles →
+              </Link>
+            </div>
+            <div className="mt-10 grid gap-6 sm:grid-cols-3">
+              {latestArticles.map((article, i) => (
+                <Link
+                  key={article.id}
+                  href={`/blog/${article.slug}`}
+                  className="group overflow-hidden rounded-2xl border border-forest-100 bg-white shadow-sm transition-shadow hover:shadow-md"
+                >
+                  {article.coverImage ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={article.coverImage}
+                      alt={article.title}
+                      className="h-44 w-full object-cover"
+                    />
+                  ) : (
+                    <PlaceholderImage icon="📰" variant={i} className="h-44 w-full" />
+                  )}
+                  <div className="p-5">
+                    {article.categories[0] && (
+                      <Badge>{categoryLabels[article.categories[0]]}</Badge>
+                    )}
+                    <h3 className="mt-3 font-display text-lg font-semibold text-forest-900 group-hover:text-forest-700">
+                      {article.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-ink-soft">{formatDate(article.createdAt)}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* CTA Portes ouvertes */}
+      <section className="bg-forest-900 py-16 text-white">
+        <Container className="flex flex-col items-center gap-6 text-center">
+          <h2 className="font-display text-3xl font-semibold">Portes ouvertes 2026</h2>
+          <p className="max-w-xl text-forest-100">
+            Venez découvrir le programme 2026 et rencontrer l&apos;équipe lors de notre journée
+            portes ouvertes. Une occasion privilégiée pour poser vos questions et échanger avec
+            les formateurs.
+          </p>
+          <Link
+            href="/agenda"
+            className="rounded-full bg-gold-400 px-6 py-3 text-sm font-semibold text-forest-900 transition-colors hover:bg-gold-300"
           >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            Voir les dates de l&apos;agenda
+          </Link>
+        </Container>
+      </section>
+
+      {/* Coordonnées rapides */}
+      <section className="py-16">
+        <Container className="flex flex-col items-center gap-3 text-center">
+          <p className="text-sm font-semibold uppercase tracking-widest text-terracotta-500">
+            Une question ?
+          </p>
+          <p className="text-ink-soft">
+            {contact.phones.map((p) => `${p.name} : ${p.number}`).join("  ·  ")}
+          </p>
+          <p className="text-ink-soft">{contact.emails[0]}</p>
+        </Container>
+      </section>
+    </>
   );
 }
