@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Manrope } from "next/font/google";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import {SpeedInsights} from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const fraunces = Fraunces({
