@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { cache } from "react";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -10,7 +12,7 @@ import { categoryLabels } from "@/lib/categories";
 import { formatDate } from "@/lib/utils";
 import { prisma } from "@/lib/prisma";
 
-async function getArticle(slug: string) {
+const getArticle = cache(async (slug: string) => {
   try {
     return await prisma.article.findUnique({
       where: { slug },
@@ -19,7 +21,7 @@ async function getArticle(slug: string) {
   } catch {
     return null;
   }
-}
+});
 
 export async function generateMetadata({
   params,
@@ -44,8 +46,14 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   return (
     <article>
       {article.coverImage ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={article.coverImage} alt={article.title} className="h-72 w-full object-cover sm:h-96" />
+        <Image
+          src={article.coverImage}
+          alt={article.title}
+          width={1200}
+          height={384}
+          priority
+          className="h-72 w-full object-cover sm:h-96"
+        />
       ) : (
         <PlaceholderImage icon="📰" className="h-72 w-full sm:h-96" />
       )}

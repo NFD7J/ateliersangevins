@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArticleCategory } from "@prisma/client";
 import { Container } from "@/components/ui/container";
@@ -67,7 +68,7 @@ export default async function BlogPage({
             >
               Tous
             </Link>
-            {categoryOptions.map((option) => (
+            {categoryOptions.map((option: { value: string; label: string }) => (
               <Link
                 key={option.value}
                 href={`/blog?cat=${option.value}`}
@@ -96,10 +97,11 @@ export default async function BlogPage({
                   className="group overflow-hidden rounded-2xl border border-forest-100 bg-white shadow-sm transition-shadow hover:shadow-md"
                 >
                   {article.coverImage ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
+                    <Image
                       src={article.coverImage}
                       alt={article.title}
+                      width={400}
+                      height={192}
                       className="h-48 w-full object-cover"
                     />
                   ) : (
