@@ -50,6 +50,11 @@ body {
   font-family: var(--font-body), Arial, Helvetica, sans-serif;
 }
 
+::selection {
+  background-color: var(--color-forest-300);
+  color: var(--color-forest-900);
+}
+
 h1,
 h2,
 h3,

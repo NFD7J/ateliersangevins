@@ -2,15 +2,21 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Badge } from "@/components/ui/badge";
-import { agendaEvents, contact } from "@/lib/site-data";
+import { contact } from "@/lib/site-data";
 import { formatDate } from "@/lib/utils";
+import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
   title: "Agenda",
   description: "Sorties touristiques et énergétiques, stages et portes ouvertes des Ateliers Angevins.",
 };
 
-export default function AgendaPage() {
+export default async function AgendaPage() {
+  const agendaEvents = await prisma.event.findMany({
+    where: { published: true },
+    orderBy: { date: "asc" },
+  });
+
   return (
     <>
       <section className="bg-forest-50 py-16">

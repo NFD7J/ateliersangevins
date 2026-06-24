@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
@@ -28,7 +29,13 @@ export default async function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <PlaceholderImage icon="🌲" variant={0} className="h-full w-full" />
+          <Image
+            src="/images/hero.png"
+            alt=""
+            fill
+            priority
+            className="object-cover"
+          />
           <div className="absolute inset-0 bg-forest-900/55" />
         </div>
         <Container className="flex min-h-[34rem] flex-col items-start justify-center py-24 text-white">
@@ -74,7 +81,11 @@ export default async function HomePage() {
             {domains.map((domain) => (
               <Link
                 key={domain.slug}
-                href={`/programmes#${domain.slug}`}
+                href={
+                  domain.slug === "feng-shui"
+                    ? `/programmes#${domain.slug}`
+                    : `/programmes/${domain.slug}`
+                }
                 className="group rounded-2xl border border-forest-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
               >
                 <span className="text-3xl">{domain.icon}</span>
@@ -96,7 +107,14 @@ export default async function HomePage() {
       {/* Mission */}
       <section className="bg-forest-50 py-20">
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <PlaceholderImage icon="🍃" variant={1} className="h-80 w-full rounded-2xl" />
+          <div className="relative h-100 w-full overflow-hidden rounded-2xl">
+            <Image
+              src="/images/mission.jpg"
+              alt="Marie et Jean-Pierre Brisseau, fondateurs de l'association Les Ateliers Angevins"
+              fill
+              className="object-cover object-bottom"
+            />
+          </div>
           <div>
             <SectionHeading
               eyebrow="Notre mission"

@@ -44,3 +44,16 @@ model Article {
 
   @@index([published, createdAt])
 }
+
+model Event {
+  id          String   @id @default(cuid())
+  date        DateTime
+  title       String
+  description String   @db.Text
+  category    String
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([published, date])
+}

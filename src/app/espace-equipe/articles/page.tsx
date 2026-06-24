@@ -24,6 +24,12 @@ export default async function ArticlesDashboardPage() {
         <div>
           <p className="text-sm text-ink-soft">Connecté en tant que {session?.user?.name}</p>
           <h1 className="font-display text-3xl font-semibold text-forest-900">Articles</h1>
+          <div className="mt-3 flex gap-4 text-sm">
+            <span className="font-semibold text-forest-700">Articles</span>
+            <Link href="/espace-equipe/agenda" className="text-ink-soft hover:text-forest-700">
+              Agenda
+            </Link>
+          </div>
         </div>
         <div className="flex items-center gap-4">
           <Link

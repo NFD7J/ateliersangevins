@@ -87,36 +87,6 @@ export const domains: Domain[] = [
   },
 ];
 
-export type AgendaEvent = {
-  date: string;
-  title: string;
-  description: string;
-  category: string;
-};
-
-// Données d'exemple — à mettre à jour avec les dates réelles de l'association.
-export const agendaEvents: AgendaEvent[] = [
-  {
-    date: "2026-03-14",
-    title: "Journée Portes Ouvertes",
-    description:
-      "Découvrez le programme 2026, rencontrez l'équipe de formateurs et posez toutes vos questions sur nos formations.",
-    category: "Portes ouvertes",
-  },
-  {
-    date: "2026-04-18",
-    title: "Sortie Sylvothérapie en forêt",
-    description: "Une matinée de reconnexion à la nature, marche consciente et exercices respiratoires en forêt.",
-    category: "Sylvothérapie",
-  },
-  {
-    date: "2026-05-09",
-    title: "Stage Initiation Géobiologie",
-    description: "Premier module de la formation Géobiologie 2026 : bases théoriques et premiers outils de terrain.",
-    category: "Géobiologie",
-  },
-];
-
 export type TeamMember = {
   name: string;
   role: string;
