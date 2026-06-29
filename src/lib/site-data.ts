@@ -62,14 +62,6 @@ export const domains: Domain[] = [
     icon: "🌲",
   },
   {
-    slug: "feng-shui",
-    name: "Feng Shui",
-    shortDescription: "L'art chinois d'harmoniser et d'optimiser les espaces de vie.",
-    description:
-      "Le Feng Shui est un art traditionnel chinois visant à harmoniser la circulation de l'énergie (le Qi) dans un espace de vie ou de travail, afin d'en optimiser le confort, la sérénité et l'équilibre.",
-    icon: "🏠",
-  },
-  {
     slug: "radiesthesie",
     name: "Radiesthésie",
     shortDescription: "La détection bio-sensible à l'aide du pendule et de la baguette.",
@@ -91,6 +83,7 @@ export type TeamMember = {
   name: string;
   role: string;
   bio: string;
+  image: string;
 };
 
 export const team: TeamMember[] = [
@@ -98,30 +91,36 @@ export const team: TeamMember[] = [
     name: "Raymond Denis",
     role: "Président & formateur",
     bio: "Sourcier et géobiologue, il dirige le programme de formation en géobiologie de l'association.",
+    image: "/images/team-test/Raymond-Denis.jpg",
   },
   {
     name: "Marie Brisseau",
     role: "Fondatrice & trésorière adjointe",
     bio: "Experte en magnétisme, chromothérapie et thérapie par les formes, formée par diverses institutions reconnues.",
+    image: "/images/team-test/Marie.jpg",
   },
   {
     name: "Jean-Pierre Brisseau",
     role: "Fondateur & trésorier",
     bio: "Spécialiste en géobiologie et tracés régulateurs, avec une formation complète en bio-énergie.",
+    image: "/images/team-test/Jean-Pierre-Brisseau.jpg",
   },
   {
     name: "Jocelyne Pivette",
     role: "Intervenante",
     bio: "Consultante en Feng Shui, elle accompagne particuliers et professionnels dans l'harmonisation de leurs espaces.",
+    image: "/images/team-test/Jocelyne-Pivette.png",
   },
   {
     name: "Christelle Le Bot",
     role: "Consultante & formatrice",
     bio: "Spécialisée en thérapies énergétiques, elle anime des ateliers pratiques tout au long de l'année.",
+    image: "/images/team-test/Christelle-Le-Bot.jpg",
   },
   {
     name: "Jérôme Crosnier",
     role: "Formateur",
     bio: "Expert en géobiologie, magnétisme et thérapie énergétique.",
+    image: "/images/team-test/Jerome-Crosnier.jpg",
   },
 ];

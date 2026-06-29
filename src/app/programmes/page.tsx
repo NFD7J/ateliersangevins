@@ -140,7 +140,8 @@ export default function ProgrammesPage() {
           </div>
           <div className="mt-8 text-center">
             <a
-              href="/documents/bulletin-inscription-2026.pdf"
+              href="/documents/inscription-modules-complementaires-2026.pdf"
+              target="_blank"
               className="inline-flex items-center gap-2 rounded-full border border-forest-300 px-5 py-2.5 text-sm font-semibold text-forest-700 transition-colors hover:bg-forest-100"
             >
               Télécharger le bulletin d&apos;inscription

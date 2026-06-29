@@ -62,7 +62,7 @@ export default function RadiesthesiePage() {
           <PracticalInfo
             items={[{ label: "Informations pratiques", value: "Voir le programme téléchargeable" }]}
             pdfProgramme="/documents/programme-radiesthesie.pdf"
-            pdfInscription="/documents/bulletin-inscription.pdf"
+            pdfInscription="/documents/inscription-modules-complementaires.pdf"
           />
         </Container>
       </section>

@@ -3,7 +3,7 @@ import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { contact } from "@/lib/site-data";
-import { formatDate } from "@/lib/utils";
+import { cn, formatDate } from "@/lib/utils";
 import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default async function AgendaPage() {
   const agendaEvents = await prisma.event.findMany({
     where: { published: true },
-    orderBy: { date: "asc" },
+    orderBy: { date: "desc" },
   });
 
   return (
@@ -38,29 +38,44 @@ export default async function AgendaPage() {
         <Container className="max-w-3xl">
           <SectionHeading eyebrow="Prochainement" title="Les prochains rendez-vous" />
           <ol className="mt-10 space-y-6">
-            {agendaEvents.map((event) => (
-              <li
-                key={event.title + event.date}
-                className="flex flex-col gap-4 rounded-2xl border border-forest-100 bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:gap-8"
-              >
-                <div className="flex shrink-0 flex-col items-center justify-center rounded-xl bg-forest-600 px-5 py-3 text-white">
-                  <span className="text-2xl font-semibold">
-                    {new Date(event.date).getDate()}
-                  </span>
-                  <span className="text-xs uppercase tracking-wide">
-                    {new Date(event.date).toLocaleDateString("fr-FR", { month: "short" })}
-                  </span>
-                </div>
-                <div>
-                  <Badge>{event.category}</Badge>
-                  <h3 className="mt-2 font-display text-lg font-semibold text-forest-900">
-                    {event.title}
-                  </h3>
-                  <p className="mt-1 text-sm text-ink-soft">{formatDate(event.date)}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-soft">{event.description}</p>
-                </div>
-              </li>
-            ))}
+            {agendaEvents.map((event) => {
+              const isPast = new Date(event.date) < new Date();
+
+              return (
+                <li
+                  key={event.title + event.date}
+                  className={cn(
+                    "flex flex-col gap-4 rounded-2xl border border-forest-100 bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:gap-8",
+                    isPast && "opacity-60"
+                  )}
+                >
+                  <div
+                    className={cn(
+                      "flex shrink-0 flex-col items-center justify-center rounded-xl px-5 py-3 text-white",
+                      isPast ? "bg-ink-soft" : "bg-forest-600"
+                    )}
+                  >
+                    <span className="text-2xl font-semibold">
+                      {new Date(event.date).getDate()}
+                    </span>
+                    <span className="text-xs uppercase tracking-wide">
+                      {new Date(event.date).toLocaleDateString("fr-FR", { month: "short" })}
+                    </span>
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <Badge>{event.category}</Badge>
+                      {isPast && <Badge className="bg-ink-soft/20 text-ink-soft">Terminé</Badge>}
+                    </div>
+                    <h3 className="mt-2 font-display text-lg font-semibold text-forest-900">
+                      {event.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-ink-soft">{formatDate(event.date)}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-ink-soft">{event.description}</p>
+                  </div>
+                </li>
+              );
+            })}
           </ol>
         </Container>
       </section>

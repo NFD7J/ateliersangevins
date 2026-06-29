@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-forest-50 py-16">
+      <section className="bg-forest-100 py-16">
         <Container className="max-w-3xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-terracotta-500">
             À propos
@@ -39,11 +40,13 @@ export default function AboutPage() {
               la <strong className="text-forest-800">Confédération Nationale de Géobiologie</strong>.
             </p>
           </div>
-          <PlaceholderImage icon="🤝" variant={2} className="h-80 w-full rounded-2xl" />
+          <div className="relative h-full w-110 rounded-2xl overflow-hidden">
+            <Image src="/images/logo.jpg" alt="Description" fill sizes="1000px" className="object-cover object-center rounded-2xl" />
+          </div>
         </Container>
       </section>
 
-      <section className="bg-forest-50 py-20">
+      <section className="bg-forest-100 py-20">
         <Container>
           <SectionHeading
             eyebrow="L'équipe"
@@ -55,18 +58,23 @@ export default function AboutPage() {
             {team.map((member, i) => (
               <div
                 key={member.name}
-                className="rounded-2xl border border-forest-100 bg-white p-6 shadow-sm"
+                className="flex flex-col items-center rounded-2xl border border-forest-100 bg-white p-6 shadow-sm"
               >
-                <PlaceholderImage
-                  icon="🧑"
-                  variant={i}
-                  className="h-16 w-16 rounded-full text-2xl"
-                />
+                <div className="relative h-25 w-25 rounded-full bg-forest-100 text-2xl overflow-hidden">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    className="object-cover object-center"
+                    loading="lazy"
+                    fill
+                    sizes="100px"
+                  />
+                </div>
                 <h3 className="mt-4 font-display text-lg font-semibold text-forest-900">
                   {member.name}
                 </h3>
                 <p className="text-sm font-medium text-terracotta-500">{member.role}</p>
-                <p className="mt-3 text-sm leading-relaxed text-ink-soft">{member.bio}</p>
+                <p className="text-center mt-3 text-sm leading-relaxed text-ink-soft">{member.bio}</p>
               </div>
             ))}
           </div>

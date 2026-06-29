@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { z } from "zod";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
@@ -13,19 +14,36 @@ async function requireAdmin() {
   return session.user;
 }
 
+const eventSchema = z.object({
+  date: z
+    .string()
+    .refine((value) => !Number.isNaN(Date.parse(value)), "Date invalide."),
+  title: z.string().trim().min(1, "Le titre est obligatoire.").max(200),
+  description: z
+    .string()
+    .trim()
+    .min(1, "La description est obligatoire.")
+    .max(5_000),
+  category: z.string().trim().min(1, "La catégorie est obligatoire.").max(100),
+  published: z.boolean(),
+});
+
 export async function saveEvent(formData: FormData) {
   await requireAdmin();
 
   const id = formData.get("id")?.toString() || undefined;
-  const date = formData.get("date")?.toString() ?? "";
-  const title = formData.get("title")?.toString().trim() ?? "";
-  const description = formData.get("description")?.toString().trim() ?? "";
-  const category = formData.get("category")?.toString().trim() ?? "";
-  const published = formData.get("published") === "on";
 
-  if (!date || !title || !description || !category) {
-    throw new Error("Date, titre, catégorie et description sont obligatoires.");
+  const parsed = eventSchema.safeParse({
+    date: formData.get("date")?.toString() ?? "",
+    title: formData.get("title")?.toString() ?? "",
+    description: formData.get("description")?.toString() ?? "",
+    category: formData.get("category")?.toString() ?? "",
+    published: formData.get("published") === "on",
+  });
+  if (!parsed.success) {
+    throw new Error(parsed.error.issues[0]?.message ?? "Données invalides.");
   }
+  const { date, title, description, category, published } = parsed.data;
 
   const data = {
     date: new Date(date),

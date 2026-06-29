@@ -60,7 +60,7 @@ export default function SourcelleriePage() {
               { label: "Lieu", value: "Communiqué à l'inscription" },
               { label: "Repas", value: "À la charge des participants" },
             ]}
-            pdfInscription="/documents/bulletin-inscription.pdf"
+            pdfInscription="/documents/inscription-modules-complementaires.pdf"
           />
         </Container>
       </section>

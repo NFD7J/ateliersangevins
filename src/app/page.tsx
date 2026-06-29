@@ -72,7 +72,7 @@ export default async function HomePage() {
         <Container>
           <SectionHeading
             eyebrow="Nos domaines"
-            title="Sept disciplines pour se reconnecter à soi et à son environnement"
+            title="Six disciplines pour se reconnecter à soi et à son environnement"
             description="Des ateliers, formations et accompagnements pensés pour découvrir ou approfondir chaque thématique, à votre rythme."
             align="center"
             className="mx-auto"
@@ -112,6 +112,7 @@ export default async function HomePage() {
               src="/images/mission.jpg"
               alt="Marie et Jean-Pierre Brisseau, fondateurs de l'association Les Ateliers Angevins"
               fill
+              loading="lazy"
               className="object-cover object-bottom"
             />
           </div>
