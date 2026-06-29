@@ -55,19 +55,6 @@ Pour ajouter un nouveau compte admin plus tard, ajoutez son email/mot de passe d
 (`ADMIN2_*` ou modifiez `prisma/seed.ts` pour en ajouter d'autres) puis relancez
 `npm run db:seed`.
 
-## Contenu à compléter
-
-- **Photos** : les visuels sont actuellement des aplats de couleur en attendant les vraies
-  photos de l'association (stages, lieux, équipe). Remplacez-les en uploadant les images via
-  l'espace équipe (articles) ou en remplaçant les composants `PlaceholderImage`.
-- **Documents PDF** : les boutons de téléchargement sur `/programmes` pointent vers
-  `public/documents/programme-geobiologie.pdf`, `programme-therapies-energetiques.pdf` et
-  `bulletin-inscription.pdf`. Déposez les vrais fichiers dans ce dossier avec ces noms.
-- **Agenda** : les dates sont des exemples à modifier dans `src/lib/site-data.ts`
-  (`agendaEvents`). Ce n'est pas géré depuis l'espace équipe (hors périmètre initial).
-- **Témoignages** : non repris du site actuel pour éviter d'attribuer des propos non vérifiés à
-  de vraies personnes — à ajouter manuellement si vous voulez les reprendre.
-
 ## Déploiement
 
 Le projet n'est lié à aucun hébergeur en particulier :
