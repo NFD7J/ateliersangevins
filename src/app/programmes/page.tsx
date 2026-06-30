@@ -36,6 +36,7 @@ const complementaryWorkshops = [
     id: "sourcellerie",
     href: "/programmes/sourcellerie",
     title: "Sourcellerie",
+    icon: "💧",
     description:
       "Initiation et perfectionnement à la détection de l'eau souterraine grâce à des outils simples et à une sensibilité affinée par la pratique.",
   },
@@ -43,9 +44,42 @@ const complementaryWorkshops = [
     id: "sylvotherapie",
     href: "/programmes/sylvotherapie",
     title: "Sylvothérapie",
+    icon: "🌳",
     description:
       "Des sorties en forêt pour se reconnecter à la nature : marche consciente, respiration et exercices de reconnexion énergétique au contact des arbres.",
   },
+  {
+    id: "radiesthesie",
+    href: "/programmes/radiesthesie",
+    title: "Radiesthésie",
+    icon: "📡",
+    description:
+    "La radiesthésie est une pratique de détection bio-sensible utilisant des outils tels que le pendule ou la baguette, permettant d'explorer des informations non perceptibles par les sens habituels."
+  },
+  {
+    id: "traces-des-batisseurs",
+    href: "/programmes/traces-des-batisseurs",
+    title: "Tracés des bâtisseurs",
+    icon: "📐",
+    description:
+      "Les tracés des bâtisseurs sont des techniques géométriques anciennes utilisées pour harmoniser un lieu, en s'appuyant sur les tracés régulateurs employés depuis des siècles dans l'architecture sacrée.",
+  },
+  {
+    id: "mandala",
+    href: "/programmes/mandala",
+    title: "Mandala",
+    icon: "🌀",
+    description:
+      "Le mandala est un symbole spirituel et rituel représentant l'univers dans les traditions hindoues et bouddhistes. Il est utilisé comme outil de méditation et d'expression artistique, favorisant la concentration, l'équilibre intérieur et la créativité.",
+  },
+  {
+    id: "acupressure",
+    href: "/programmes/acupressure",
+    title: "Acupressure",
+    icon: "💆‍♂️",
+    description:
+      "L'acupressure repose sur la stimulation de points spécifiques du corps pour favoriser le bien-être et la relaxation. Elle utilise des techniques de pression et de massage pour améliorer la circulation de l'énergie et soulager les tensions.",
+  }
 ];
 
 const detailHrefBySlug: Record<string, string> = {
@@ -56,7 +90,7 @@ const detailHrefBySlug: Record<string, string> = {
 export default function ProgrammesPage() {
   return (
     <>
-      <section className="bg-forest-50 py-16">
+      <section className=" py-16">
         <Container className="max-w-3xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-terracotta-500">
             Programmes
@@ -72,7 +106,7 @@ export default function ProgrammesPage() {
       </section>
 
       {/* Programmes annuels */}
-      <section className="py-20">
+      <section className="py-20 bg-forest-100">
         <Container>
           <SectionHeading eyebrow="Programmes annuels" title="Nos deux formations principales" />
           <div className="mt-10 grid gap-8 lg:grid-cols-2">
@@ -111,7 +145,7 @@ export default function ProgrammesPage() {
       </section>
 
       {/* Ateliers complémentaires */}
-      <section id="ateliers-complementaires" className="scroll-mt-24 bg-forest-50 py-20">
+      <section id="ateliers-complementaires" className="scroll-mt-24  py-20">
         <Container>
           <SectionHeading
             eyebrow="Ateliers complémentaires"
@@ -126,7 +160,7 @@ export default function ProgrammesPage() {
                 className="scroll-mt-24 rounded-2xl border border-forest-100 bg-white p-8 shadow-sm"
               >
                 <h3 className="font-display text-xl font-semibold text-forest-900">
-                  {workshop.title}
+                  {workshop.icon} {workshop.title}
                 </h3>
                 <p className="mt-3 leading-relaxed text-ink-soft">{workshop.description}</p>
                 <Link
@@ -140,50 +174,12 @@ export default function ProgrammesPage() {
           </div>
           <div className="mt-8 text-center">
             <a
-              href="/documents/bulletin-inscription-2026.pdf"
+              href="/documents/inscription-modules-complementaires-2026.pdf"
+              target="_blank"
               className="inline-flex items-center gap-2 rounded-full border border-forest-300 px-5 py-2.5 text-sm font-semibold text-forest-700 transition-colors hover:bg-forest-100"
             >
               Télécharger le bulletin d&apos;inscription
             </a>
-          </div>
-        </Container>
-      </section>
-
-      {/* Autres ateliers / domaines */}
-      <section className="py-20">
-        <Container>
-          <SectionHeading
-            eyebrow="Autres domaines"
-            title="Et bien d'autres pratiques à explorer"
-            align="center"
-            className="mx-auto"
-          />
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {domains
-              .filter((d) => !["geobiologie", "magnetisme", "sourcellerie", "sylvotherapie"].includes(d.slug))
-              .map((domain) => (
-                <div
-                  key={domain.slug}
-                  id={domain.slug}
-                  className="scroll-mt-24 rounded-2xl border border-forest-100 bg-white p-6 shadow-sm"
-                >
-                  <span className="text-3xl">{domain.icon}</span>
-                  <h3 className="mt-4 font-display text-lg font-semibold text-forest-900">
-                    {domain.name}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-                    {domain.description}
-                  </p>
-                  {detailHrefBySlug[domain.slug] && (
-                    <Link
-                      href={detailHrefBySlug[domain.slug]}
-                      className="mt-4 inline-flex items-center text-sm font-semibold text-forest-700 hover:text-forest-900"
-                    >
-                      Voir le détail →
-                    </Link>
-                  )}
-                </div>
-              ))}
           </div>
         </Container>
       </section>
