@@ -52,7 +52,7 @@ export default function TracesDesBatisseursPage() {
               { label: "Lieu", value: "6 rue de Grez, 49460 Feneu" },
               { label: "Repas / hébergement", value: "À la charge des participants" },
             ]}
-            pdfInscription="/documents/inscription-modules-complementaires.pdf"
+            pdfInscription="/documents/inscription-modules-complementaires-2026.pdf"
           />
         </Container>
       </section>

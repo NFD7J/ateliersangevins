@@ -63,7 +63,7 @@ export default function SylvotherapiePage() {
               { label: "Accueil", value: "8h30" },
               { label: "Lieu", value: "Centre Xian, La Haute Jeannière, 49220 Thorigné-d'Anjou" },
             ]}
-            pdfInscription="/documents/inscription-modules-complementaires.pdf"
+            pdfInscription="/documents/inscription-modules-complementaires-2026.pdf"
           />
         </Container>
       </section>

@@ -22,9 +22,14 @@ export default auth((req) => {
   // 'unsafe-inline'/https: fallbacks are ignored by browsers that honour the
   // nonce, so they only relax the policy for very old engines.
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
+  // Next.js dev mode (HMR, React DevTools stack traces) needs eval(); never
+  // ship 'unsafe-eval' in production.
+  const scriptSrc = `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https: 'unsafe-inline'${
+    process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""
+  }`;
   const csp = [
     `default-src 'self'`,
-    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https: 'unsafe-inline'`,
+    scriptSrc,
     `style-src 'self' 'unsafe-inline'`,
     `img-src 'self' data: blob: https://res.cloudinary.com`,
     `font-src 'self'`,

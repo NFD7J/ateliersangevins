@@ -15,7 +15,7 @@ export const contact = {
   ],
   emails: ["ateliersangevins@hotmail.com", "brissmarie35@gmail.com"],
   facebook: "https://www.facebook.com/",
-  mapsQuery: "5 rue des Mimosas, Lotissement Les Tilleuls, 49640 Daumeray",
+  mapsQuery: "47.702725932929404, -0.35775632096358817",
 };
 
 export type Domain = {

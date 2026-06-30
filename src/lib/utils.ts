@@ -20,3 +20,26 @@ export function formatDate(date: Date | string) {
     year: "numeric",
   });
 }
+
+export function formatDateRange(start: Date | string, end?: Date | string | null) {
+  const startDate = new Date(start);
+  if (!end) return formatDate(startDate);
+
+  const endDate = new Date(end);
+  if (startDate.toDateString() === endDate.toDateString()) {
+    return formatDate(startDate);
+  }
+
+  const sameYear = startDate.getFullYear() === endDate.getFullYear();
+  const sameMonth = sameYear && startDate.getMonth() === endDate.getMonth();
+
+  if (sameMonth) {
+    return `${startDate.getDate()} - ${formatDate(endDate)}`;
+  }
+
+  const startLabel = sameYear
+    ? startDate.toLocaleDateString("fr-FR", { day: "numeric", month: "long" })
+    : formatDate(startDate);
+
+  return `${startLabel} - ${formatDate(endDate)}`;
+}

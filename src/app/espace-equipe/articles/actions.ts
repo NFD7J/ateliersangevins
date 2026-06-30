@@ -8,13 +8,16 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import cloudinary from "@/lib/cloudinary";
 import { slugify } from "@/lib/utils";
+import { sendNotificationEmail } from "@/lib/send-mail";
 
 async function requireAdmin() {
   const session = await auth();
-  if (!session?.user?.id) {
+  if (!session?.user?.id || !session.user.name) {
     throw new Error("Non autorisé");
   }
-  return session.user;
+  // On renvoie un objet dont `id` et `name` sont garantis `string`
+  // (et non plus `string | null | undefined`).
+  return { ...session.user, id: session.user.id, name: session.user.name };
 }
 
 // Image-upload constraints (also enforced by Cloudinary via resource_type).
@@ -116,8 +119,19 @@ export async function saveArticle(formData: FormData) {
   if (id) {
     await prisma.article.update({ where: { id }, data });
   } else {
-    await prisma.article.create({ data: { ...data, authorId: admin.id! } });
+    await prisma.article.create({ data: { ...data, authorId: admin.id } });
   }
+
+  await sendNotificationEmail({
+    type: "article",
+    action: id ? "updated" : "created",
+    title: title,
+    excerpt: excerpt,
+    categories: categories,
+    published: published,
+    author: admin.name,
+    actionUrl: "/espace-equipe/articles",
+  });
 
   revalidatePath("/blog");
   revalidatePath("/");
@@ -125,8 +139,20 @@ export async function saveArticle(formData: FormData) {
 }
 
 export async function deleteArticle(id: string) {
-  await requireAdmin();
-  await prisma.article.delete({ where: { id } });
+  const admin = await requireAdmin();
+  const article = await prisma.article.delete({ where: { id } });
+
+  await sendNotificationEmail({
+    type: "article",
+    action: "deleted",
+    title: article.title,
+    excerpt: article.excerpt,
+    categories: article.categories,
+    published: article.published,
+    author: admin.name,
+    actionUrl: "/espace-equipe/articles",
+  });
+
   revalidatePath("/blog");
   revalidatePath("/espace-equipe/articles");
   revalidatePath("/");

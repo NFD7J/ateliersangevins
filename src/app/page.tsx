@@ -105,13 +105,14 @@ export default async function HomePage() {
       </section>
 
       {/* Mission */}
-      <section className="bg-forest-50 py-20">
+      <section className="bg-forest-100 py-20">
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="relative h-100 w-full overflow-hidden rounded-2xl">
             <Image
               src="/images/mission.jpg"
               alt="Marie et Jean-Pierre Brisseau, fondateurs de l'association Les Ateliers Angevins"
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               loading="lazy"
               className="object-cover object-bottom"
             />

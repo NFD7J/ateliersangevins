@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
-import { formatDate } from "@/lib/utils";
+import { formatDateRange } from "@/lib/utils";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
 import { LogoutButton } from "@/app/espace-equipe/logout-button";
@@ -62,7 +62,9 @@ export default async function AgendaDashboardPage() {
             )}
             {events.map((event) => (
               <tr key={event.id} className="border-b border-forest-50 last:border-none">
-                <td className="px-5 py-4 text-ink-soft">{formatDate(event.date)}</td>
+                <td className="px-5 py-4 text-ink-soft">
+                  {formatDateRange(event.date, event.endDate)}
+                </td>
                 <td className="px-5 py-4 font-medium text-forest-900">{event.title}</td>
                 <td className="px-5 py-4 text-ink-soft">{event.category}</td>
                 <td className="px-5 py-4">
