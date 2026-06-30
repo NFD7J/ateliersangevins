@@ -33,6 +33,8 @@ export function PracticalInfo({
           {pdfInscription && (
             <a
               href={pdfInscription}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-forest-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-forest-700"
             >
               Bulletin d&apos;inscription (PDF)
@@ -41,6 +43,8 @@ export function PracticalInfo({
           {pdfProgramme && (
             <a
               href={pdfProgramme}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-forest-300 px-5 py-2.5 text-sm font-semibold text-forest-700 transition-colors hover:bg-forest-100"
             >
               Voir le programme (PDF)

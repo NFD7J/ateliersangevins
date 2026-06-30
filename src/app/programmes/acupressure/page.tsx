@@ -5,12 +5,12 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { PracticalInfo } from "@/components/formations/practical-info";
 
 export const metadata: Metadata = {
-  title: "Atelier Radiesthésie",
+  title: "Atelier Acupressure",
   description:
-    "Atelier de radiesthésie : initiation à la détection bio-sensible avec le pendule, les baguettes et les antennes de Lecher.",
+    "Atelier d'acupressure : initiation aux techniques d'acupression pour le bien-être et la relaxation.",
 };
 
-export default function RadiesthesiePage() {
+export default function AcupressurePage() {
   return (
     <>
       <section className="bg-forest-50 py-16">
@@ -25,7 +25,7 @@ export default function RadiesthesiePage() {
             Atelier complémentaire
           </p>
           <h1 className="mt-2 font-display text-4xl font-semibold text-forest-900 sm:text-5xl">
-            La Radiesthésie
+            L'Acupressure
           </h1>
         </Container>
       </section>
@@ -38,10 +38,7 @@ export default function RadiesthesiePage() {
               title="Un procédé de détection bio-sensible"
             />
             <p className="mt-4 leading-relaxed text-ink-soft">
-              La radiesthésie repose sur la résonance entre les êtres vivants et les informations
-              sensibles. Elle décrit l&apos;aptitude à détecter des vibrations émises par
-              différents corps grâce à des outils comme le pendule, les baguettes ou les antennes
-              de Lecher.
+              L'acupressure repose sur la stimulation de points spécifiques du corps pour favoriser le bien-être et la relaxation. Elle utilise des techniques de pression et de massage pour améliorer la circulation de l'énergie et soulager les tensions.
             </p>
           </div>
           <div>
@@ -50,7 +47,7 @@ export default function RadiesthesiePage() {
             </h3>
             <p className="mt-4 leading-relaxed text-ink-soft">
               L&apos;atelier aborde l&apos;historique de la pratique, le contexte dans lequel elle
-              s&apos;exerce, les différents outils de recherche, le lâcher-prise et le
+              s&apos;exerce, les différentes techniques de stimulation, le lâcher-prise et le
               développement de la réceptivité, à travers des mises en pratique concrètes.
             </p>
           </div>
@@ -61,7 +58,6 @@ export default function RadiesthesiePage() {
         <Container className="max-w-xl">
           <PracticalInfo
             items={[{ label: "Informations pratiques", value: "Voir le programme téléchargeable" }]}
-            pdfProgramme="/documents/programme-radiesthesie.pdf"
             pdfInscription="/documents/inscription-modules-complementaires-2026.pdf"
           />
         </Container>

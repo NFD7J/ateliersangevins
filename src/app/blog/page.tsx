@@ -39,7 +39,7 @@ export default async function BlogPage({
 
   return (
     <>
-      <section className="bg-forest-50 py-16">
+      <section className="py-16">
         <Container className="max-w-3xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-terracotta-500">
             Blog
@@ -54,7 +54,7 @@ export default async function BlogPage({
         </Container>
       </section>
 
-      <section className="py-16">
+      <section className="bg-forest-100 py-16">
         <Container>
           <div className="flex flex-wrap gap-2">
             <Link
@@ -96,17 +96,20 @@ export default async function BlogPage({
                   href={`/blog/${article.slug}`}
                   className="group overflow-hidden rounded-2xl border border-forest-100 bg-white shadow-sm transition-shadow hover:shadow-md"
                 >
-                  {article.coverImage ? (
-                    <Image
-                      src={article.coverImage}
-                      alt={article.title}
-                      width={400}
-                      height={192}
-                      className="h-48 w-full object-cover"
-                    />
-                  ) : (
-                    <PlaceholderImage icon="📰" variant={i} className="h-48 w-full" />
-                  )}
+                  <div className="relative aspect-video w-full overflow-hidden rounded-t-2xl">
+                    {article.coverImage ? (
+                      <Image
+                        src={article.coverImage}
+                        alt={article.title}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover object-center"
+                        loading="eager"
+                      />
+                    ) : (
+                      <PlaceholderImage icon="📰" variant={i} className="h-48 w-full" />
+                    )}
+                  </div>
                   <div className="p-5">
                     <div className="flex flex-wrap gap-1.5">
                       {article.categories.map((c) => (

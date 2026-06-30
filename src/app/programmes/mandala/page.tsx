@@ -5,12 +5,12 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { PracticalInfo } from "@/components/formations/practical-info";
 
 export const metadata: Metadata = {
-  title: "Atelier Radiesthésie",
+  title: "Atelier Mandala",
   description:
-    "Atelier de radiesthésie : initiation à la détection bio-sensible avec le pendule, les baguettes et les antennes de Lecher.",
+    "Atelier de mandala : exploration artistique et méditative à travers la création de mandalas.",
 };
 
-export default function RadiesthesiePage() {
+export default function MandalaPage() {
   return (
     <>
       <section className="bg-forest-50 py-16">
@@ -25,7 +25,7 @@ export default function RadiesthesiePage() {
             Atelier complémentaire
           </p>
           <h1 className="mt-2 font-display text-4xl font-semibold text-forest-900 sm:text-5xl">
-            La Radiesthésie
+            Le Mandala
           </h1>
         </Container>
       </section>
@@ -34,14 +34,13 @@ export default function RadiesthesiePage() {
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-start">
           <div>
             <SectionHeading
-              eyebrow="Que signifie radiesthésie ?"
-              title="Un procédé de détection bio-sensible"
+              eyebrow="Que signifie mandala ?"
+              title="Une exploration artistique et méditative"
             />
             <p className="mt-4 leading-relaxed text-ink-soft">
-              La radiesthésie repose sur la résonance entre les êtres vivants et les informations
-              sensibles. Elle décrit l&apos;aptitude à détecter des vibrations émises par
-              différents corps grâce à des outils comme le pendule, les baguettes ou les antennes
-              de Lecher.
+              Le mandala est un symbole spirituel et rituel représentant l'univers dans les traditions
+              hindoues et bouddhistes. Il est utilisé comme outil de méditation et d'expression
+              artistique, favorisant la concentration, l'équilibre intérieur et la créativité.
             </p>
           </div>
           <div>
@@ -50,8 +49,8 @@ export default function RadiesthesiePage() {
             </h3>
             <p className="mt-4 leading-relaxed text-ink-soft">
               L&apos;atelier aborde l&apos;historique de la pratique, le contexte dans lequel elle
-              s&apos;exerce, les différents outils de recherche, le lâcher-prise et le
-              développement de la réceptivité, à travers des mises en pratique concrètes.
+              s&apos;exerce, les différentes techniques de création, le lâcher-prise et le
+              développement de la créativité, à travers des mises en pratique concrètes.
             </p>
           </div>
         </Container>
@@ -61,7 +60,6 @@ export default function RadiesthesiePage() {
         <Container className="max-w-xl">
           <PracticalInfo
             items={[{ label: "Informations pratiques", value: "Voir le programme téléchargeable" }]}
-            pdfProgramme="/documents/programme-radiesthesie.pdf"
             pdfInscription="/documents/inscription-modules-complementaires-2026.pdf"
           />
         </Container>

@@ -1,17 +1,19 @@
 import Link from "next/link";
 import { nav } from "@/lib/site-data";
 import { MobileNav } from "@/components/layout/mobile-nav";
+import Image from "next/image";
 
 export function SiteHeader() {
   return (
-    <header className="relative z-50 border-b border-forest-100 bg-stone/95 backdrop-blur supports-[backdrop-filter]:bg-stone/80">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-2xl">🌿</span>
+    <header className="relative z-50 h-20 border-b border-forest-100 bg-stone/95 backdrop-blur supports-[backdrop-filter]:bg-stone/80">
+      <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-6">
+        <Link href="/" className="flex h-full items-center gap-2 py-2">
+          <Image src="/images/logo-menu.jpg" alt="Les Ateliers Angevins" width={156} height={83} className="h-full w-auto object-contain" />
+          {/* <span className="text-2xl">🌿</span>
           <span className="font-display text-lg font-semibold leading-tight text-forest-800 sm:text-xl">
             Les Ateliers
             <br className="sm:hidden" /> Angevins
-          </span>
+          </span> */}
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">

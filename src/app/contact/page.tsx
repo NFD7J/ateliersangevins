@@ -8,11 +8,11 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(contact.mapsQuery)}&output=embed`;
+  const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(contact.mapsQuery)}&z=11&output=embed`;
 
   return (
     <>
-      <section className="bg-forest-50 py-16">
+      <section className="bg-forest-100 py-16">
         <Container className="max-w-3xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-terracotta-500">
             Contact

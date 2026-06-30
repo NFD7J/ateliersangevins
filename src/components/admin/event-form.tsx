@@ -5,6 +5,7 @@ import { saveEvent } from "@/app/espace-equipe/agenda/actions";
 type EventFormValues = {
   id?: string;
   date: Date | string;
+  endDate?: Date | string | null;
   title: string;
   description: string;
   category: string;
@@ -14,6 +15,9 @@ type EventFormValues = {
 export function EventForm({ event }: { event?: EventFormValues }) {
   const dateValue = event?.date
     ? new Date(event.date).toISOString().slice(0, 10)
+    : "";
+  const endDateValue = event?.endDate
+    ? new Date(event.endDate).toISOString().slice(0, 10)
     : "";
 
   return (
@@ -30,6 +34,19 @@ export function EventForm({ event }: { event?: EventFormValues }) {
           type="date"
           required
           defaultValue={dateValue}
+          className="mt-1 w-full rounded-lg border border-forest-200 px-3 py-2 text-sm focus:border-forest-500 focus:outline-none"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="endDate" className="block text-sm font-medium text-ink">
+          Date de fin (optionnel)
+        </label>
+        <input
+          id="endDate"
+          name="endDate"
+          type="date"
+          defaultValue={endDateValue}
           className="mt-1 w-full rounded-lg border border-forest-200 px-3 py-2 text-sm focus:border-forest-500 focus:outline-none"
         />
       </div>
