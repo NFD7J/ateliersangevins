@@ -40,7 +40,7 @@ export default function AboutPage() {
               la <strong className="text-forest-800">Confédération Nationale de Géobiologie</strong>.
             </p>
           </div>
-          <div className="relative h-full w-110 rounded-2xl overflow-hidden">
+          <div className="relative h-full w-full max-w-110 rounded-2xl overflow-hidden">
             <Image src="/images/logo.jpg" alt="Description" fill sizes="1000px" className="object-cover object-center rounded-2xl" />
           </div>
         </Container>
