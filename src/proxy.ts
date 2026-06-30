@@ -14,17 +14,16 @@ export default auth((req) => {
     return NextResponse.redirect(new URL("/espace-equipe", req.nextUrl));
   }
 
-  // 2. Per-request nonce + Content-Security-Policy.
-  // A fresh nonce is generated for every request and exposed to the renderer
-  // via the request header so Next.js stamps it on the scripts it emits.
-  // 'strict-dynamic' lets those trusted scripts load their own dependencies
-  // (Vercel Analytics, etc.) without an explicit host allowlist; the legacy
-  // 'unsafe-inline'/https: fallbacks are ignored by browsers that honour the
-  // nonce, so they only relax the policy for very old engines.
-  const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
-  // Next.js dev mode (HMR, React DevTools stack traces) needs eval(); never
-  // ship 'unsafe-eval' in production.
-  const scriptSrc = `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https: 'unsafe-inline'${
+  // 2. Static Content-Security-Policy.
+  // A per-request nonce is intentionally NOT used: this site is mostly
+  // statically rendered, and a nonce regenerated on every request never
+  // matches the one baked into the cached static HTML, so 'strict-dynamic'
+  // would block Next.js' own scripts in production and break hydration
+  // (the mobile menu and every other client interaction go dead).
+  // A static policy is safe with static pages: it is identical at build time
+  // and request time. We allow 'unsafe-inline' for the scripts Next injects
+  // inline; the remaining directives keep the policy tight.
+  const scriptSrc = `script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com${
     process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""
   }`;
   const csp = [
@@ -42,12 +41,7 @@ export default auth((req) => {
     `upgrade-insecure-requests`,
   ].join("; ");
 
-  const requestHeaders = new Headers(req.headers);
-  requestHeaders.set("x-nonce", nonce);
-  // Next.js reads this request header to know which nonce to apply.
-  requestHeaders.set("content-security-policy", csp);
-
-  const response = NextResponse.next({ request: { headers: requestHeaders } });
+  const response = NextResponse.next();
   response.headers.set("content-security-policy", csp);
   return response;
 });
