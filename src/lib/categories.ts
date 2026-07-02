@@ -6,7 +6,6 @@ export const categoryLabels: Record<ArticleCategory, string> = {
   THERAPIES_ENERGETIQUES: "Thérapies énergétiques",
   SOURCELLERIE: "Sourcellerie",
   SYLVOTHERAPIE: "Sylvothérapie",
-  FENG_SHUI: "Feng Shui",
   RADIESTHESIE: "Radiesthésie",
   FORMATIONS: "Formations",
   ACTUALITE: "Actualité",
