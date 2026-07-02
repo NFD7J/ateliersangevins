@@ -120,13 +120,16 @@ export default async function HomePage() {
           <div>
             <SectionHeading
               eyebrow="Notre mission"
-              title="Apprendre, pratiquer, transmettre"
-              description="Fondée en septembre 2005 par Marie et Jean-Pierre Brisseau, l'association Les Ateliers Angevins réunit aujourd'hui une équipe de formateurs passionnés autour d'un objectif commun : favoriser le bien-être de chacun grâce à des outils concrets de connaissance de soi et d'harmonisation des lieux de vie."
+              title="Plus de 20 ans de transmission et d&#39;expertise"
+              description="Depuis 2005, Les Ateliers Angevins forment des praticiens en géobiologie et en thérapies énergétiques grâce à un
+              enseignement exigeant, fondé sur l&#39;expérience, la pratique et la transmission. 
+              Notre équipe de formateurs partage un même engagement : accompagner chaque stagiaire dans l&#39;acquisition de
+              compétences fiables, d&#39;une pratique éthique et d&#39;une véritable autonomie."
             />
             <ul className="mt-6 space-y-3 text-sm text-ink-soft">
-              <li>✓ Des formations annuelles structurées, théoriques et pratiques</li>
-              <li>✓ Des ateliers complémentaires accessibles à tous les niveaux</li>
-              <li>✓ Une équipe accréditée par la Confédération Nationale de Géobiologie</li>
+              <li>✓ Des parcours de formation complets et structurés</li>
+              <li>✓ Des ateliers pour enrichir et perfectionner ses connaissances</li>
+              <li>✓ Une équipe en géobiologie reconnue et accréditée par la Confédération Nationale de Géobiologie</li>
             </ul>
             <Link
               href="/a-propos"
@@ -149,7 +152,7 @@ export default async function HomePage() {
               </Link>
             </div>
             <div className="mt-10 grid gap-6 sm:grid-cols-3">
-              {latestArticles.map((article, i) => (
+              {latestArticles.map((article: any, i: any) => (
                 <Link
                   key={article.id}
                   href={`/blog/${article.slug}`}
@@ -167,7 +170,7 @@ export default async function HomePage() {
                   )}
                   <div className="p-5">
                     {article.categories[0] && (
-                      <Badge>{categoryLabels[article.categories[0]]}</Badge>
+                      <Badge>{categoryLabels[article.categories[0] as keyof typeof categoryLabels]}</Badge>
                     )}
                     <h3 className="mt-3 font-display text-lg font-semibold text-forest-900 group-hover:text-forest-700">
                       {article.title}

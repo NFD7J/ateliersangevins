@@ -62,11 +62,11 @@ export const domains: Domain[] = [
     icon: "🌲",
   },
   {
-    slug: "radiesthesie",
-    name: "Radiesthésie",
-    shortDescription: "La détection bio-sensible à l'aide du pendule et de la baguette.",
+    slug: "acupressure",
+    name: "Acupressure",
+    shortDescription: "La thérapie par acupression est fondée sur la médecine chinoise. C'est une méthode de thérapie corporelle qui opère sous forme de pressions sur les points d'acupuncture du corps habillé de la personne traitée.",
     description:
-      "La radiesthésie est une pratique de détection bio-sensible utilisant des outils tels que le pendule ou la baguette, permettant d'explorer des informations non perceptibles par les sens habituels.",
+      "La thérapie par acupression est fondée sur la médecine chinoise. C'est une méthode de thérapie corporelle qui opère sous forme de pressions sur les points d'acupuncture du corps habillé de la personne traitée.",
     icon: "🔮",
   },
   {
@@ -88,28 +88,22 @@ export type TeamMember = {
 
 export const team: TeamMember[] = [
   {
+    name: "Marie Brisseau",
+    role: "Co-fondatrice & formatrice",
+    bio: "Thérapeute énergéticienne – Formatrice en Thérapies Énergétiques Magnétisme • thérapies naturelles• Acupressure • Libérations énergétiques • Protocoles thérapeutiques intégratifs",
+    image: "/images/team-test/Marie.jpg",
+  },
+  {
     name: "Raymond Denis",
     role: "Président & formateur",
     bio: "Sourcier et géobiologue, il dirige le programme de formation en géobiologie de l'association.",
     image: "/images/team-test/Raymond-Denis.jpg",
   },
   {
-    name: "Marie Brisseau",
-    role: "Fondatrice & trésorière adjointe",
-    bio: "Experte en magnétisme, chromothérapie et thérapie par les formes, formée par diverses institutions reconnues.",
-    image: "/images/team-test/Marie.jpg",
-  },
-  {
     name: "Jean-Pierre Brisseau",
-    role: "Fondateur & trésorier",
-    bio: "Spécialiste en géobiologie et tracés régulateurs, avec une formation complète en bio-énergie.",
+    role: "Co-fondateur & trésorier",
+    bio: "Référent en géobiologie et en tracés régulateurs, il met son expertise au service de l'équilibre des lieux et de la transmission de ces disciplines au sein des Ateliers Angevins.",
     image: "/images/team-test/Jean-Pierre-Brisseau.jpg",
-  },
-  {
-    name: "Jocelyne Pivette",
-    role: "Intervenante",
-    bio: "Consultante en Feng Shui, elle accompagne particuliers et professionnels dans l'harmonisation de leurs espaces.",
-    image: "/images/team-test/Jocelyne-Pivette.png",
   },
   {
     name: "Christelle Le Bot",

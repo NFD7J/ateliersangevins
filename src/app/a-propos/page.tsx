@@ -31,17 +31,17 @@ export default function AboutPage() {
             <SectionHeading
               eyebrow="Notre histoire"
               title="Fondée en septembre 2005"
-              description="L'association Les Ateliers Angevins a été fondée en septembre 2005 par Marie et Jean-Pierre Brisseau. Son objectif principal est de favoriser le bien-être physique et psychique de toute personne grâce à l'apprentissage et à la pratique de techniques et outils de connaissance de soi, de développement personnel et de bien-être."
+              description="Fondés en septembre 2005 par Marie et Jean-Pierre Brisseau, Les Ateliers Angevins sont une école de formation spécialisée dans les Thérapies Énergétiques et la Géobiologie."
             />
             <p className="mt-6 leading-relaxed text-ink-soft">
-              Au fil des années, nos domaines d&apos;intervention se sont élargis : thérapie
-              énergétique, géobiologie, mais aussi ateliers spécialisés en sourcellerie,
-              numérologie, lithothérapie et tarot thérapeutique. Notre équipe est accréditée par
-              la <strong className="text-forest-800">Confédération Nationale de Géobiologie</strong>.
+              Depuis plus de vingt ans, notre mission est de transmettre des compétences solides, fondées sur l&#39;expérience de
+              terrain, la rigueur pédagogique et le respect de l&#39;éthique professionnelle. Nous accompagnons chaque stagiaire dans
+              l&#39;acquisition d&#39;un savoir-faire opérationnel lui permettant d&#39;exercer avec confiance, compétence et responsabilité. <br /><br />
+              <strong className="text-forest-800">Former des praticiens compétents, transmettre un savoir d&#39;excellence.</strong>
             </p>
           </div>
           <div className="relative h-full w-110 rounded-2xl overflow-hidden">
-            <Image src="/images/logo.jpg" alt="Description" fill sizes="1000px" className="object-cover object-center rounded-2xl" />
+            <Image src="/images/logo.jpg" alt="Description" fill sizes="1000px" className="object-contain object-center rounded-2xl" />
           </div>
         </Container>
       </section>
@@ -54,11 +54,11 @@ export default function AboutPage() {
             align="center"
             className="mx-auto"
           />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 flex flex-wrap justify-center gap-6">
             {team.map((member, i) => (
               <div
                 key={member.name}
-                className="flex flex-col items-center rounded-2xl border border-forest-100 bg-white p-6 shadow-sm"
+                className="flex basis-full flex-col items-center rounded-2xl border border-forest-100 bg-white p-6 shadow-sm sm:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)]"
               >
                 <div className="relative h-25 w-25 rounded-full bg-forest-100 text-2xl overflow-hidden">
                   <Image
@@ -81,7 +81,77 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="py-16">
+      <section className="py-20">
+        <Container className="max-w-3xl">
+          <SectionHeading
+            eyebrow="Notre mission"
+            title="Former avec exigence, transmettre avec passion."
+            align="center"
+            className="mx-auto"
+          />
+
+          <div className="mx-auto mt-8 grid max-w-3xl gap-x-10 gap-y-4 sm:grid-cols-2">
+            {[
+              "L'excellence de la transmission au service du vivant.",
+              "Former aujourd'hui les praticiens de demain.",
+              "Plus de 20 ans d'expertise au service de la transmission.",
+              "Une école d'excellence en géobiologie et thérapies énergétiques.",
+            ].map((slogan) => (
+              <div key={slogan} className="flex items-start gap-3">
+                <svg
+                  aria-hidden
+                  viewBox="0 0 20 20"
+                  className="mt-0.5 h-5 w-5 shrink-0 fill-terracotta-500"
+                >
+                  <path d="M8.2 14.3 4.4 10.5l1.4-1.4 2.4 2.4 6-6 1.4 1.4z" />
+                </svg>
+                <p className="text-base font-medium leading-snug text-forest-800">
+                  {slogan}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 space-y-6 leading-relaxed text-ink-soft">
+            <p>
+              Depuis 2005, Les Ateliers Angevins s&#39;engagent à transmettre un enseignement exigeant
+              dans les domaines de la géobiologie et des thérapies énergétiques. Fondée par Marie et
+              Jean-Pierre Brisseau, l&#39;école s&#39;est construite autour d&#39;une conviction forte : la
+              qualité de l&#39;accompagnement repose sur la maîtrise des connaissances, la pratique de
+              terrain et une transmission fidèle de savoir-faire éprouvés.
+            </p>
+            <p>
+              Aujourd&#39;hui, notre équipe de formateurs accompagne chaque stagiaire dans un parcours
+              progressif, alliant enseignements théoriques, mises en pratique et développement des
+              compétences, afin de former des praticiens compétents, autonomes et responsables.
+            </p>
+            <p>
+              Parce que chaque parcours est unique, nous privilégions un enseignement à taille humaine,
+              fondé sur l&#39;écoute, l&#39;exigence pédagogique et le respect de l&#39;éthique.
+            </p>
+          </div>
+
+          <div className="mt-10 rounded-2xl border border-forest-100 bg-forest-100 p-8">
+            <h3 className="font-display text-xl font-semibold text-forest-900">Nos engagements</h3>
+            <ul className="mt-4 space-y-3 text-ink-soft">
+              {[
+                "Des cursus complets et progressifs, conçus pour acquérir des compétences solides et durables.",
+                "Une pédagogie qui associe théorie, pratique et accompagnement personnalisé.",
+                "Des ateliers et stages de perfectionnement pour approfondir ses connaissances tout au long de son parcours.",
+                "Une équipe de formateurs expérimentés, engagés dans une démarche de transmission de qualité.",
+                "Une école adhérente à la Confédération Nationale de Géobiologie, gage de sérieux et de professionnalisme pour l'enseignement de la géobiologie.",
+              ].map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span aria-hidden className="mt-1 text-terracotta-500">•</span>
+                  <span className="leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16 bg-forest-100">
         <Container className="max-w-2xl text-center">
           <SectionHeading
             eyebrow="Nous trouver"

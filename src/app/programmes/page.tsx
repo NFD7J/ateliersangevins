@@ -26,7 +26,7 @@ const mainPrograms = [
     title: "Formation Magnétisme & Thérapies énergétiques",
     duration: "Programme annuel",
     description:
-      "Des bases solides en magnétisme, chromothérapie et thérapie par les formes, pour développer une pratique de soin énergétique sérieuse et structurée.",
+      "Une formation complète alliant les fondamentaux du magnétisme, des thérapies vibratoires et de la thérapie par les formes, afin d'acquérir des compétences solides et de développer une pratique énergétique rigoureuse, cohérente et structurée.",
     pdf: "/documents/programme-therapies-energetiques-2026.pdf",
   },
 ];
@@ -149,8 +149,8 @@ export default function ProgrammesPage() {
         <Container>
           <SectionHeading
             eyebrow="Ateliers complémentaires"
-            title="Sourcellerie et sylvothérapie"
-            description="Deux ateliers accessibles pour découvrir des pratiques complémentaires à nos formations principales."
+            title="Des ateliers pour enrichir et perfectionner vos connaissances"
+            description="Tout au long de l'année, Les Ateliers Angevins proposent également des ateliers complémentaires, ouverts à celles et ceux qui souhaitent découvrir de nouvelles disciplines, perfectionner leur pratique ou approfondir des connaissances spécifiques au travers d'une pédagogie mêlant théorie, pratique et échanges."
           />
           <div className="mt-10 grid gap-8 sm:grid-cols-2">
             {complementaryWorkshops.map((workshop) => (
