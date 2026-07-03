@@ -17,7 +17,7 @@ const mainPrograms = [
     title: "Formation Géobiologie",
     duration: "120 heures",
     description:
-      "Une formation complète, théorique et pratique, pour apprendre à identifier les perturbations d'un lieu (réseaux telluriques, ondes électromagnétiques, pollutions diverses) et restaurer un habitat sain.",
+      "Une formation complète, alliant théorie, pratique et terrain, pour comprendre les interactions entre le vivant et son environnement. Développez les compétences nécessaires pour analyser les influences d'un lieu, identifier les principales perturbations environnementales et mettre en œuvre des méthodes d'harmonisation de l'habitat",
     pdf: "/documents/programme-geobiologie-2026.pdf",
   },
   {
@@ -26,7 +26,7 @@ const mainPrograms = [
     title: "Formation Magnétisme & Thérapies énergétiques",
     duration: "Programme annuel",
     description:
-      "Des bases solides en magnétisme, chromothérapie et thérapie par les formes, pour développer une pratique de soin énergétique sérieuse et structurée.",
+      "Une formation complète alliant les fondamentaux du magnétisme, des thérapies vibratoires et de la thérapie par les formes, afin d'acquérir des compétences solides et de développer une pratique énergétique rigoureuse, cohérente et structurée.",
     pdf: "/documents/programme-therapies-energetiques-2026.pdf",
   },
 ];
@@ -47,14 +47,6 @@ const complementaryWorkshops = [
     icon: "🌳",
     description:
       "Des sorties en forêt pour se reconnecter à la nature : marche consciente, respiration et exercices de reconnexion énergétique au contact des arbres.",
-  },
-  {
-    id: "radiesthesie",
-    href: "/programmes/radiesthesie",
-    title: "Radiesthésie",
-    icon: "📡",
-    description:
-    "La radiesthésie est une pratique de détection bio-sensible utilisant des outils tels que le pendule ou la baguette, permettant d'explorer des informations non perceptibles par les sens habituels."
   },
   {
     id: "traces-des-batisseurs",
@@ -149,8 +141,8 @@ export default function ProgrammesPage() {
         <Container>
           <SectionHeading
             eyebrow="Ateliers complémentaires"
-            title="Sourcellerie et sylvothérapie"
-            description="Deux ateliers accessibles pour découvrir des pratiques complémentaires à nos formations principales."
+            title="Des ateliers pour enrichir et perfectionner vos connaissances"
+            description="Tout au long de l'année, Les Ateliers Angevins proposent également des ateliers complémentaires, ouverts à celles et ceux qui souhaitent découvrir de nouvelles disciplines, perfectionner leur pratique ou approfondir des connaissances spécifiques au travers d'une pédagogie mêlant théorie, pratique et échanges."
           />
           <div className="mt-10 grid gap-8 sm:grid-cols-2">
             {complementaryWorkshops.map((workshop) => (

@@ -8,14 +8,18 @@ export const nav = [
 ] as const;
 
 export const contact = {
-  address: ["5, rue des Mimosas", "Lotissement Les Tilleuls", "49640 Daumeray"],
+  address: ["Les Ateliers Angevins","5, rue des Mimosas", "Lotissement Les Tilleuls", "49640 Daumeray"],
   phones: [
     { name: "Raymond Denis", number: "06 08 67 05 01" },
     { name: "Marie Brisseau", number: "06 61 75 66 78" },
   ],
   emails: ["ateliersangevins@hotmail.com", "brissmarie35@gmail.com"],
   facebook: "https://www.facebook.com/",
+  youtube: "https://www.youtube.com/@AteliersAngevins-m6q",
   mapsQuery: "47.702725932929404, -0.35775632096358817",
+  // Carte Google My Maps (plusieurs marqueurs). Colle ici le `src` de l'iframe
+  // fourni par My Maps (⋮ → Intégrer sur mon site), au format .../maps/d/embed?mid=...
+  mapEmbedUrl: "https://www.google.com/maps/d/u/0/embed?mid=1tkvjyv5SW3QUWtRqUaKldXkcXwY1GNE&ehbc=2E312F&noprof=1",
 };
 
 export type Domain = {
@@ -31,7 +35,7 @@ export const domains: Domain[] = [
     slug: "geobiologie",
     name: "Géobiologie",
     shortDescription:
-      "L'étude des relations entre l'environnement, les ondes et leurs influences sur le vivant.",
+      "Véritable démarche d'observation et d'analyse, la géobiologie vise à créer ou restaurer un environnement harmonieux, propice à l'équilibre et à la qualité de vie.",
     description:
       "La géobiologie consiste en l'étude des relations de l'environnement, des ondes liées aux champs électromagnétiques et de l'ensemble des influences sur le vivant. Elle permet d'identifier les perturbations d'un lieu (réseaux telluriques, ondes électromagnétiques, pollutions diverses) afin de retrouver un habitat sain et harmonieux.",
     icon: "🌳",
@@ -62,11 +66,11 @@ export const domains: Domain[] = [
     icon: "🌲",
   },
   {
-    slug: "radiesthesie",
-    name: "Radiesthésie",
-    shortDescription: "La détection bio-sensible à l'aide du pendule et de la baguette.",
+    slug: "acupressure",
+    name: "Acupressure",
+    shortDescription: "La thérapie par acupression est fondée sur la médecine chinoise. C'est une méthode de thérapie corporelle qui opère sous forme de pressions sur les points d'acupuncture du corps habillé de la personne traitée.",
     description:
-      "La radiesthésie est une pratique de détection bio-sensible utilisant des outils tels que le pendule ou la baguette, permettant d'explorer des informations non perceptibles par les sens habituels.",
+      "La thérapie par acupression est fondée sur la médecine chinoise. C'est une méthode de thérapie corporelle qui opère sous forme de pressions sur les points d'acupuncture du corps habillé de la personne traitée.",
     icon: "🔮",
   },
   {
@@ -88,39 +92,33 @@ export type TeamMember = {
 
 export const team: TeamMember[] = [
   {
-    name: "Raymond Denis",
-    role: "Président & formateur",
-    bio: "Sourcier et géobiologue, il dirige le programme de formation en géobiologie de l'association.",
-    image: "/images/team-test/Raymond-Denis.jpg",
+    name: "Marie Brisseau",
+    role: "Fondatrice, trésorière adjointe & formatrice",
+    bio: "Praticienne en thérapies vibratoires et thérapie par les formes, Marie met son expérience au service de l'accompagnement énergétique et de la transmission.",
+    image: "/images/team-test/Marie.jpg",
   },
   {
-    name: "Marie Brisseau",
-    role: "Fondatrice & trésorière adjointe",
-    bio: "Experte en magnétisme, chromothérapie et thérapie par les formes, formée par diverses institutions reconnues.",
-    image: "/images/team-test/Marie.jpg",
+    name: "Raymond Denis",
+    role: "Président & formateur en géobiologie",
+    bio: "Sourcier et géobiologue, Raymond transmet son expérience de la géobiologie et de l'harmonisation des lieux avec une approche concrète et pédagogique.",
+    image: "/images/team-test/Raymond-Denis.jpg",
   },
   {
     name: "Jean-Pierre Brisseau",
     role: "Fondateur & trésorier",
-    bio: "Spécialiste en géobiologie et tracés régulateurs, avec une formation complète en bio-énergie.",
+    bio: "Spécialiste en géobiologie et tracés régulateurs, Jean-Pierre partage son expertise de l'étude et de l'harmonisation des lieux.",
     image: "/images/team-test/Jean-Pierre-Brisseau.jpg",
-  },
-  {
-    name: "Jocelyne Pivette",
-    role: "Intervenante",
-    bio: "Consultante en Feng Shui, elle accompagne particuliers et professionnels dans l'harmonisation de leurs espaces.",
-    image: "/images/team-test/Jocelyne-Pivette.png",
   },
   {
     name: "Christelle Le Bot",
     role: "Consultante & formatrice",
-    bio: "Spécialisée en thérapies énergétiques, elle anime des ateliers pratiques tout au long de l'année.",
+    bio: "Praticienne en thérapies énergétiques, Christelle coanime les stages et accompagne les participants dans leur pratique.",
     image: "/images/team-test/Christelle-Le-Bot.jpg",
   },
   {
     name: "Jérôme Crosnier",
-    role: "Formateur",
-    bio: "Expert en géobiologie, magnétisme et thérapie énergétique.",
+    role: "Formateur en géobiologie",
+    bio: "Consultant en magnétisme et thérapies énergétiques, Jérôme transmet une approche pratique et accessible des techniques énergétiques.",
     image: "/images/team-test/Jerome-Crosnier.jpg",
   },
 ];

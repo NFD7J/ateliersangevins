@@ -52,6 +52,20 @@ export function EventForm({ event }: { event?: EventFormValues }) {
       </div>
 
       <div>
+        <label htmlFor="fichier" className="block text-sm font-medium text-ink">
+          Fichier (optionnel)
+        </label>
+        <input
+          id="fichier"
+          name="fichier"
+          type="file"
+          className="mt-1 w-full rounded-lg border border-forest-200 px-3 py-2 text-sm text-ink/70 file:mr-3 file:cursor-pointer file:rounded-full file:border-0 file:bg-forest-50 file:px-3 file:py-1 file:text-xs file:font-semibold file:text-forest-700 hover:file:bg-forest-100 focus:border-forest-500 focus:outline-none"
+        />
+        <label htmlFor="fichier">fichier accepté : PDF</label>
+
+      </div>
+
+      <div>
         <label htmlFor="title" className="block text-sm font-medium text-ink">
           Titre
         </label>

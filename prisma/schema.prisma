@@ -4,12 +4,11 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 model Admin {
   id        String    @id @default(cuid())
-  email     String    @unique
+  username     String    @unique
   name      String
   password  String
   createdAt DateTime  @default(now())
@@ -23,7 +22,6 @@ enum ArticleCategory {
   THERAPIES_ENERGETIQUES
   SOURCELLERIE
   SYLVOTHERAPIE
-  FENG_SHUI
   RADIESTHESIE
   FORMATIONS
   ACTUALITE
@@ -58,6 +56,7 @@ model Event {
   published   Boolean   @default(true)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+  pdf         String?
 
   @@index([published, date])
 }

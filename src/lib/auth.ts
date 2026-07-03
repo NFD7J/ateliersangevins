@@ -16,7 +16,7 @@ const LOGIN_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
 const DUMMY_HASH = bcrypt.hashSync("account-does-not-exist", 12);
 
 const credentialsSchema = z.object({
-  email: z.string().trim().toLowerCase().email().max(254),
+  username: z.string().trim().toLowerCase().max(254),
   password: z.string().min(1).max(200),
 });
 
@@ -30,22 +30,22 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
       credentials: {
-        email: { label: "Email", type: "email" },
+        username: { label: "Nom d'utilisateur", type: "text" },
         password: { label: "Mot de passe", type: "password" },
       },
       authorize: async (rawCredentials, request) => {
         const parsed = credentialsSchema.safeParse(rawCredentials);
         if (!parsed.success) return null;
-        const { email, password } = parsed.data;
+        const { username, password } = parsed.data;
 
         // Throttle repeated attempts before touching the database.
         const ip = getClientIp(request);
-        const key = `login:${ip}:${email}`;
+        const key = `login:${ip}:${username}`;
         if (!hit(key, MAX_LOGIN_ATTEMPTS, LOGIN_WINDOW_MS).ok) {
           return null;
         }
 
-        const admin = await prisma.admin.findUnique({ where: { email } });
+        const admin = await prisma.admin.findUnique({ where: { username: username } });
 
         // Constant-time path: always compare, even with no matching account.
         const isValid = await bcrypt.compare(password, admin?.password ?? DUMMY_HASH);
@@ -53,7 +53,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         // Successful login: forgive the recorded failed attempts.
         reset(key);
-        return { id: admin.id, email: admin.email, name: admin.name };
+        return { id: admin.id, username: admin.username, name: admin.name };
       },
     }),
   ],

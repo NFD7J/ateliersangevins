@@ -12,7 +12,7 @@ async function login(formData: FormData) {
   "use server";
   try {
     await signIn("credentials", {
-      email: formData.get("email"),
+      username: formData.get("username"),
       password: formData.get("password"),
       redirectTo: "/espace-equipe/articles",
     });
@@ -50,15 +50,15 @@ export default async function EspaceEquipePage({
 
         <form action={login} className="mt-6 space-y-4">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-ink">
-              Email
+            <label htmlFor="username" className="block text-sm font-medium text-ink">
+              Nom d'utilisateur
             </label>
             <input
-              id="email"
-              name="email"
-              type="email"
+              id="username"
+              name="username"
+              type="text"
               required
-              autoComplete="email"
+              autoComplete="username"
               className="mt-1 w-full rounded-lg border border-forest-200 px-3 py-2 text-sm focus:border-forest-500 focus:outline-none"
             />
           </div>

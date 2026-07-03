@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function SourcelleriePage() {
   return (
     <>
-      <section className="bg-forest-50 py-16">
+      <section className="bg-forest-100 py-16">
         <Container className="max-w-3xl text-center">
           <Link
             href="/programmes"
@@ -42,20 +42,21 @@ export default function SourcelleriePage() {
               title="Un atelier ouvert à tous, sans prérequis"
             />
             <p className="mt-4 leading-relaxed text-ink-soft">
-              Cet atelier d&apos;initiation à la sourcellerie est accessible à tous, débutants
-              comme curieux. Il couvre deux grands thèmes :
+              Aucun prérequis n&#39;est nécessaire pour participer à cette initiation à la sourcellerie. Que vous soyez débutant,
+              curieux ou en recherche de nouvelles perceptions, cet atelier vous permettra de découvrir les bases de cette pratique
+              à travers deux axes principaux :
             </p>
             <ul className="mt-4 space-y-3 text-sm text-ink-soft">
-              <li>✓ L&apos;exploration de votre potentiel naturel dormant (don ou hypersensibilité)</li>
+              <li>✓ Développer et affiner vos capacités de perception et votre sensibilité naturelle.</li>
               <li>
-                ✓ Les techniques fondamentales pour localiser les veines d&apos;eau, leurs débits,
-                profondeurs et les points de forage
+                ✓ Apprendre les techniques fondamentales de détection des veines d&#39;eau, de l&#39;estimation de leur profondeur, de
+                  leur débit et de l&#39;identification des emplacements propices au forage.
               </li>
             </ul>
           </div>
           <PracticalInfo
             items={[
-              { label: "Tarif", value: "125 € par personne" },
+              { label: "Tarif", value: "125 €" },
               { label: "Accueil", value: "8h30" },
               { label: "Lieu", value: "Communiqué à l'inscription" },
               { label: "Repas", value: "À la charge des participants" },

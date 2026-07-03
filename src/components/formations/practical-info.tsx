@@ -1,35 +1,54 @@
 type PracticalInfoItem = {
   label: string;
   value: string;
+  /** Icône (emoji) affichée à gauche du label. Optionnelle. */
+  icon?: string;
 };
+
+import { cn } from "@/lib/utils";
 
 export function PracticalInfo({
   items,
   pdfProgramme,
   pdfInscription,
+  className,
 }: {
   items: PracticalInfoItem[];
   pdfProgramme?: string;
   pdfInscription?: string;
+  className?: string;
 }) {
   return (
-    <div className="rounded-2xl border border-forest-100 bg-white p-8 shadow-sm">
-      <h3 className="font-display text-xl font-semibold text-forest-900">
+    <div
+      className={cn(
+        "rounded-2xl border border-forest-100 bg-white p-8 shadow-sm",
+        className
+      )}
+    >
+      <h3 className="font-display text-2xl font-semibold text-forest-900">
         Informations pratiques
       </h3>
-      <dl className="mt-4 space-y-3 text-sm">
+      <dl className="mt-6 space-y-5">
         {items.map((item) => (
-          <div
-            key={item.label}
-            className="flex justify-between gap-4 border-b border-forest-50 pb-2 last:border-0 last:pb-0"
-          >
-            <dt className="font-medium text-forest-700">{item.label}</dt>
-            <dd className="text-right text-ink-soft">{item.value}</dd>
+          <div key={item.label} className="flex items-start gap-4">
+            {item.icon && (
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-forest-50 text-lg">
+                {item.icon}
+              </span>
+            )}
+            <div className="min-w-0">
+              <dt className="text-xs font-semibold uppercase tracking-wide text-forest-600">
+                {item.label}
+              </dt>
+              <dd className="mt-0.5 leading-relaxed text-ink-soft">
+                {item.value}
+              </dd>
+            </div>
           </div>
         ))}
       </dl>
       {(pdfProgramme || pdfInscription) && (
-        <div className="mt-6 flex flex-wrap gap-3">
+        <div className="mt-8 flex flex-wrap gap-3">
           {pdfInscription && (
             <a
               href={pdfInscription}

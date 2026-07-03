@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function AcupressurePage() {
   return (
     <>
-      <section className="bg-forest-50 py-16">
+      <section className="bg-forest-100 py-16">
         <Container className="max-w-3xl text-center">
           <Link
             href="/programmes"
@@ -34,11 +34,11 @@ export default function AcupressurePage() {
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-start">
           <div>
             <SectionHeading
-              eyebrow="Que signifie radiesthésie ?"
-              title="Un procédé de détection bio-sensible"
+              eyebrow="Que signifie acupressure ?"
+              title="Un procédé de stimulation énergétique"
             />
             <p className="mt-4 leading-relaxed text-ink-soft">
-              L'acupressure repose sur la stimulation de points spécifiques du corps pour favoriser le bien-être et la relaxation. Elle utilise des techniques de pression et de massage pour améliorer la circulation de l'énergie et soulager les tensions.
+              L&#39;acupressure est une technique énergétique issue de la tradition chinoise qui consiste à stimuler des points précis du corps afin de favoriser une circulation harmonieuse de l&#39;énergie vitale.
             </p>
           </div>
           <div>
@@ -46,18 +46,24 @@ export default function AcupressurePage() {
               Le contenu du module
             </h3>
             <p className="mt-4 leading-relaxed text-ink-soft">
-              L&apos;atelier aborde l&apos;historique de la pratique, le contexte dans lequel elle
-              s&apos;exerce, les différentes techniques de stimulation, le lâcher-prise et le
-              développement de la réceptivité, à travers des mises en pratique concrètes.
+              Cet atelier vous permet d&#39;acquérir les fondamentaux de cette discipline, de maîtriser des protocoles pratiques et de
+              développer un toucher précis pour accompagner l&#39;équilibre physique, émotionnel et énergétique.
+              Une approche complète, alliant théorie et pratique, destinée aussi bien au développement personnel qu&#39;à la
+              formation de futurs praticiens.
             </p>
           </div>
         </Container>
       </section>
 
-      <section className="bg-forest-50 py-20">
+      <section className="bg-forest-100 py-20">
         <Container className="max-w-xl">
           <PracticalInfo
-            items={[{ label: "Informations pratiques", value: "Voir le programme téléchargeable" }]}
+            items={[
+              { label: "Prix", value: "240 €" },
+              { label: "Durée", value: "2 jours (8h par jours)" },
+              { label: "Repas", value: "A la charge des participants" },
+
+            ]}
             pdfInscription="/documents/inscription-modules-complementaires-2026.pdf"
           />
         </Container>

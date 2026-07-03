@@ -21,8 +21,14 @@ async function getLatestArticles() {
   }
 }
 
+// Les deux parcours principaux mis en avant sur la page d'accueil.
+const MAIN_DOMAIN_SLUGS = ["geobiologie", "magnetisme"];
+
 export default async function HomePage() {
   const latestArticles = await getLatestArticles();
+  const mainDomains = domains.filter((domain) =>
+    MAIN_DOMAIN_SLUGS.includes(domain.slug)
+  );
 
   return (
     <>
@@ -43,7 +49,7 @@ export default async function HomePage() {
             Depuis 2005, à Daumeray
           </p>
           <h1 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight sm:text-5xl">
-            Géobiologie, thérapies énergétiques et bien-être au cœur de l&apos;Anjou
+            École des Arts Énergétiques et de la Géobiologie
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-forest-50/90">
             L&apos;association Les Ateliers Angevins favorise le bien-être physique et psychique
@@ -72,24 +78,20 @@ export default async function HomePage() {
         <Container>
           <SectionHeading
             eyebrow="Nos domaines"
-            title="Six disciplines pour se reconnecter à soi et à son environnement"
+            title="Deux parcours d&#39;excellence – et des Ateliers complémentaires"
             description="Des ateliers, formations et accompagnements pensés pour découvrir ou approfondir chaque thématique, à votre rythme."
             align="center"
             className="mx-auto"
           />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {domains.map((domain) => (
+          <div className="mx-auto mt-12 grid max-w-4xl gap-6 sm:grid-cols-2">
+            {mainDomains.map((domain) => (
               <Link
                 key={domain.slug}
-                href={
-                  domain.slug === "feng-shui"
-                    ? `/programmes#${domain.slug}`
-                    : `/programmes/${domain.slug}`
-                }
-                className="group rounded-2xl border border-forest-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+                href={`/programmes/${domain.slug}`}
+                className="group rounded-2xl border border-forest-100 bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
               >
-                <span className="text-3xl">{domain.icon}</span>
-                <h3 className="mt-4 font-display text-lg font-semibold text-forest-900">
+                <span className="text-4xl">{domain.icon}</span>
+                <h3 className="mt-4 font-display text-xl font-semibold text-forest-900">
                   {domain.name}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink-soft">
@@ -100,6 +102,15 @@ export default async function HomePage() {
                 </span>
               </Link>
             ))}
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <Link
+              href="/programmes#ateliers-complementaires"
+              className="rounded-full border border-forest-300 px-6 py-3 text-sm font-semibold text-forest-700 transition-colors hover:bg-forest-100"
+            >
+              Voir les ateliers complémentaires →
+            </Link>
           </div>
         </Container>
       </section>
@@ -120,13 +131,16 @@ export default async function HomePage() {
           <div>
             <SectionHeading
               eyebrow="Notre mission"
-              title="Apprendre, pratiquer, transmettre"
-              description="Fondée en septembre 2005 par Marie et Jean-Pierre Brisseau, l'association Les Ateliers Angevins réunit aujourd'hui une équipe de formateurs passionnés autour d'un objectif commun : favoriser le bien-être de chacun grâce à des outils concrets de connaissance de soi et d'harmonisation des lieux de vie."
+              title="Plus de 20 ans de transmission et d&#39;expertise"
+              description="Depuis 2005, Les Ateliers Angevins forment des praticiens en géobiologie et en thérapies énergétiques grâce à un
+              enseignement exigeant, fondé sur l&#39;expérience, la pratique et la transmission. 
+              Notre équipe de formateurs partage un même engagement : accompagner chaque stagiaire dans l&#39;acquisition de
+              compétences fiables, d&#39;une pratique éthique et d&#39;une véritable autonomie."
             />
             <ul className="mt-6 space-y-3 text-sm text-ink-soft">
-              <li>✓ Des formations annuelles structurées, théoriques et pratiques</li>
-              <li>✓ Des ateliers complémentaires accessibles à tous les niveaux</li>
-              <li>✓ Une équipe accréditée par la Confédération Nationale de Géobiologie</li>
+              <li>✓ Des parcours de formation complets et structurés</li>
+              <li>✓ Des ateliers pour enrichir et perfectionner ses connaissances</li>
+              <li>✓ Une équipe en géobiologie reconnue et accréditée par la Confédération Nationale de Géobiologie</li>
             </ul>
             <Link
               href="/a-propos"
@@ -149,7 +163,7 @@ export default async function HomePage() {
               </Link>
             </div>
             <div className="mt-10 grid gap-6 sm:grid-cols-3">
-              {latestArticles.map((article, i) => (
+              {latestArticles.map((article: any, i: any) => (
                 <Link
                   key={article.id}
                   href={`/blog/${article.slug}`}
@@ -167,7 +181,7 @@ export default async function HomePage() {
                   )}
                   <div className="p-5">
                     {article.categories[0] && (
-                      <Badge>{categoryLabels[article.categories[0]]}</Badge>
+                      <Badge>{categoryLabels[article.categories[0] as keyof typeof categoryLabels]}</Badge>
                     )}
                     <h3 className="mt-3 font-display text-lg font-semibold text-forest-900 group-hover:text-forest-700">
                       {article.title}

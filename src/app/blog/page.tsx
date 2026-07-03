@@ -90,7 +90,7 @@ export default async function BlogPage({
             </p>
           ) : (
             <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {articles.map((article, i) => (
+              {articles.map((article: any, i: any) => (
                 <Link
                   key={article.id}
                   href={`/blog/${article.slug}`}
@@ -112,8 +112,8 @@ export default async function BlogPage({
                   </div>
                   <div className="p-5">
                     <div className="flex flex-wrap gap-1.5">
-                      {article.categories.map((c) => (
-                        <Badge key={c}>{categoryLabels[c]}</Badge>
+                      {article.categories.map((c: string) => (
+                        <Badge key={c}>{categoryLabels[c as keyof typeof categoryLabels]}</Badge>
                       ))}
                     </div>
                     <h3 className="mt-3 font-display text-lg font-semibold text-forest-900 group-hover:text-forest-700">

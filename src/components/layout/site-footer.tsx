@@ -66,6 +66,16 @@ export function SiteFooter() {
                 Facebook
               </a>
             </li>
+            <li>
+              <a
+                  href={contact.youtube}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-forest-100 hover:text-white"
+                >
+                  Youtube
+                </a>
+            </li>
           </ul>
         </div>
       </div>
