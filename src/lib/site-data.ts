@@ -89,32 +89,32 @@ export type TeamMember = {
 export const team: TeamMember[] = [
   {
     name: "Marie Brisseau",
-    role: "Co-fondatrice & formatrice",
-    bio: "Thérapeute énergéticienne – Formatrice en Thérapies Énergétiques Magnétisme • thérapies naturelles• Acupressure • Libérations énergétiques • Protocoles thérapeutiques intégratifs",
+    role: "Fondatrice, trésorière adjointe & formatrice",
+    bio: "Praticienne en thérapies vibratoires et thérapie par les formes, Marie met son expérience au service de l'accompagnement énergétique et de la transmission.",
     image: "/images/team-test/Marie.jpg",
   },
   {
     name: "Raymond Denis",
-    role: "Président & formateur",
-    bio: "Sourcier et géobiologue, il dirige le programme de formation en géobiologie de l'association.",
+    role: "Président & formateur en géobiologie",
+    bio: "Sourcier et géobiologue, Raymond transmet son expérience de la géobiologie et de l'harmonisation des lieux avec une approche concrète et pédagogique.",
     image: "/images/team-test/Raymond-Denis.jpg",
   },
   {
     name: "Jean-Pierre Brisseau",
-    role: "Co-fondateur & trésorier",
-    bio: "Référent en géobiologie et en tracés régulateurs, il met son expertise au service de l'équilibre des lieux et de la transmission de ces disciplines au sein des Ateliers Angevins.",
+    role: "Fondateur & trésorier",
+    bio: "Spécialiste en géobiologie et tracés régulateurs, Jean-Pierre partage son expertise de l'étude et de l'harmonisation des lieux.",
     image: "/images/team-test/Jean-Pierre-Brisseau.jpg",
   },
   {
     name: "Christelle Le Bot",
     role: "Consultante & formatrice",
-    bio: "Spécialisée en thérapies énergétiques, elle anime des ateliers pratiques tout au long de l'année.",
+    bio: "Praticienne en thérapies énergétiques, Christelle coanime les stages et accompagne les participants dans leur pratique.",
     image: "/images/team-test/Christelle-Le-Bot.jpg",
   },
   {
     name: "Jérôme Crosnier",
-    role: "Formateur",
-    bio: "Expert en géobiologie, magnétisme et thérapie énergétique.",
+    role: "Formateur en géobiologie",
+    bio: "Consultant en magnétisme et thérapies énergétiques, Jérôme transmet une approche pratique et accessible des techniques énergétiques.",
     image: "/images/team-test/Jerome-Crosnier.jpg",
   },
 ];

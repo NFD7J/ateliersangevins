@@ -5,7 +5,30 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import cloudinary from "@/lib/cloudinary";
 import { sendNotificationEmail } from "@/lib/send-mail";
+
+// PDF-upload constraints (also enforced by Cloudinary via resource_type).
+const MAX_UPLOAD_BYTES = 5 * 1024 * 1024; // 5 Mo
+
+async function uploadEventPdf(file: File): Promise<string> {
+  if (file.size > MAX_UPLOAD_BYTES) {
+    throw new Error("Fichier trop volumineux (5 Mo maximum).");
+  }
+  if (file.type !== "application/pdf") {
+    throw new Error("Le fichier doit être un PDF.");
+  }
+
+  const buffer = Buffer.from(await file.arrayBuffer());
+  const base64 = `data:${file.type};base64,${buffer.toString("base64")}`;
+
+  const result = await cloudinary.uploader.upload(base64, {
+    folder: "ateliersangevins/agenda",
+    resource_type: "raw", // PDF stocké comme document téléchargeable.
+  });
+
+  return result.secure_url;
+}
 
 async function requireAdmin() {
   const session = await auth();
@@ -60,6 +83,10 @@ export async function saveEvent(formData: FormData) {
   }
   const { date, endDate, title, description, category, published } = parsed.data;
 
+  const file = formData.get("fichier");
+  const pdfUrl =
+    file instanceof File && file.size > 0 ? await uploadEventPdf(file) : null;
+
   const data = {
     date: new Date(date),
     endDate: endDate ? new Date(endDate) : null,
@@ -68,6 +95,8 @@ export async function saveEvent(formData: FormData) {
     category,
     published,
     authorId: admin.id,
+    // Ne pas écraser le PDF existant en édition si aucun nouveau fichier n'est envoyé.
+    ...(pdfUrl ? { pdf: pdfUrl } : {}),
   };
 
   if (id) {
