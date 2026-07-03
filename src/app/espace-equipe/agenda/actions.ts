@@ -8,9 +8,11 @@ import { prisma } from "@/lib/prisma";
 import cloudinary from "@/lib/cloudinary";
 import { sendNotificationEmail } from "@/lib/send-mail";
 
-// PDF-upload constraints (also enforced by Cloudinary via resource_type).
 const MAX_UPLOAD_BYTES = 5 * 1024 * 1024; // 5 Mo
 
+// Upload du PDF sur Cloudinary en resource_type "auto" : le PDF est traité
+// comme une "image", l'URL renvoyée se termine par ".pdf" et s'ouvre donc
+// directement dans le navigateur. Renvoie l'URL complète (secure_url).
 async function uploadEventPdf(file: File): Promise<string> {
   if (file.size > MAX_UPLOAD_BYTES) {
     throw new Error("Fichier trop volumineux (5 Mo maximum).");
@@ -24,7 +26,7 @@ async function uploadEventPdf(file: File): Promise<string> {
 
   const result = await cloudinary.uploader.upload(base64, {
     folder: "ateliersangevins/agenda",
-    resource_type: "raw", // PDF stocké comme document téléchargeable.
+    resource_type: "auto",
   });
 
   return result.secure_url;
