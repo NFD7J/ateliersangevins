@@ -21,8 +21,14 @@ async function getLatestArticles() {
   }
 }
 
+// Les deux parcours principaux mis en avant sur la page d'accueil.
+const MAIN_DOMAIN_SLUGS = ["geobiologie", "magnetisme"];
+
 export default async function HomePage() {
   const latestArticles = await getLatestArticles();
+  const mainDomains = domains.filter((domain) =>
+    MAIN_DOMAIN_SLUGS.includes(domain.slug)
+  );
 
   return (
     <>
@@ -43,7 +49,7 @@ export default async function HomePage() {
             Depuis 2005, à Daumeray
           </p>
           <h1 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight sm:text-5xl">
-            Géobiologie, thérapies énergétiques et bien-être au cœur de l&apos;Anjou
+            École des Arts Énergétiques et de la Géobiologie
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-forest-50/90">
             L&apos;association Les Ateliers Angevins favorise le bien-être physique et psychique
@@ -72,24 +78,20 @@ export default async function HomePage() {
         <Container>
           <SectionHeading
             eyebrow="Nos domaines"
-            title="Six disciplines pour se reconnecter à soi et à son environnement"
+            title="Deux parcours d&#39;excellence – et des Ateliers complémentaires"
             description="Des ateliers, formations et accompagnements pensés pour découvrir ou approfondir chaque thématique, à votre rythme."
             align="center"
             className="mx-auto"
           />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {domains.map((domain) => (
+          <div className="mx-auto mt-12 grid max-w-4xl gap-6 sm:grid-cols-2">
+            {mainDomains.map((domain) => (
               <Link
                 key={domain.slug}
-                href={
-                  domain.slug === "feng-shui"
-                    ? `/programmes#${domain.slug}`
-                    : `/programmes/${domain.slug}`
-                }
-                className="group rounded-2xl border border-forest-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+                href={`/programmes/${domain.slug}`}
+                className="group rounded-2xl border border-forest-100 bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
               >
-                <span className="text-3xl">{domain.icon}</span>
-                <h3 className="mt-4 font-display text-lg font-semibold text-forest-900">
+                <span className="text-4xl">{domain.icon}</span>
+                <h3 className="mt-4 font-display text-xl font-semibold text-forest-900">
                   {domain.name}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink-soft">
@@ -100,6 +102,15 @@ export default async function HomePage() {
                 </span>
               </Link>
             ))}
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <Link
+              href="/programmes#ateliers-complementaires"
+              className="rounded-full border border-forest-300 px-6 py-3 text-sm font-semibold text-forest-700 transition-colors hover:bg-forest-100"
+            >
+              Voir les ateliers complémentaires →
+            </Link>
           </div>
         </Container>
       </section>

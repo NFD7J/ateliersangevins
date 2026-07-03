@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function SylvotherapiePage() {
   return (
     <>
-      <section className="bg-forest-50 py-16">
+      <section className="bg-forest-100 py-16">
         <Container className="max-w-3xl text-center">
           <Link
             href="/programmes"
@@ -38,23 +38,25 @@ export default function SylvotherapiePage() {
         <Container className="max-w-3xl">
           <SectionHeading
             eyebrow="L'approche"
-            title="Une interaction avec l'environnement forestier"
+            title="Une rencontre sensible avec le monde forestier"
           />
           <p className="mt-4 leading-relaxed text-ink-soft">
-            L&apos;atelier propose des parallèles symboliques entre l&apos;arbre et notre propre
-            vie : les racines représentent nos origines et nos valeurs fondamentales, le tronc
-            notre force intérieure et notre résilience, les branches nos expériences de vie
-            variées, et les feuilles nos idées et émotions en évolution.
+            Cet atelier invite à vivre une expérience immersive en lien avec la forêt, en explorant les résonances entre l&#39;arbre et
+            notre propre parcours de vie.
           </p>
           <p className="mt-4 leading-relaxed text-ink-soft">
-            Une « méditation de l&apos;arbre » est proposée pour se centrer, dans l&apos;esprit de
-            cette citation de Mario Mercier : « Tout ce qui vit a besoin de vos regards... » — nous
-            faisons partie intégrante de la nature.
+            Les racines évoquent nos origines et nos valeurs, le tronc notre stabilité et notre capacité d&#39;adaptation, les branches
+            symbolisent nos chemins de vie et les feuilles notre évolution, nos émotions et notre créativité.
+          </p>
+          <p className="mt-4 leading-relaxed text-ink-soft">
+            Au cœur de cette expérience, une méditation guidée autour de l&#39;arbre favorise le recentrage, l&#39;écoute de soi et la
+            qualité de présence. Un temps privilégié pour renouer avec la nature, développer son ressenti et retrouver un
+            équilibre intérieur, dans le respect du vivant.
           </p>
         </Container>
       </section>
 
-      <section className="bg-forest-50 py-20">
+      <section className="bg-forest-100 py-20">
         <Container className="max-w-xl">
           <PracticalInfo
             items={[

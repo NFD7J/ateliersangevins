@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function MagnetismePage() {
   return (
     <>
-      <section className="bg-forest-50 py-16">
+      <section className="bg-forest-100 py-16">
         <Container className="max-w-3xl text-center">
           <Link
             href="/programmes"
@@ -49,7 +49,7 @@ export default function MagnetismePage() {
         </Container>
       </section>
 
-      <section className="bg-forest-50 py-20">
+      <section className="bg-forest-100 py-20">
         <Container>
           <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
           <div>
@@ -159,7 +159,7 @@ export default function MagnetismePage() {
             ))}
           </div>
 
-          <div className="mt-12 rounded-2xl border border-forest-100 bg-forest-50 p-8">
+          <div className="mt-12 rounded-2xl border border-forest-100 bg-forest-100 p-8">
             <h3 className="font-display text-xl font-semibold text-forest-900">Notre engagement</h3>
             <p className="mt-3 leading-relaxed text-ink-soft">
               Former des praticiens compétents, responsables et respectueux de la personne, capables de

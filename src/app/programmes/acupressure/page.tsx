@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function AcupressurePage() {
   return (
     <>
-      <section className="bg-forest-50 py-16">
+      <section className="bg-forest-100 py-16">
         <Container className="max-w-3xl text-center">
           <Link
             href="/programmes"
@@ -55,7 +55,7 @@ export default function AcupressurePage() {
         </Container>
       </section>
 
-      <section className="bg-forest-50 py-20">
+      <section className="bg-forest-100 py-20">
         <Container className="max-w-xl">
           <PracticalInfo
             items={[

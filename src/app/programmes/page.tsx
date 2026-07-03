@@ -17,7 +17,7 @@ const mainPrograms = [
     title: "Formation Géobiologie",
     duration: "120 heures",
     description:
-      "Une formation complète, théorique et pratique, pour apprendre à identifier les perturbations d'un lieu (réseaux telluriques, ondes électromagnétiques, pollutions diverses) et restaurer un habitat sain.",
+      "Une formation complète, alliant théorie, pratique et terrain, pour comprendre les interactions entre le vivant et son environnement. Développez les compétences nécessaires pour analyser les influences d'un lieu, identifier les principales perturbations environnementales et mettre en œuvre des méthodes d'harmonisation de l'habitat",
     pdf: "/documents/programme-geobiologie-2026.pdf",
   },
   {
@@ -47,14 +47,6 @@ const complementaryWorkshops = [
     icon: "🌳",
     description:
       "Des sorties en forêt pour se reconnecter à la nature : marche consciente, respiration et exercices de reconnexion énergétique au contact des arbres.",
-  },
-  {
-    id: "radiesthesie",
-    href: "/programmes/radiesthesie",
-    title: "Radiesthésie",
-    icon: "📡",
-    description:
-    "La radiesthésie est une pratique de détection bio-sensible utilisant des outils tels que le pendule ou la baguette, permettant d'explorer des informations non perceptibles par les sens habituels."
   },
   {
     id: "traces-des-batisseurs",

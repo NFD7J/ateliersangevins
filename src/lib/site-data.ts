@@ -8,14 +8,18 @@ export const nav = [
 ] as const;
 
 export const contact = {
-  address: ["5, rue des Mimosas", "Lotissement Les Tilleuls", "49640 Daumeray"],
+  address: ["Les Ateliers Angevins","5, rue des Mimosas", "Lotissement Les Tilleuls", "49640 Daumeray"],
   phones: [
     { name: "Raymond Denis", number: "06 08 67 05 01" },
     { name: "Marie Brisseau", number: "06 61 75 66 78" },
   ],
   emails: ["ateliersangevins@hotmail.com", "brissmarie35@gmail.com"],
   facebook: "https://www.facebook.com/",
+  youtube: "https://www.youtube.com/@AteliersAngevins-m6q",
   mapsQuery: "47.702725932929404, -0.35775632096358817",
+  // Carte Google My Maps (plusieurs marqueurs). Colle ici le `src` de l'iframe
+  // fourni par My Maps (⋮ → Intégrer sur mon site), au format .../maps/d/embed?mid=...
+  mapEmbedUrl: "https://www.google.com/maps/d/u/0/embed?mid=1tkvjyv5SW3QUWtRqUaKldXkcXwY1GNE&ehbc=2E312F&noprof=1",
 };
 
 export type Domain = {
@@ -31,7 +35,7 @@ export const domains: Domain[] = [
     slug: "geobiologie",
     name: "Géobiologie",
     shortDescription:
-      "L'étude des relations entre l'environnement, les ondes et leurs influences sur le vivant.",
+      "Véritable démarche d'observation et d'analyse, la géobiologie vise à créer ou restaurer un environnement harmonieux, propice à l'équilibre et à la qualité de vie.",
     description:
       "La géobiologie consiste en l'étude des relations de l'environnement, des ondes liées aux champs électromagnétiques et de l'ensemble des influences sur le vivant. Elle permet d'identifier les perturbations d'un lieu (réseaux telluriques, ondes électromagnétiques, pollutions diverses) afin de retrouver un habitat sain et harmonieux.",
     icon: "🌳",
