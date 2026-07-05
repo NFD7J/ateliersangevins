@@ -11,6 +11,23 @@ export const metadata: Metadata = {
     "Histoire, mission et équipe de l'association Les Ateliers Angevins, fondée en 2005 à Daumeray.",
 };
 
+const partners = [
+  {
+    name: "Centre Xian",
+    description:
+      "Le lieu qui accueille nos formations et ateliers, à Thorigné-d'Anjou.",
+    href: "https://www.centre-xian.fr/",
+    image: "/images/partners/centre-xian.jpg",
+  },
+  {
+    name: "Confédération Nationale de Géobiologie",
+    description:
+      "L'organisme de référence auquel notre école adhère pour la géobiologie.",
+    href: "https://www.confederation-geobiologie.fr/",
+    image: "/images/partners/CNG.jpg",
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
@@ -147,6 +164,49 @@ export default function AboutPage() {
                 </li>
               ))}
             </ul>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20">
+        <Container>
+          <SectionHeading
+            eyebrow="Partenaires"
+            title="Ils nous accompagnent"
+            align="center"
+            className="mx-auto"
+          />
+          <div className="mx-auto mt-12 grid max-w-3xl gap-6 sm:grid-cols-2">
+            {partners.map((partner) => (
+              <a
+                key={partner.name}
+                href={partner.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-forest-100 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+              >
+                <div className="relative aspect-[3/2] w-full bg-forest-50">
+                  <Image
+                    src={partner.image}
+                    alt={partner.name}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 400px"
+                    className="object-contain p-6"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-lg font-semibold text-forest-900 group-hover:text-forest-700">
+                    {partner.name}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+                    {partner.description}
+                  </p>
+                  <span className="mt-4 inline-flex items-center text-sm font-semibold text-forest-600 group-hover:text-forest-800">
+                    Visiter le site →
+                  </span>
+                </div>
+              </a>
+            ))}
           </div>
         </Container>
       </section>

@@ -36,7 +36,7 @@ export default async function HomePage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <Image
-            src="/images/hero.png"
+            src="/images/heros.png"
             alt=""
             fill
             priority
@@ -51,8 +51,8 @@ export default async function HomePage() {
           <h1 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight sm:text-5xl">
             LES ATELIERS ANGEVINS
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-forest-50/90">
-            École des Arts Énergétiques et de la Géobiologie
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-forest-50">
+            École de Thérapies Énergétiques et de la Géobiologie
             <br />
             Deux parcours d&#39;excellence – Deux spécialisations
             <br />
@@ -136,7 +136,7 @@ export default async function HomePage() {
               title="Plus de 20 ans de transmission et d&#39;expertise"
               description="Depuis 2005, Les Ateliers Angevins forment des praticiens en géobiologie et en thérapies énergétiques grâce à un
               enseignement exigeant, fondé sur l&#39;expérience, la pratique et la transmission. 
-              Notre équipe de formateurs partage un même engagement : accompagner chaque stagiaire dans l&#39;acquisition de
+              Notre équipe de formateurs partage un même engagement : accompagner chaque étudiants dans l&#39;acquisition de
               compétences fiables, d&#39;une pratique éthique et d&#39;une véritable autonomie."
             />
             <ul className="mt-6 space-y-3 text-sm text-ink-soft">

@@ -51,7 +51,11 @@ export default function MandalaPage() {
           </div>
           <div className="mx-auto mt-12 w-full max-w-md">
             <PracticalInfo
-            items={[{label: "Prérequis", value: "Aucun"},{ label: "Modalité d'inscription", value: "Voir le bulletin d'inscription" }]}
+            items={[
+              {label: "Tarif", value: "125 €"},
+              {label: "Prérequis", value: "Aucun"},
+              { label: "Modalité d'inscription", value: "Voir le bulletin d'inscription" }
+            ]}
             pdfInscription="/documents/inscription-modules-complementaires-2026.pdf"
           />
           </div>

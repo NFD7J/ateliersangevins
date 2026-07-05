@@ -75,12 +75,17 @@ export default function MagnetismePage() {
           </div>
           <PracticalInfo
             items={[
-              { label: "Durée", value: "Programme annuel, 13 modules" },
-              { label: "Prérequis", value: "Aucun" },
-              { label: "Format", value: "Théorie et pratique" },
+              { label: "Tarif", value: "1650 €" },
+              { label: "Durée", value: "100 heures" },
+              { label: "Organisation", value: "13 modules" },
+              { label: "Pré-requis", value: "Aucun" },
+              { label: "Non inclus", value: "Repas et hébergement" },
+              { label: "Accueil", value: "8h30" },
+              { label: "Horaires", value: "9h-12h30 - 13h30-18h" },
+              { label: "Lieu", value: "Centre Xian, La Haute Jeannière, 49220 Thorigné-d'Anjou" },
             ]}
-            pdfProgramme="/documents/programme-therapies-energetiques.pdf"
-            pdfInscription="/documents/bulletin-inscription.pdf"
+            pdfProgramme="/documents/programme-therapie-energetique-2026.pdf"
+            pdfInscription="/documents/inscription-therapie-energetique-2026.pdf"
           />
           </div>
 

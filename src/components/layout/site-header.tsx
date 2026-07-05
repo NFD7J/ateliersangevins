@@ -8,7 +8,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 h-20 border-b border-forest-100 bg-stone/95 backdrop-blur supports-[backdrop-filter]:bg-white/90">
       <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-6">
         <Link href="/" className="flex h-full items-center gap-2 py-2">
-          <Image src="/images/logo-menu.jpg" loading="eager" alt="Les Ateliers Angevins" width={156} height={83} className="h-full w-auto object-contain" />
+          <Image src="/images/logo.jpg" loading="eager" alt="Les Ateliers Angevins" width={156} height={83} className="h-full w-auto object-contain" />
           {/* <span className="text-2xl">🌿</span>
           <span className="font-display text-lg font-semibold leading-tight text-forest-800 sm:text-xl">
             Les Ateliers

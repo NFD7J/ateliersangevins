@@ -24,7 +24,7 @@ const mainPrograms = [
     id: "magnetisme",
     href: "/programmes/magnetisme",
     title: "Formation Magnétisme & Thérapies énergétiques",
-    duration: "Programme annuel",
+    duration: "100 heures",
     description:
       "Une formation complète alliant les fondamentaux du magnétisme, des thérapies vibratoires et de la thérapie par les formes, afin d'acquérir des compétences solides et de développer une pratique énergétique rigoureuse, cohérente et structurée.",
     pdf: "/documents/programme-therapies-energetiques-2026.pdf",

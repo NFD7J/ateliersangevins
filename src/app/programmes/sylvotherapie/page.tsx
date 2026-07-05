@@ -60,9 +60,10 @@ export default function SylvotherapiePage() {
         <Container className="max-w-xl">
           <PracticalInfo
             items={[
-              { label: "Tarif", value: "140 € (individuel, repas inclus)" },
+              { label: "Tarif", value: "150 €" },
               { label: "Durée", value: "1 jour" },
               { label: "Accueil", value: "8h30" },
+              { label: "Repas", value: "non inclus" },
               { label: "Lieu", value: "Centre Xian, La Haute Jeannière, 49220 Thorigné-d'Anjou" },
             ]}
             pdfInscription="/documents/inscription-modules-complementaires-2026.pdf"
