@@ -33,20 +33,20 @@ export default function TracesDesBatisseursPage() {
       <section className="py-16">
         <Container>
           <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-          <div>
-            <SectionHeading
-              eyebrow="L'atelier"
-              title="L&#39;harmonie des lieux par la géométrie sacrée"
-            />
-            <p className="mt-4 leading-relaxed text-ink-soft">
-              Les tracés bâtisseurs sont des outils d&#39;harmonisation des lieux inspirés des lois du vivant et des géométries
-              présentes dans la nature. Hérités des traditions des bâtisseurs, ils s&#39;appuient sur les tracés régulateurs qui ont guidé
-              la conception de nombreux édifices remarquables au fil des siècles.
-              Utilisés en géobiologie, ils contribuent à rééquilibrer les énergies d&#39;un lieu, à renforcer son harmonie et à favoriser
-              le bien-être de ses occupants, dans le respect de son identité et de son environnement.
-            </p>
-          </div>
-          <div>
+            <div>
+              <SectionHeading
+                eyebrow="L'atelier"
+                title="L&#39;harmonie des lieux par la géométrie sacrée"
+              />
+              <p className="mt-4 leading-relaxed text-ink-soft">
+                Les tracés bâtisseurs sont des outils d&#39;harmonisation des lieux inspirés des lois du vivant et des géométries
+                présentes dans la nature. Hérités des traditions des bâtisseurs, ils s&#39;appuient sur les tracés régulateurs qui ont guidé
+                la conception de nombreux édifices remarquables au fil des siècles.
+                Utilisés en géobiologie, ils contribuent à rééquilibrer les énergies d&#39;un lieu, à renforcer son harmonie et à favoriser
+                le bien-être de ses occupants, dans le respect de son identité et de son environnement.
+              </p>
+            </div>
+          {/* <div>
             <SectionHeading title="Un atelier accessible à tous" />
             <p className="mt-4 leading-relaxed text-ink-soft">
               Aucun prérequis n&#39;est nécessaire pour participer à cette initiation à la sourcellerie. Que vous soyez débutant,
@@ -70,18 +70,18 @@ export default function TracesDesBatisseursPage() {
                 </span>
               </li>
             </ul>
-          </div>
-          </div>
-          <div className="mx-auto mt-12 w-full max-w-md">
-            <PracticalInfo
-              items={[
-                { label: "Coût", value: "100 € par jour" },
-                { label: "Accueil", value: "8h30" },
-                { label: "Lieu", value: "6 rue de Grez, 49460 Feneu" },
-                { label: "Repas / hébergement", value: "À la charge des participants" },
-              ]}
-              pdfInscription="/documents/inscription-modules-complementaires-2026.pdf"
-            />
+          </div> */}
+            <div className="mx-auto w-full max-w-md">
+              <PracticalInfo
+                items={[
+                  { label: "Coût", value: "125 € par jour" },
+                  { label: "Accueil", value: "8h30" },
+                  { label: "Lieu", value: "centre XIAN" },
+                  { label: "Repas / hébergement", value: "À la charge des participants" },
+                ]}
+                pdfInscription="/documents/inscription-modules-complementaires-2026.pdf"
+              />
+            </div>
           </div>
         </Container>
       </section>

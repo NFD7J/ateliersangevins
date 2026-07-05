@@ -38,30 +38,23 @@ export default function MandalaPage() {
               title="Une exploration artistique et méditative"
             />
             <p className="mt-4 leading-relaxed text-ink-soft">
-              Le mandala est un symbole spirituel et rituel représentant l'univers dans les traditions
-              hindoues et bouddhistes. Il est utilisé comme outil de méditation et d'expression
-              artistique, favorisant la concentration, l'équilibre intérieur et la créativité.
+              Lors de cet atelier, vous réaliserez votre mandala personnel à partir de votre lieu et date de
+              naissance , selon les principes de la géométrie harmonique. Véritable carte symbolique de
+              votre parcours, il met en lumière vos ressources, les défis rencontrés et les potentiels qui vous
+              accompagnent tout au long de votre vie.
+              À travers sa lecture, vous serez invité(e) à porter un regard nouveau sur votre histoire, à mieux
+              comprendre certaines étapes de votre évolution et à renouer avec votre élan intérieur.
+              Un atelier à la fois créatif, symbolique et profondément enrichissant, pour celles et ceux qui
+              souhaitent mieux se connaître, donner du sens à leur parcours et explorer les liens entre géométrie
+              harmonique, symbolisme et développement personnel.
             </p>
           </div>
-          <div>
-            <h3 className="font-display text-xl font-semibold text-forest-900">
-              Le contenu du module
-            </h3>
-            <p className="mt-4 leading-relaxed text-ink-soft">
-              L&apos;atelier aborde l&apos;historique de la pratique, le contexte dans lequel elle
-              s&apos;exerce, les différentes techniques de création, le lâcher-prise et le
-              développement de la créativité, à travers des mises en pratique concrètes.
-            </p>
-          </div>
-        </Container>
-      </section>
-
-      <section className="bg-forest-100 py-20">
-        <Container className="max-w-xl">
-          <PracticalInfo
-            items={[{ label: "Informations pratiques", value: "Voir le programme téléchargeable" }]}
+          <div className="mx-auto mt-12 w-full max-w-md">
+            <PracticalInfo
+            items={[{label: "Prérequis", value: "Aucun"},{ label: "Modalité d'inscription", value: "Voir le bulletin d'inscription" }]}
             pdfInscription="/documents/inscription-modules-complementaires-2026.pdf"
           />
+          </div>
         </Container>
       </section>
     </>

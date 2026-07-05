@@ -62,7 +62,7 @@ const complementaryWorkshops = [
     title: "Mandala",
     icon: "🌀",
     description:
-      "Le mandala est un symbole spirituel et rituel représentant l'univers dans les traditions hindoues et bouddhistes. Il est utilisé comme outil de méditation et d'expression artistique, favorisant la concentration, l'équilibre intérieur et la créativité.",
+      "Et si votre lieu et date de naissance révélait une géométrie porteuse de sens ? \nLors de cet atelier, vous réaliserez votre mandala personnel à partir de votre lieu et date de naissance.",
   },
   {
     id: "acupressure",
@@ -154,7 +154,7 @@ export default function ProgrammesPage() {
                 <h3 className="font-display text-xl font-semibold text-forest-900">
                   {workshop.icon} {workshop.title}
                 </h3>
-                <p className="mt-3 leading-relaxed text-ink-soft">{workshop.description}</p>
+                <p className="mt-3 whitespace-pre-line leading-relaxed text-ink-soft">{workshop.description}</p>
                 <Link
                   href={workshop.href}
                   className="mt-4 inline-flex items-center text-sm font-semibold text-forest-700 hover:text-forest-900"

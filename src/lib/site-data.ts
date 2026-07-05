@@ -44,7 +44,7 @@ export const domains: Domain[] = [
     slug: "magnetisme",
     name: "Magnétisme & thérapies énergétiques",
     shortDescription:
-      "Chromothérapie, thérapie par les formes et techniques de soin par l'énergie.",
+      "Une formation complète alliant les fondamentaux du magnétisme, des thérapies vibratoires et de la thérapie par les formes, afin d&#39;acquérir des compétences solides et de développer une pratique énergétique rigoureuse, cohérente et structurée.",
     description:
       "Le magnétisme et les thérapies énergétiques regroupent un ensemble de techniques de soin visant à rétablir l'équilibre énergétique de la personne : magnétisme, chromothérapie, thérapie par les formes et autres outils de bio-énergie.",
     icon: "✋",

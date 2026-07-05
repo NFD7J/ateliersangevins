@@ -59,7 +59,7 @@ export default function AcupressurePage() {
         <Container className="max-w-xl">
           <PracticalInfo
             items={[
-              { label: "Prix", value: "240 €" },
+              { label: "Prix", value: "250 €" },
               { label: "Durée", value: "2 jours (8h par jours)" },
               { label: "Repas", value: "A la charge des participants" },
 

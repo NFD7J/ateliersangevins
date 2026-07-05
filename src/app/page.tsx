@@ -49,12 +49,14 @@ export default async function HomePage() {
             Depuis 2005, à Daumeray
           </p>
           <h1 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight sm:text-5xl">
-            École des Arts Énergétiques et de la Géobiologie
+            LES ATELIERS ANGEVINS
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-forest-50/90">
-            L&apos;association Les Ateliers Angevins favorise le bien-être physique et psychique
-            par l&apos;apprentissage et la pratique de techniques de connaissance de soi, de
-            développement personnel et d&apos;harmonisation des lieux.
+            École des Arts Énergétiques et de la Géobiologie
+            <br />
+            Deux parcours d&#39;excellence – Deux spécialisations
+            <br />
+            Praticien en Thérapies Énergétiques Intégratives
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
