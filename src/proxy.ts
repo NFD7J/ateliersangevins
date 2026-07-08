@@ -9,6 +9,27 @@ const PROTECTED_PREFIXES = ["/espace-equipe/articles", "/espace-equipe/agenda"];
 export default auth((req) => {
   const { pathname } = req.nextUrl;
 
+  // 0. Verrou global du site (Basic Auth), production uniquement.
+  // Vérifié côté serveur avant d'envoyer la moindre page ; le mot de passe
+  // ne quitte jamais le serveur. Retirer ce bloc pour ouvrir le site au public.
+  if (process.env.NODE_ENV === "production") {
+    const header = req.headers.get("authorization");
+    let ok = false;
+    if (header?.startsWith("Basic ")) {
+      const decoded = atob(header.slice(6)); // "utilisateur:motdepasse"
+      const i = decoded.indexOf(":");
+      ok =
+        decoded.slice(0, i) === process.env.ADMIN2_USERNAME &&
+        decoded.slice(i + 1) === process.env.ADMIN2_PASSWORD;
+    }
+    if (!ok) {
+      return new NextResponse("Authentification requise.", {
+        status: 401,
+        headers: { "WWW-Authenticate": 'Basic realm="Accès protégé"' },
+      });
+    }
+  }
+
   // 1. Access control (defense in depth).
   if (PROTECTED_PREFIXES.some((prefix) => pathname.startsWith(prefix)) && !req.auth) {
     return NextResponse.redirect(new URL("/espace-equipe", req.nextUrl));

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { contact } from "@/lib/site-data";
+import { ContactForm } from "@/components/contact/contact-form";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -28,76 +29,49 @@ export default function ContactPage() {
       </section>
 
       <section className="py-16">
-        <Container className="grid gap-12 lg:grid-cols-2">
-          <div className="space-y-8">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-stretch">
             <div className="rounded-2xl border border-forest-100 bg-white p-8 shadow-sm">
-              <h2 className="font-display text-xl font-semibold text-forest-900">Téléphone</h2>
-              <ul className="mt-4 space-y-3">
-                {contact.phones.map((p) => (
-                  <li key={p.number}>
-                    <a
-                      href={`tel:${p.number.replace(/\s/g, "")}`}
-                      className="text-lg font-medium text-forest-700 hover:text-forest-900"
-                    >
-                      {p.name} — {p.number}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              <h2 className="font-display text-xl font-semibold text-forest-900">Écrivez-nous</h2>
+              
+              <div className="mt-6">
+                <ContactForm />
+              </div>
             </div>
 
-            <div className="rounded-2xl border border-forest-100 bg-white p-8 shadow-sm">
-              <h2 className="font-display text-xl font-semibold text-forest-900">Email</h2>
-              <ul className="mt-4 space-y-2">
-                {contact.emails.map((email) => (
-                  <li key={email}>
-                    <a href={`mailto:${email}`} className="text-forest-700 hover:text-forest-900">
-                      {email}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+            <div className="min-h-[420px] overflow-hidden rounded-2xl border border-forest-100 shadow-sm">
+              <iframe
+                title="Localisation des Ateliers Angevins"
+                src={mapSrc}
+                className="h-full min-h-[420px] w-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
+          </div>
 
-            <div className="rounded-2xl border border-forest-100 bg-white p-8 shadow-sm">
-              <h2 className="font-display text-xl font-semibold text-forest-900">Siège de l'association</h2>
-              <address className="mt-4 not-italic leading-relaxed text-ink-soft">
+          <div className="mt-12 grid gap-8 border-t border-forest-100 pt-10 sm:grid-cols-2">
+            <div>
+              <h2 className="font-display text-lg font-semibold text-forest-900">Siège de l&apos;association</h2>
+              <address className="mt-2 not-italic leading-relaxed text-ink-soft">
                 {contact.address.map((line) => (
                   <p key={line}>{line}</p>
                 ))}
               </address>
-              <a
-                href={contact.facebook}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 inline-flex items-center font-semibold text-forest-700 hover:text-forest-900"
-              >
-                Suivez-nous sur Facebook →
-              </a>
             </div>
 
-            <div className="rounded-2xl border border-forest-100 bg-white p-8 shadow-sm">
-              <h2 className="font-display text-xl font-semibold text-forest-900">Lieu des formations</h2>
-              <address className="mt-4 not-italic leading-relaxed text-ink-soft">
+            <div>
+              <h2 className="font-display text-lg font-semibold text-forest-900">Lieu des formations</h2>
+              <address className="mt-2 not-italic leading-relaxed text-ink-soft">
                 <strong className="text-terracotta-600"><a href="https://www.centre-xian.fr/" target="_blank" rel="noreferrer">Centre Xian</a></strong>
                 <p>La Haute Jannière</p>
                 <p>Thorigné-d'Anjou</p>
-                <p className="mt-4">
+                <p className="mt-3">
                   Nos formations et ateliers se déroulent principalement dans un cadre naturel et propice à
                   l&#39;apprentissage, au Centre Xian, à Thorigné-d&#39;Anjou.
                 </p>
               </address>
             </div>
-          </div>
-
-          <div className="h-[70%] max-h-[70vh] self-center overflow-hidden rounded-2xl border border-forest-100 shadow-sm">
-            <iframe
-              title="Localisation des Ateliers Angevins"
-              src={mapSrc}
-              className="h-full min-h-[420px] w-full"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
           </div>
         </Container>
       </section>
