@@ -8,7 +8,7 @@ import { team, contact } from "@/lib/site-data";
 export const metadata: Metadata = {
   title: "À propos",
   description:
-    "Histoire, mission et équipe de l'école Les Ateliers Angevins, fondée en 2005 à Daumeray.",
+    "Histoire, mission et équipe de l'association Les Ateliers Angevins, fondée en 2005 à Daumeray.",
 };
 
 const partners = [
@@ -37,7 +37,7 @@ export default function AboutPage() {
             À propos
           </p>
           <h1 className="mt-2 font-display text-4xl font-semibold text-forest-900 sm:text-5xl">
-            Une école angevine au service du bien-être
+            Une association angevine au service du bien-être
           </h1>
         </Container>
       </section>
@@ -48,11 +48,11 @@ export default function AboutPage() {
             <SectionHeading
               eyebrow="Notre histoire"
               title="Fondée en septembre 2005"
-              description="Fondés en septembre 2005 par Marie et Jean-Pierre Brisseau, Les Ateliers Angevins sont une école de formation spécialisée dans la Géobiologie et les Thérapies Énergétiques."
+              description="Fondés en septembre 2005 par Marie et Jean-Pierre Brisseau, Les Ateliers Angevins sont une école de formation spécialisée dans les Thérapies Énergétiques et la Géobiologie."
             />
             <p className="mt-6 leading-relaxed text-ink-soft">
               Depuis plus de vingt ans, notre mission est de transmettre des compétences solides, fondées sur l&#39;expérience de
-              terrain, la rigueur pédagogique et le respect de l&#39;éthique professionnelle. Nous accompagnons chaque étudiants dans
+              terrain, la rigueur pédagogique et le respect de l&#39;éthique professionnelle. Nous accompagnons chaque stagiaire dans
               l&#39;acquisition d&#39;un savoir-faire opérationnel lui permettant d&#39;exercer avec confiance, compétence et responsabilité. <br /><br />
               <strong className="text-forest-800">Former des praticiens compétents, transmettre un savoir d&#39;excellence.</strong>
             </p>
@@ -138,7 +138,7 @@ export default function AboutPage() {
               terrain et une transmission fidèle de savoir-faire éprouvés.
             </p>
             <p>
-              Aujourd&#39;hui, notre équipe de formateurs accompagne chaque étudiant dans un parcours
+              Aujourd&#39;hui, notre équipe de formateurs accompagne chaque stagiaire dans un parcours
               progressif, alliant enseignements théoriques, mises en pratique et développement des
               compétences, afin de former des praticiens compétents, autonomes et responsables.
             </p>
@@ -215,7 +215,7 @@ export default function AboutPage() {
         <Container className="max-w-2xl text-center">
           <SectionHeading
             eyebrow="Nous trouver"
-            title="Maine et Loire"
+            title="Daumeray, Maine-et-Loire"
             align="center"
             className="mx-auto"
             description={contact.address.join(", ")}

@@ -191,7 +191,7 @@ export default function GeobiologiePage() {
               {[
                 "avant une construction, pour le choix du terrain et l'implantation du bâtiment",
                 "lors de l'achat, de la rénovation ou de l'agrandissement d'un logement",
-                "pour évaluer et mesurer les pollutions électromagnétiques liées aux installations électriques ou les perturbations liées à l'environnement",
+                "pour évaluer les pollutions électromagnétiques liées aux installations électriques ou à l'environnement",
                 "lors de l'aménagement de locaux professionnels, d'entreprises ou d'espaces recevant du public",
                 "lorsqu'un lieu semble générer un inconfort persistant ou lorsque l'on souhaite optimiser son cadre de vie ou de travail",
               ].map((raison) => (

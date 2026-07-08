@@ -1,4 +1,0 @@
-- système de mail avec formulaire de contact
-- mailing avec nombre de visiteurs par semaine
-- pour le SEO mettre tracé régulateur 
-- rajouter espace avis

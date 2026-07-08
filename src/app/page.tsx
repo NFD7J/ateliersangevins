@@ -46,15 +46,17 @@ export default async function HomePage() {
         </div>
         <Container className="flex min-h-[34rem] flex-col items-start justify-center py-24 text-white">
           <p className="text-sm font-semibold uppercase tracking-widest text-gold-300">
-            Depuis 2005, en Anjou
+            Depuis 2005, à Daumeray
           </p>
           <h1 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight sm:text-5xl">
             LES ATELIERS ANGEVINS
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-forest-50">
-            École de Géobiologie et de Thérapies Énergétiques
+            École de Thérapies Énergétiques et de la Géobiologie
             <br />
             Deux parcours d&#39;excellence – Deux spécialisations
+            <br />
+            Praticien en Thérapies Énergétiques Intégratives
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link

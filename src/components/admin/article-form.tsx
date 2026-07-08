@@ -128,11 +128,8 @@ export function ArticleForm({ article }: { article?: ArticleFormValues }) {
           className="mt-1 w-full rounded-lg border border-forest-200 px-3 py-2 font-mono text-sm focus:border-forest-500 focus:outline-none"
         />
         <p className="mt-1 text-xs text-ink-soft">
-          Supporte le Markdown : ## titres, **gras**, *italique*,
+          Supporte le Markdown : ## titres, **gras**, *italique*, listes, liens, citations.
         </p>
-        <a href="https://www.markdownguide.org/basic-syntax/" target="_blank" rel="noreferrer" className="text-forest-600 hover:underline">
-          Documentation
-        </a>
       </div>
 
       <label className="flex items-center gap-2 text-sm text-ink">
