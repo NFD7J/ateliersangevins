@@ -109,14 +109,14 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="border-t border-forest-800/60 px-6 py-5">
+      {/* <div className="border-t border-forest-800/60 px-6 py-5">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 text-xs text-forest-300 sm:flex-row">
           <p>© {new Date().getFullYear()} Les Ateliers Angevins. Tous droits réservés.</p>
           <Link href="/espace-equipe" className="text-forest-400 hover:text-forest-200">
             Espace équipe
           </Link>
         </div>
-      </div>
+      </div> */}
     </footer>
   );
 }
