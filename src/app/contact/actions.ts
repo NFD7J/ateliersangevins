@@ -27,10 +27,7 @@ function esc(value: string) {
   );
 }
 
-export async function sendContactEmail(
-  _prev: ContactState,
-  formData: FormData
-): Promise<ContactState> {
+export async function sendContactEmail( _prev: ContactState, formData: FormData ): Promise<ContactState> {
   const parsed = contactSchema.safeParse({
     name: formData.get("name")?.toString() ?? "",
     email: formData.get("email")?.toString() ?? "",

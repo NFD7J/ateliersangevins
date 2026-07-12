@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { cache } from "react";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
-import { PlaceholderImage } from "@/components/ui/placeholder-image";
+import { ArticleBlocks } from "@/components/blog/article-blocks";
+import { parseArticleBlocks } from "@/lib/article-blocks";
 import { categoryLabels } from "@/lib/categories";
 import { formatDate } from "@/lib/utils";
 import { prisma } from "@/lib/prisma";
@@ -45,19 +45,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   return (
     <article>
-      {article.coverImage ? (
-        <Image
-          src={article.coverImage}
-          alt={article.title}
-          width={1200}
-          height={384}
-          priority
-          className="h-72 w-full object-cover sm:h-96"
-        />
-      ) : (
-        <PlaceholderImage icon="📰" className="h-72 w-full sm:h-96" />
-      )}
-
       <Container className="max-w-3xl py-16">
         <Link href="/blog" className="text-sm font-semibold text-forest-700 hover:text-forest-900">
           ← Tous les articles
@@ -73,13 +60,15 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           {article.title}
         </h1>
 
-        <p className="mt-3 text-sm text-ink-soft">
+        {/* <p className="mt-3 text-sm text-ink-soft">
           Par {article.author.name} · {formatDate(article.createdAt)}
-        </p>
+        </p> */}
 
         <div className="prose-article mt-10">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{article.content}</ReactMarkdown>
         </div>
+
+        <ArticleBlocks blocks={parseArticleBlocks(article.blocks)} />
       </Container>
     </article>
   );

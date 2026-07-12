@@ -3,6 +3,8 @@
 import { useRef, useState } from "react";
 import { ArticleCategory } from "@prisma/client";
 import { categoryOptions } from "@/lib/categories";
+import { parseArticleBlocks } from "@/lib/article-blocks";
+import { ArticleBlocksEditor } from "@/components/admin/article-blocks-editor";
 import { saveArticle, uploadArticleImage } from "@/app/espace-equipe/articles/actions";
 
 type ArticleFormValues = {
@@ -10,6 +12,7 @@ type ArticleFormValues = {
   title: string;
   excerpt: string;
   content: string;
+  blocks?: unknown;
   coverImage: string | null;
   published: boolean;
   categories: ArticleCategory[];
@@ -134,6 +137,8 @@ export function ArticleForm({ article }: { article?: ArticleFormValues }) {
           Documentation
         </a>
       </div>
+
+      <ArticleBlocksEditor initialBlocks={parseArticleBlocks(article?.blocks)} />
 
       <label className="flex items-center gap-2 text-sm text-ink">
         <input

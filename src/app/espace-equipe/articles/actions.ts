@@ -8,6 +8,7 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import cloudinary from "@/lib/cloudinary";
 import { slugify } from "@/lib/utils";
+import { parseArticleBlocks } from "@/lib/article-blocks";
 import { sendNotificationEmail } from "@/lib/send-mail";
 
 async function requireAdmin() {
@@ -88,6 +89,10 @@ export async function saveArticle(formData: FormData) {
   }
   const { title, excerpt, content, coverImage, published } = parsed.data;
 
+  // Sections illustrées : on ne conserve que des blocs valides (Cloudinary,
+  // mise en page connue) avant de les stocker en colonne Json.
+  const blocks = parseArticleBlocks(formData.get("blocks")?.toString());
+
   // Keep only known enum values; never trust the raw form field.
   const categories = formData
     .getAll("categories")
@@ -110,6 +115,7 @@ export async function saveArticle(formData: FormData) {
     title,
     excerpt,
     content,
+    blocks,
     coverImage,
     published,
     categories,
@@ -122,16 +128,16 @@ export async function saveArticle(formData: FormData) {
     await prisma.article.create({ data: { ...data, authorId: admin.id } });
   }
 
-  await sendNotificationEmail({
-    type: "article",
-    action: id ? "updated" : "created",
-    title: title,
-    excerpt: excerpt,
-    categories: categories,
-    published: published,
-    author: admin.name,
-    actionUrl: "/espace-equipe/articles",
-  });
+  // await sendNotificationEmail({
+  //   type: "article",
+  //   action: id ? "updated" : "created",
+  //   title: title,
+  //   excerpt: excerpt,
+  //   categories: categories,
+  //   published: published,
+  //   author: admin.name,
+  //   actionUrl: "/espace-equipe/articles",
+  // });
 
   revalidatePath("/blog");
   revalidatePath("/");
@@ -142,16 +148,16 @@ export async function deleteArticle(id: string) {
   const admin = await requireAdmin();
   const article = await prisma.article.delete({ where: { id } });
 
-  await sendNotificationEmail({
-    type: "article",
-    action: "deleted",
-    title: article.title,
-    excerpt: article.excerpt,
-    categories: article.categories,
-    published: article.published,
-    author: admin.name,
-    actionUrl: "/espace-equipe/articles",
-  });
+  // await sendNotificationEmail({
+  //   type: "article",
+  //   action: "deleted",
+  //   title: article.title,
+  //   excerpt: article.excerpt,
+  //   categories: article.categories,
+  //   published: article.published,
+  //   author: admin.name,
+  //   actionUrl: "/espace-equipe/articles",
+  // });
 
   revalidatePath("/blog");
   revalidatePath("/espace-equipe/articles");

@@ -33,6 +33,7 @@ model Article {
   title      String
   excerpt    String
   content    String            @db.Text
+  blocks     Json?
   coverImage String?
   categories ArticleCategory[]
   published  Boolean           @default(true)
