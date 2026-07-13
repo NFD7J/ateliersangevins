@@ -57,7 +57,7 @@ export default function AboutPage() {
               <strong className="text-forest-800">Former des praticiens compétents, transmettre un savoir d&#39;excellence.</strong>
             </p>
           </div>
-          <div className="relative h-full w-110 rounded-2xl overflow-hidden">
+          <div className="relative h-full w-full max-w-110 rounded-2xl overflow-hidden">
             <Image src="/images/logo.jpg" alt="Description" fill sizes="1000px" className="object-contain object-center rounded-2xl" />
           </div>
         </Container>
