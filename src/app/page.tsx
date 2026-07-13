@@ -36,7 +36,7 @@ export default async function HomePage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <Image
-            src="/images/heros.jpg"
+            src="/images/hero3.jpg"
             alt=""
             fill
             priority
