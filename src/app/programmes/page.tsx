@@ -71,7 +71,15 @@ const complementaryWorkshops = [
     icon: "💆‍♂️",
     description:
       "L'acupressure repose sur la stimulation de points spécifiques du corps pour favoriser le bien-être et la relaxation. Elle utilise des techniques de pression et de massage pour améliorer la circulation de l'énergie et soulager les tensions.",
-  }
+  },
+  {
+    id: "tutorat",
+    href: "/programmes/tutorat",
+    title: "Tutorat",
+    icon: "👨‍🏫",
+    description:
+      "Le tutorat offre un accompagnement personnalisé pour approfondir vos connaissances et compétences dans un domaine spécifique, avec des conseils et un suivi adaptés à vos besoins.",
+  },
 ];
 
 const detailHrefBySlug: Record<string, string> = {

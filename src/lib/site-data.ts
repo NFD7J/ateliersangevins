@@ -81,6 +81,14 @@ export const domains: Domain[] = [
       "Les tracés des bâtisseurs sont des techniques géométriques anciennes utilisées pour harmoniser un lieu, en s'appuyant sur les tracés régulateurs employés depuis des siècles dans l'architecture sacrée.",
     icon: "📐",
   },
+  {
+    slug: "mandala",
+    name: "Mandala",
+    shortDescription: "L'harmonisation des lieux par les mandalas.",
+    description:
+      "Les mandalas sont des motifs géométriques utilisés pour harmoniser un lieu et favoriser la méditation et la concentration.",
+    icon: "📐",
+  },
 ];
 
 export type TeamMember = {
