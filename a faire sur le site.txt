@@ -1,8 +1,0 @@
-✅système de mail avec formulaire de contact
-✅mailing avec nombre de visiteurs par semaine
-✅pour créer les articles, ajouter plusieurs configuration avec des images dans l'article et revérifier le markdown
-✅ajouter les articles de marie
-✅ajouter atelier complémentaire tutorat
-- rajouter espace avis
-- pour le SEO mettre tracé régulateur 
-- changer d'hébergeur car pas légal
