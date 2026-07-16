@@ -74,7 +74,7 @@ export async function GET(req: Request) {
 
   const { error } = await resend.emails.send({
     from: "Ateliers Angevins <onboarding@resend.dev>",
-    to: [...contact.emails],
+    to: "noe.fresneau@gmail.com",//[...contact.emails],
     subject: `Trafic de la semaine — ${fmtDate(now)}`,
     html,
   });
