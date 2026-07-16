@@ -4,7 +4,6 @@ export const categoryLabels: Record<ArticleCategory, string> = {
   GEOBIOLOGIE: "Géobiologie",
   MAGNETISME: "Magnétisme",
   THERAPIES_ENERGETIQUES: "Thérapies énergétiques",
-  MANDALA: "Mandala",
   SOURCELLERIE: "Sourcellerie",
   SYLVOTHERAPIE: "Sylvothérapie",
   RADIESTHESIE: "Radiesthésie",
