@@ -36,7 +36,7 @@ export default async function HomePage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <Image
-            src="/images/hero3.jpg"
+            src="/images/hero4.jpg"
             alt=""
             fill
             priority
@@ -44,7 +44,7 @@ export default async function HomePage() {
           />
           <div className="absolute inset-0 bg-forest-900/55" />
         </div>
-        <Container className="flex min-h-[34rem] flex-col items-start justify-center py-24 text-white">
+        <Container className="flex min-h-[34rem] flex-col items-start justify-center py-50 text-white">
           <p className="text-sm font-semibold uppercase tracking-widest text-gold-300">
             Depuis 2005, en Anjou
           </p>
@@ -90,7 +90,19 @@ export default async function HomePage() {
                 href={`/programmes/${domain.slug}`}
                 className="group rounded-2xl border border-forest-100 bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
               >
-                <span className="text-4xl">{domain.icon}</span>
+                {domain.image ? (
+                  <div className="relative h-20 w-20 overflow-hidden rounded-xl">
+                    <Image
+                      src={domain.image}
+                      alt=""
+                      fill
+                      sizes="1000px"
+                      className="object-contain"
+                    />
+                  </div>
+                ) : (
+                  <span className="text-4xl">{domain.icon}</span>
+                )}
                 <h3 className="mt-4 font-display text-xl font-semibold text-forest-900">
                   {domain.name}
                 </h3>

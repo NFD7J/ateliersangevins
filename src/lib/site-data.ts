@@ -28,6 +28,8 @@ export type Domain = {
   shortDescription: string;
   description: string;
   icon: string;
+  /** Image affichée à la place de l'icône dans l'encart (optionnel). */
+  image?: string;
 };
 
 export const domains: Domain[] = [
@@ -39,6 +41,7 @@ export const domains: Domain[] = [
     description:
       "La géobiologie consiste en l'étude des relations de l'environnement, des ondes liées aux champs électromagnétiques et de l'ensemble des influences sur le vivant. Elle permet d'identifier les perturbations d'un lieu (réseaux telluriques, ondes électromagnétiques, pollutions diverses) afin de retrouver un habitat sain et harmonieux.",
     icon: "🌳",
+    image: "/images/partners/CNG.jpg",
   },
   {
     slug: "magnetisme",
@@ -48,6 +51,7 @@ export const domains: Domain[] = [
     description:
       "Le magnétisme et les thérapies énergétiques regroupent un ensemble de techniques de soin visant à rétablir l'équilibre énergétique de la personne : magnétisme, chromothérapie, thérapie par les formes et autres outils de bio-énergie.",
     icon: "✋",
+    image: "/images/logo.jpg",
   },
   {
     slug: "sourcellerie",
