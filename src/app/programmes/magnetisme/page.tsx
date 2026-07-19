@@ -3,12 +3,65 @@ import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { PracticalInfo } from "@/components/formations/practical-info";
+import { ModuleList, type Module } from "@/components/formations/module-list";
 
 export const metadata: Metadata = {
   title: "Formation Magnétisme & Thérapies énergétiques",
   description:
-    "Formation annuelle en magnétisme et thérapies énergétiques : 12 modules pour découvrir l'univers énergétique et constituer sa boîte à outils.",
+    "Formation annuelle en magnétisme et thérapies énergétiques : 100 heures, 13 modules pour développer son ressenti, maîtriser des protocoles de soin et accompagner vers le mieux-être.",
 };
+
+const modules: Module[] = [
+  {
+    title:
+      "Découverte des principes énergétiques du corps humain & art du ressenti et radiesthésie",
+  },
+  {
+    title: "Développer sa sensibilité énergétique. Comment se protéger, se nettoyer",
+  },
+  {
+    title:
+      "Les possibilités et les limites du magnétisme. Pratique de base et équilibrage rapide pour des situations simples",
+  },
+  {
+    title:
+      "Détection et libération de présences parasites dans les champs d'énergie — Formes et outils de forme, niveau 1",
+  },
+  {
+    title:
+      "Détection et libération de présences parasites dans les champs d'énergie — Formes et outils de forme, niveau 2",
+  },
+  {
+    title:
+      "Détection et libération de présences parasites dans les champs d'énergie — Formes et outils de forme, niveau 3",
+  },
+  {
+    title: "Mise en application de protocoles de soins",
+  },
+  {
+    title: "Dissoudre les blocages énergétiques",
+    points: [
+      "Les blocages énergétiques : qu'est-ce que c'est ?",
+      "D'où viennent-ils ?",
+    ],
+  },
+  {
+    title: "Protocoles de dissolution des blocages énergétiques — partie 1",
+  },
+  {
+    title: "Protocoles de dissolution des blocages énergétiques — partie 2",
+  },
+  {
+    title: "Points Knapp, lithothérapie, chromothérapie",
+  },
+  {
+    title: "Initiation aux Fleurs de Bach et autres compléments naturels",
+    points: ["Révision et bilan de l'année"],
+  },
+  {
+    title: "Mise en pratique d'une consultation (cas réel) et évaluation",
+  },
+];
 
 export default function MagnetismePage() {
   return (
@@ -27,115 +80,126 @@ export default function MagnetismePage() {
           <h1 className="mt-2 font-display text-4xl font-semibold text-forest-900 sm:text-5xl">
             Magnétisme & Thérapies énergétiques
           </h1>
+          <p className="mt-4 text-ink-soft">
+            Le magnétisme, la chromothérapie et la thérapie par les formes au service
+            de l&apos;équilibre du vivant.
+          </p>
         </Container>
       </section>
 
       <section className="py-16">
-        <Container className="max-w-3xl">
-          <SectionHeading
-            eyebrow="La discipline"
-            title="Comprendre les équilibres du vivant"
-          />
-          <p className="mt-4 leading-relaxed text-ink-soft">
-            Le corps, les dimensions énergétiques, l&#39;esprit et l&#39;âme interagissent en permanence. Lorsque cet équilibre est
-            perturbé, il devient essentiel de disposer d&#39;outils adaptés pour mieux comprendre ces interactions et agir avec
-            justesse.
-          </p>
-          <p className="mt-4 leading-relaxed text-ink-soft">
-            Cette formation propose un parcours complet autour du magnétisme, de la chromothérapie, de la thérapie par les
-            formes et de différents protocoles énergétiques. Vous développerez des compétences solides, une pratique structurée
-            et une approche professionnelle fondée sur l&#39;expérience, la rigueur et la transmission.
-          </p>
+        <Container className="grid gap-12 lg:grid-cols-2">
+          <div>
+            <SectionHeading
+              eyebrow="La discipline"
+              title="Comprendre les équilibres du vivant"
+            />
+            <p className="mt-4 leading-relaxed text-ink-soft">
+              Le corps, les dimensions énergétiques, l&#39;esprit et l&#39;âme interagissent en permanence. Lorsque cet équilibre est
+              perturbé, il devient essentiel de disposer d&#39;outils adaptés pour mieux comprendre ces interactions et agir avec
+              justesse.
+            </p>
+            <p className="mt-4 leading-relaxed text-ink-soft">
+              Cette formation propose un parcours complet autour du magnétisme, de la chromothérapie, de la thérapie par les
+              formes et de différents protocoles énergétiques. Vous développerez des compétences solides, une pratique structurée
+              et une approche professionnelle fondée sur l&#39;expérience, la rigueur et la transmission.
+            </p>
+          </div>
+          <div className="self-center rounded-2xl border border-forest-100 bg-forest-50 p-8 shadow-sm">
+            <h3 className="font-display text-xl font-semibold text-forest-900">
+              À qui s&apos;adresse cette formation ?
+            </h3>
+            <ul className="mt-6 space-y-4 text-sm leading-relaxed text-ink-soft">
+              {[
+                "aux personnes en reconversion vers les métiers du bien-être",
+                "aux praticiens souhaitant enrichir et structurer leur pratique énergétique",
+                "à toute personne souhaitant développer son ressenti et sa sensibilité énergétique",
+                "à celles et ceux qui recherchent une approche progressive, éthique et centrée sur la personne",
+              ].map((profil) => (
+                <li key={profil} className="flex items-start gap-3">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-forest-600 text-xs font-bold text-white">
+                    ✓
+                  </span>
+                  <span>{profil}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </Container>
       </section>
 
-      <section className="bg-forest-100 py-20">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-          <div>
-            <SectionHeading
-              eyebrow="Le programme"
-              title="13 modules pour apprendre, pratiquer et accompagner"
-            />
-            <p className="mt-4 leading-relaxed text-ink-soft">
-              Depuis toujours, l&#39;être humain recherche l&#39;équilibre entre le corps, les émotions et
-              l&#39;énergie. Les Ateliers Angevins ont conçu une formation complète permettant d&#39;acquérir
-              des techniques énergétiques complémentaires, dans une approche structurée, progressive et
-              centrée sur la personne.
-            </p>
-            <p className="mt-4 leading-relaxed text-ink-soft">
-              Au fil des 13 modules, vous développerez votre ressenti, apprendrez différents protocoles
-              énergétiques et intégrerez les compétences nécessaires pour accompagner les personnes dans
-              une démarche de mieux-être.
-            </p>
-            <p className="mt-4 leading-relaxed text-ink-soft">
-              Cette formation s&#39;adresse aussi bien aux personnes en reconversion qu&#39;aux praticiens
-              souhaitant enrichir leur pratique.
-            </p>
-          </div>
-          <PracticalInfo
-            items={[
-              { label: "Tarif", value: "1650 €" },
-              { label: "Durée", value: "100 heures" },
-              { label: "Organisation", value: "13 modules" },
-              { label: "Pré-requis", value: "Aucun" },
-              { label: "Non inclus", value: "Repas et hébergement" },
-              { label: "Accueil", value: "8h30" },
-              { label: "Horaires", value: "9h-12h30 - 13h30-18h" },
-              { label: "Lieu", value: "Centre Xian, La Haute Jeannière, 49220 Thorigné-d'Anjou" },
-            ]}
-            pdfProgramme="/documents/programme-therapie-energetique-2026.pdf"
-            pdfInscription="/documents/inscription-therapie-energetique-2026.pdf"
-          />
-          </div>
+      <section className="bg-forest-100 pt-20 pb-10">
+        <div className="ml-8 mr-6 px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-[1fr_28rem] lg:items-start">
+            <div>
+              <div className="rounded-2xl border border-forest-100 bg-white p-8 shadow-sm">
+                <SectionHeading
+                  eyebrow="Objectifs"
+                  title="Les objectifs de la formation"
+                  description="Développer votre ressenti énergétique, structurer votre pratique et acquérir des protocoles concrets pour accompagner les personnes vers le mieux-être."
+                />
+                <p className="mt-6 leading-relaxed text-ink-soft">
+                  À l&#39;issue du cursus, vous serez en mesure de :
+                </p>
+                <ul className="mt-4 space-y-3 leading-relaxed text-ink-soft">
+                  {[
+                    "développer votre ressenti et votre sensibilité énergétique",
+                    "savoir vous protéger et vous nettoyer sur le plan énergétique",
+                    "connaître les possibilités et les limites du magnétisme",
+                    "détecter et libérer les blocages et présences parasites dans les champs d'énergie",
+                    "mettre en œuvre différents protocoles de soin énergétique",
+                    "intégrer la chromothérapie, la lithothérapie, les Fleurs de Bach et les compléments naturels",
+                    "mener une consultation complète et accompagner une personne vers le mieux-être",
+                  ].map((objectif) => (
+                    <li key={objectif} className="flex gap-2.5">
+                      <span className="shrink-0 text-forest-600">✓</span>
+                      <span>{objectif}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-          <div className="mt-14">
-            <h3 className="font-display text-2xl font-semibold text-forest-900">
-              Le déroulé des 13 modules
-            </h3>
-            <ol className="mt-6 divide-y divide-forest-100 overflow-hidden rounded-2xl border border-forest-100 bg-white">
-              {(
-                [
-                  { title: "Découverte des principes énergétiques du corps humain & art du ressenti et radiesthésie" },
-                  { title: "Développer sa sensibilité énergétique. Comment se protéger, se nettoyer" },
-                  { title: "Les possibilités et les limites du magnétisme. Pratique de base et équilibrage rapide pour des situations simples" },
-                  { title: "Détection et libération de présences parasites dans les champs d'énergie — Formes et outils de forme, niveau 1" },
-                  { title: "Détection et libération de présences parasites dans les champs d'énergie — Formes et outils de forme, niveau 2" },
-                  { title: "Détection et libération de présences parasites dans les champs d'énergie — Formes et outils de forme, niveau 3" },
-                  { title: "Mise en application de protocoles de soins" },
-                  {
-                    title: "Dissoudre les blocages énergétiques",
-                    details: ["Les blocages énergétiques : qu'est-ce que c'est ?", "D'où viennent-ils ?"],
-                  },
-                  { title: "Protocoles de dissolution des blocages énergétiques — partie 1" },
-                  { title: "Protocoles de dissolution des blocages énergétiques — partie 2" },
-                  { title: "Points Knapp, lithothérapie, chromothérapie" },
-                  {
-                    title: "Initiation aux Fleurs de Bach et autres compléments naturels",
-                    details: ["Révision et bilan de l'année"],
-                  },
-                  { title: "Mise en pratique d'une consultation (cas réel) et évaluation" },
-                ] as { title: string; details?: string[] }[]
-              ).map((mod, i) => (
-                <li key={mod.title} className="flex gap-4 p-5">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-forest-100 font-display text-sm font-semibold text-forest-800">
-                    {i + 1}
-                  </span>
-                  <div>
-                    <p className="font-medium text-forest-900">{mod.title}</p>
-                    {mod.details && (
-                      <ul className="mt-1 list-disc space-y-0.5 pl-4 text-sm text-ink-soft">
-                        {mod.details.map((detail) => (
-                          <li key={detail}>{detail}</li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
+              <div className="mt-12 mb-20">
+                <SectionHeading
+                  eyebrow="Le programme"
+                  title="Une formation complète pour découvrir, pratiquer et accompagner"
+                  description="100 heures de formation – 13 modules."
+                />
+
+                <ModuleList modules={modules} />
+              </div>
+            </div>
+
+            <aside className="space-y-4 lg:sticky lg:top-24">
+              <PracticalInfo
+                items={[
+                  { icon: "⏱️", label: "Durée", value: "100 heures" },
+                  { icon: "📚", label: "Organisation", value: "13 modules" },
+                  { icon: "💶", label: "Tarif", value: "1650 €" },
+                  { icon: "✅", label: "Prérequis", value: "Aucun" },
+                  { icon: "🚫", label: "Non inclus", value: "Repas, hébergement" },
+                  { icon: "👋", label: "Accueil", value: "8h30" },
+                  { icon: "🕘", label: "Horaires", value: "9h-12h30 / 13h30-18h00" },
+                  { icon: "📍", label: "Lieu", value: "Centre Xian, La Haute Jeannière, 49220 Thorigné-d'Anjou" },
+                ]}
+                pdfProgramme="/documents/programme-therapie-energetique-2026.pdf"
+                pdfInscription="/documents/inscription-therapie-energetique-2026.pdf"
+              />
+              <ul className="space-y-2 px-1 text-xs leading-relaxed text-ink-soft">
+                <li>
+                  Les modules constituent un parcours pédagogique complet et ne
+                  peuvent être suivis séparément.
                 </li>
-              ))}
-            </ol>
+                <li>
+                  Les Ateliers Angevins se réservent le droit d&apos;apporter toute
+                  modification utile au contenu du programme en fonction des
+                  évolutions pédagogiques.
+                </li>
+              </ul>
+            </aside>
+
           </div>
-        </Container>
+        </div>
       </section>
 
       <section className="py-16">

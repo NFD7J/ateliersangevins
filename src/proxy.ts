@@ -17,5 +17,5 @@ export default auth((req) => {
 });
 
 export const config = {
-  matcher: ["/espace-equipe/:path*"],
+  matcher: ["/espace-equipe/articles/:path*","/espace-equipe/agenda/:path*"],
 };

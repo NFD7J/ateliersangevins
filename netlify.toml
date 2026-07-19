@@ -6,4 +6,7 @@
   # peut être plus ancienne selon l'âge du site).
   NODE_VERSION = "22"
 
+[functions."weekly-stats"]
+  schedule = "0 9 * * 1"
+
 
