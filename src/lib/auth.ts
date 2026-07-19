@@ -57,26 +57,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
-  pages: {
-    signIn: "/espace-equipe",
-  },
-  session: {
-    strategy: "jwt",
-    maxAge: 8 * 60 * 60, // 8 hours
-    updateAge: 60 * 60, // refresh the JWT at most once per hour
-  },
   // Required for deployments where the host is not known at build time
   // (self-hosted VPS behind a reverse proxy). On Vercel, set AUTH_URL so the
   // host is pinned and Host-header spoofing cannot influence callback URLs.
-  trustHost: true,
-  callbacks: {
-    jwt({ token, user }) {
-      if (user) token.id = user.id;
-      return token;
-    },
-    session({ session, token }) {
-      if (session.user) session.user.id = token.id as string;
-      return session;
-    },
-  },
 });

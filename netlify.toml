@@ -6,8 +6,4 @@
   # peut être plus ancienne selon l'âge du site).
   NODE_VERSION = "22"
 
-# Runtime officiel Next.js de Netlify. La version effective vient de la
-# devDependency @netlify/plugin-nextjs si elle est installée, sinon Netlify
-# installe la dernière compatible.
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+
