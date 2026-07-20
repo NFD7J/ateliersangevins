@@ -28,6 +28,9 @@ export default async function AgendaDashboardPage() {
               Articles
             </Link>
             <span className="font-semibold text-forest-700">Agenda</span>
+            <Link href="/espace-equipe/temoignages" className="text-ink-soft hover:text-forest-700">
+              Témoignages
+            </Link>
           </div>
         </div>
         <div className="flex items-center gap-4">

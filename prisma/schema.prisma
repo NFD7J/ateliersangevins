@@ -8,7 +8,7 @@ datasource db {
 
 model Admin {
   id        String    @id @default(cuid())
-  username     String    @unique
+  username  String    @unique
   name      String
   password  String
   createdAt DateTime  @default(now())
@@ -22,7 +22,10 @@ enum ArticleCategory {
   THERAPIES_ENERGETIQUES
   SOURCELLERIE
   SYLVOTHERAPIE
-  RADIESTHESIE
+  TRACES_DES_BATISSEURS
+  MANDALA
+  ACUPRESSURE
+  TUTORAT
   FORMATIONS
   ACTUALITE
 }
@@ -60,4 +63,12 @@ model Event {
   pdf         String?
 
   @@index([published, date])
+}
+
+model Avis {
+  id          String    @id @default(cuid())
+  date        DateTime
+  name        String
+  avis        String    @db.Text
+  formation   ArticleCategory[]
 }

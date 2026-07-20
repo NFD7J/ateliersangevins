@@ -6,7 +6,10 @@ export const categoryLabels: Record<ArticleCategory, string> = {
   THERAPIES_ENERGETIQUES: "Thérapies énergétiques",
   SOURCELLERIE: "Sourcellerie",
   SYLVOTHERAPIE: "Sylvothérapie",
-  RADIESTHESIE: "Radiesthésie",
+  TRACES_DES_BATISSEURS: "Tracés des bâtisseurs",
+  MANDALA: "Mandala",
+  ACUPRESSURE: "Acupressure",
+  TUTORAT: "Tutorat",
   FORMATIONS: "Formations",
   ACTUALITE: "Actualité",
 };

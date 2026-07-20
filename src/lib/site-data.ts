@@ -4,6 +4,7 @@ export const nav = [
   { href: "/programmes", label: "Programmes" },
   { href: "/agenda", label: "Agenda" },
   { href: "/blog", label: "Blog" },
+  { href: "/temoignages", label: "Témoignages" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
