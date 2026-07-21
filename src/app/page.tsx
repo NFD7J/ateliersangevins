@@ -36,15 +36,16 @@ export default async function HomePage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <Image
-            src="/images/hero4.jpg"
+            src="/images/hero5.jpg"
             alt=""
             fill
             priority
-            className="object-cover"
+            className="object-cover object-[center_70%]"
           />
           <div className="absolute inset-0 bg-forest-900/55" />
         </div>
-        <Container className="flex min-h-[34rem] flex-col items-start justify-center py-50 text-white">
+        <Container className="flex min-h-[34rem] flex-col items-start justify-center gap-12 py-50 text-white lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col items-start">
           <p className="text-sm font-semibold uppercase tracking-widest text-gold-300">
             Depuis 2005, en Anjou
           </p>
@@ -69,6 +70,18 @@ export default async function HomePage() {
             >
               Nous contacter
             </Link>
+          </div>
+          </div>
+
+          <div className="hidden rounded-2xl shrink-0 bg-white p-6 shadow-2xl lg:block">
+            <Image
+              src="/images/logo.jpg"
+              alt="Les Ateliers Angevins"
+              width={324}
+              height={324}
+              className="object-contain"
+              priority
+            />
           </div>
         </Container>
       </section>
