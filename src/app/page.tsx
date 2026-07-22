@@ -36,7 +36,7 @@ export default async function HomePage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <Image
-            src="/images/hero5.jpg"
+            src="/images/hero2.jpeg"
             alt=""
             fill
             priority
@@ -79,7 +79,7 @@ export default async function HomePage() {
               alt="Les Ateliers Angevins"
               width={324}
               height={324}
-              className="object-contain"
+              className="object-contain h-auto"
               priority
             />
           </div>

@@ -102,8 +102,7 @@ const modules: Module[] = [
     ],
   },
   {
-    number: "11-12",
-    title: "Initiation au Feng Shui traditionnel",
+    title: "Phénomènes lié à la géobiologie",
     points: [
       "Les principes fondamentaux du Feng Shui traditionnel",
       "Comprendre la circulation des énergies dans l'habitat",
@@ -111,7 +110,14 @@ const modules: Module[] = [
     ],
   },
   {
-    number: "13",
+    title: "Initiation à la géobiologie",
+    points: [
+      "Les principes fondamentaux du Feng Shui traditionnel",
+      "Comprendre la circulation des énergies dans l'habitat",
+      "Optimiser l'équilibre énergétique d'un lieu",
+    ],
+  },
+  {
     title: "Tracés régulateurs – Niveau 1",
     points: [
       "Les fondements des tracés régulateurs",
@@ -121,7 +127,6 @@ const modules: Module[] = [
     ],
   },
   {
-    number: "14",
     title: "Tracés régulateurs – Niveau 2",
     points: [
       "Applications avancées",
@@ -131,7 +136,6 @@ const modules: Module[] = [
     ],
   },
   {
-    number: "15",
     title: "Diagnostic complet et harmonisation d'un lieu",
     points: [
       "Protocole d'intervention",
