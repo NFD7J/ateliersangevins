@@ -12,6 +12,7 @@ type AgendaEvent = {
   category: string;
   description: string;
   pdf?: string | null;
+  link?: string | null;
 };
 
 const VISIBLE_COUNT = 7;
@@ -52,6 +53,9 @@ export function AgendaList({ events }: { events: AgendaEvent[] }) {
           const monthShort = (d: Date) =>
             d.toLocaleDateString("fr-FR", { month: "short" });
 
+          // Cible du clic : le lien saisi en priorité, sinon le PDF.
+          const target = event.link ?? event.pdf ?? null;
+
           return (
             <Fragment key={event.id}>
               {showPastDivider && (
@@ -62,11 +66,12 @@ export function AgendaList({ events }: { events: AgendaEvent[] }) {
                 </li>
               )}
               <a
-                href={event.pdf ?? "#"}
-                target={event.pdf ? "_blank" : undefined}
-                rel={event.pdf ? "noopener noreferrer" : undefined}
+                href={target ?? "#"}
+                target={target ? "_blank" : undefined}
+                rel={target ? "noopener noreferrer" : undefined}
                 className={cn(
                   "flex flex-col gap-4 rounded-2xl border border-forest-100 bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:gap-8",
+                  target && "transition-shadow hover:shadow-md",
                   isPast && "opacity-60"
                 )}
               >

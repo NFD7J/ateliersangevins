@@ -10,6 +10,7 @@ type EventFormValues = {
   description: string;
   category: string;
   published: boolean;
+  link?: string | null;
 };
 
 export function EventForm({ event }: { event?: EventFormValues }) {
@@ -63,6 +64,23 @@ export function EventForm({ event }: { event?: EventFormValues }) {
         />
         <label htmlFor="fichier">fichier accepté : PDF</label>
 
+      </div>
+
+      <div>
+        <label htmlFor="link" className="block text-sm font-medium text-ink">
+          Lien vers une page (optionnel)
+        </label>
+        <input
+          id="link"
+          name="link"
+          type="text"
+          placeholder="https://exemple.com  ou  /programmes/geobiologie"
+          defaultValue={event?.link ?? ""}
+          className="mt-1 w-full rounded-lg border border-forest-200 px-3 py-2 text-sm focus:border-forest-500 focus:outline-none"
+        />
+        <p className="mt-1 text-xs text-ink-soft">
+          Si renseigné, cliquer sur l&apos;événement dans l&apos;agenda ouvrira ce lien.
+        </p>
       </div>
 
       <div>

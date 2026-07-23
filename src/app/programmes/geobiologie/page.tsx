@@ -221,8 +221,9 @@ export default function GeobiologiePage() {
                   title="Les objectifs de la formation"
                   description="Une familiarisation progressive aux techniques de détection, un ressenti affiné et une meilleure reconnaissance des déséquilibres pour rétablir l'harmonie d'un lieu."
                 />
-                <p className="mt-6 leading-relaxed text-ink-soft">
-                  À l&#39;issue du cursus, vous serez en mesure de :
+                <p className="mt-6 leading-relaxed text-ink-soft w-[60%]">
+                  À l&#39;issue du cursus, vous serez en mesure d'exercer en tant que 
+                  consultant en géobiologie, en mobilisant les outils et les approches enseignés tout au long de la formation :
                 </p>
                 <ul className="mt-4 space-y-3 leading-relaxed text-ink-soft">
                   {[

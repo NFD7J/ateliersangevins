@@ -10,6 +10,29 @@ export const metadata: Metadata = {
     "Atelier d'initiation à la sourcellerie : apprenez à détecter l'eau souterraine grâce à la baguette, au pendule ou à votre ressenti.",
 };
 
+const themes = [
+  "L'eau, le sourcier, la source",
+  "Les origines, les grands noms",
+  "La protection",
+  "La réceptivité",
+  "Les outils",
+  "Les supports",
+  "La convention mentale",
+  "L'eau sous terre",
+  "Tests avant prestations",
+  "Préparation avant recherche",
+  "La prestation",
+  "La profondeur",
+  "Les pièges à éviter",
+  "Le débit",
+  "Le sens du courant",
+  "Le point de forage",
+  "Contrat et limites",
+  "Test des connaissances",
+  "Conclusions",
+  "Sourcier du monde",
+];
+
 export default function SourcelleriePage() {
   return (
     <>
@@ -58,11 +81,33 @@ export default function SourcelleriePage() {
             items={[
               { label: "Tarif", value: "125 €" },
               { label: "Accueil", value: "8h30" },
-              { label: "Lieu", value: "Communiqué à l'inscription" },
+              { label: "horaires", value: "9h-12h30 14h-17h30" },
+              { label: "Lieu", value: "21 rue Jean De Blois à Daumeray" },
               { label: "Repas", value: "À la charge des participants" },
             ]}
             pdfInscription="/documents/inscription-modules-complementaires-2026.pdf"
           />
+        </Container>
+      </section>
+
+      <section className="bg-forest-100 py-16">
+        <Container className="max-w-4xl">
+          <SectionHeading
+            eyebrow="Programme"
+            title="Thèmes abordés"
+            description="Théorie présentée en PowerPoint et mise en pratique sur un terrain approprié."
+          />
+          <ul className="mt-8 grid gap-x-8 gap-y-2.5 sm:grid-cols-2 lg:grid-cols-3">
+            {themes.map((theme) => (
+              <li
+                key={theme}
+                className="flex items-start gap-2.5 text-sm leading-snug text-ink-soft"
+              >
+                <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-forest-500" />
+                {theme}
+              </li>
+            ))}
+          </ul>
         </Container>
       </section>
     </>

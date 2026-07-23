@@ -61,6 +61,15 @@ const eventSchema = z
       .max(5_000),
     category: z.string().trim().min(1, "La catégorie est obligatoire.").max(100),
     published: z.boolean(),
+    link: z
+      .string()
+      .trim()
+      .max(2000)
+      .refine(
+        (value) => !value || /^(https?:\/\/|\/)/.test(value),
+        "Le lien doit commencer par http://, https:// ou /"
+      )
+      .optional(),
   })
   .refine(
     (data) => !data.endDate || new Date(data.endDate) >= new Date(data.date),
@@ -79,11 +88,12 @@ export async function saveEvent(formData: FormData) {
     description: formData.get("description")?.toString() ?? "",
     category: formData.get("category")?.toString() ?? "",
     published: formData.get("published") === "on",
+    link: formData.get("link")?.toString() ?? "",
   });
   if (!parsed.success) {
     throw new Error(parsed.error.issues[0]?.message ?? "Données invalides.");
   }
-  const { date, endDate, title, description, category, published } = parsed.data;
+  const { date, endDate, title, description, category, published, link } = parsed.data;
 
   const file = formData.get("fichier");
   const pdfUrl =
@@ -96,6 +106,7 @@ export async function saveEvent(formData: FormData) {
     description,
     category,
     published,
+    link: link || null,
     authorId: admin.id,
     // Ne pas écraser le PDF existant en édition si aucun nouveau fichier n'est envoyé.
     ...(pdfUrl ? { pdf: pdfUrl } : {}),

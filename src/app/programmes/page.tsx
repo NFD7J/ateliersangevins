@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { domains } from "@/lib/site-data";
@@ -19,6 +20,8 @@ const mainPrograms = [
     description:
       "Une formation complète, alliant théorie, pratique et terrain, pour comprendre les interactions entre le vivant et son environnement. Développez les compétences nécessaires pour analyser les influences d'un lieu, identifier les principales perturbations environnementales et mettre en œuvre des méthodes d'harmonisation de l'habitat",
     pdf: "/documents/programme-geobiologie-2026.pdf",
+    logo: "/images/partners/CNG.jpg",
+    logoAlt: "Confédération Nationale de Géobiologie",
   },
   {
     id: "magnetisme",
@@ -28,6 +31,8 @@ const mainPrograms = [
     description:
       "Une formation complète alliant les fondamentaux du magnétisme, des thérapies vibratoires et de la thérapie par les formes, afin d'acquérir des compétences solides et de développer une pratique énergétique rigoureuse, cohérente et structurée.",
     pdf: "/documents/programme-therapie-energetique-2026.pdf",
+    logo: "/images/logo.jpg",
+    logoAlt: "Les Ateliers Angevins",
   },
 ];
 
@@ -116,6 +121,15 @@ export default function ProgrammesPage() {
                 id={program.id}
                 className="scroll-mt-24 rounded-2xl border border-forest-100 bg-white p-8 shadow-sm"
               >
+                <div className="mb-5">
+                  <Image
+                    src={program.logo}
+                    alt={program.logoAlt}
+                    width={120}
+                    height={120}
+                    className="h-16 w-auto object-contain"
+                  />
+                </div>
                 <span className="inline-flex rounded-full bg-terracotta-50 px-3 py-1 text-xs font-semibold text-terracotta-600">
                   {program.duration}
                 </span>

@@ -61,6 +61,7 @@ model Event {
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   pdf         String?
+  link        String?
 
   @@index([published, date])
 }

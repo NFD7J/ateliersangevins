@@ -138,8 +138,9 @@ export default function MagnetismePage() {
                   title="Les objectifs de la formation"
                   description="Développer votre ressenti énergétique, structurer votre pratique et acquérir des protocoles concrets pour accompagner les personnes vers le mieux-être."
                 />
-                <p className="mt-6 leading-relaxed text-ink-soft">
-                  À l&#39;issue du cursus, vous serez en mesure de :
+                <p className="mt-6 leading-relaxed text-ink-soft w-[60%]">
+                  À l&#39;issue du cursus, vous serez en mesure d'exercer en tant que 
+                  practicien en thérapie énergétique, en mobilisant les outils et les approches enseignés tout au long de la formation :
                 </p>
                 <ul className="mt-4 space-y-3 leading-relaxed text-ink-soft">
                   {[
