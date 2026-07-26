@@ -115,11 +115,14 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-forest-800/60 px-6 py-5">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-2 text-xs text-forest-300 sm:flex-row">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-2 text-xs text-forest-300 sm:flex-row sm:gap-4">
           <p>© {new Date().getFullYear()} Les Ateliers Angevins. Tous droits réservés.</p>
-          {/* <Link href="/espace-equipe" className="text-forest-400 hover:text-forest-200">
-            Espace équipe
-          </Link> */}
+          <Link href="/mentions-legales" className="hover:text-white">
+            Mentions légales
+          </Link>
+          <Link href="/politique-de-confidentialite" className="hover:text-white">
+            Politique de confidentialité
+          </Link>
         </div>
       </div>
     </footer>

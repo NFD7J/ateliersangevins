@@ -36,10 +36,11 @@ export default async function HomePage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <Image
-            src="/images/hero2.jpeg"
+            src="/images/hero5.jpg"
             alt=""
             fill
             priority
+            sizes="100vw"
             className="object-cover object-[center_70%]"
           />
           <div className="absolute inset-0 bg-forest-900/55" />
@@ -119,6 +120,11 @@ export default async function HomePage() {
                 <h3 className="mt-4 font-display text-xl font-semibold text-forest-900">
                   {domain.name}
                 </h3>
+                {domain.slug === "geobiologie" && (
+                  <p className="mt-1 text-sm italic text-ink-soft">
+                    (hygiène de l&apos;environnement)
+                  </p>
+                )}
                 <p className="mt-2 text-sm leading-relaxed text-ink-soft">
                   {domain.shortDescription}
                 </p>

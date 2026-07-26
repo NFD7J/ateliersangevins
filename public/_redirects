@@ -1,0 +1,114 @@
+# ==============================================================
+# Redirections — ateliersangevins.org
+# Migration WordPress (LWS) -> Next.js (Netlify)
+#
+# Généré depuis l'export du plugin Redirection v5.6.1 (26/07/2026)
+# Cibles écrites SANS slash final (Next.js trailingSlash: false)
+# L'ordre compte : Netlify applique la PREMIÈRE règle qui correspond
+# ==============================================================
+
+
+# --------------------------------------------------------------
+# 1. Anciennes pages du site pré-WordPress (.html et fichiers)
+# --------------------------------------------------------------
+/therapie.html                    /programmes/magnetisme            301
+/contact.html                     /contact                          301
+/CHARTE%20PRO.pdf                 /programmes/geobiologie           301
+
+
+# --------------------------------------------------------------
+# 2. Anciens articles (contenus parasites en anglais)
+# --------------------------------------------------------------
+/little-known-facts-about-coach-and-why-they-matter    /programmes/sylvotherapie   301
+/transform-your-client-experience                      /programmes/geobiologie     301
+/things-you-should-know-about-health                   /programmes/geobiologie     301
+/the-most-common-mistakes-people-make-with-health-2    /programmes/sylvotherapie   301
+
+
+# --------------------------------------------------------------
+# 3. Pages principales
+# --------------------------------------------------------------
+/a-propos-des-ateliers-angevins           /a-propos      301
+/nos-programmes                           /programmes    301
+/nos-formations                           /programmes    301
+/articles                                 /blog          301
+/actualites                               /agenda        301
+/sorties-touristiques-et-energetiques     /agenda        301
+
+
+# --------------------------------------------------------------
+# 4. Programmes et disciplines
+# --------------------------------------------------------------
+/geobiologie                        /programmes/geobiologie             301
+/formation-geobiologie              /programmes/geobiologie             301
+/sylvotherapie                      /programmes/sylvotherapie           301
+/sourcellerie                       /programmes/sourcellerie            301
+/traces-des-batisseurs              /programmes/traces-des-batisseurs   301
+/therapies-energetiques             /programmes/magnetisme              301
+/formation-therapies-energetiques   /programmes/magnetisme              301
+/radiesthesie                       /programmes                         301
+/feng-shui                          /programmes                         301
+/modules-complementaires            /programmes                         301
+/modules-compl%C3%A9mentaires       /programmes                         301
+/modules-complementaires-copy       /programmes                         301
+
+
+# --------------------------------------------------------------
+# 5. Articles du blog
+# --------------------------------------------------------------
+/decouvrez-le-programme-2026-lors-de-notre-journee-portes-ouvertes   /agenda   301
+
+
+# --------------------------------------------------------------
+# 6. Catégories WordPress
+#    (les deux orthographes : "categorie-" réellement utilisée
+#     sur le site, et "category-" présente dans l'export)
+# --------------------------------------------------------------
+/category/categorie-geobiologie     /programmes/geobiologie             301
+/category/category-geobiologie      /programmes/geobiologie             301
+/category/categorie-sylvotherapie   /programmes/sylvotherapie           301
+/category/category-sylvotherapie    /programmes/sylvotherapie           301
+/category/magnetisme                /programmes/magnetisme              301
+/category/sourcellerie              /programmes/sourcellerie            301
+/category/therapies-energetiques    /programmes/magnetisme              301
+/category/traces-sacres             /programmes/traces-des-batisseurs   301
+/category/themes-formations         /programmes                         301
+
+
+# --------------------------------------------------------------
+# 7. Tags WordPress
+# --------------------------------------------------------------
+/tag/geobiologie                    /programmes/geobiologie             301
+/tag/magnetisme                     /programmes/magnetisme              301
+/tag/sourcellerie                   /programmes/sourcellerie            301
+/tag/sylvotherapie                  /programmes/sylvotherapie           301
+/tag/traces-des-batisseurs          /programmes/traces-des-batisseurs   301
+/tag/traces-sacres                  /programmes/traces-des-batisseurs   301
+
+
+# --------------------------------------------------------------
+# 8. Pages légales
+# --------------------------------------------------------------
+/privacy-policy         /politique-de-confidentialite   301
+/terms-conditions       /mentions-legales               301
+
+
+# --------------------------------------------------------------
+# 9. Filets de sécurité — TOUJOURS EN DERNIER
+#    Attrapent les catégories, tags et archives non listés
+#    ci-dessus. Ne jamais les remonter au-dessus des règles
+#    précises, sinon elles les court-circuitent.
+# --------------------------------------------------------------
+/category/*             /programmes     301
+/tag/*                  /programmes     301
+/author/*               /blog           301
+/wp-content/*           /               301
+
+
+# --------------------------------------------------------------
+# 10. Empêche l'indexation du sous-domaine Netlify
+#     (contenu dupliqué avec le domaine principal)
+#     Le "!" force la règle même si la page existe.
+#     ⚠️ Adapte le sous-domaine si le tien diffère.
+# --------------------------------------------------------------
+https://ateliersangevins.netlify.app/*   https://ateliersangevins.org/:splat   301!

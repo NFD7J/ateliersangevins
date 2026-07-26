@@ -16,6 +16,7 @@ const mainPrograms = [
     id: "geobiologie",
     href: "/programmes/geobiologie",
     title: "Formation Géobiologie",
+    subtitle: "(hygiène de l'environnement)",
     duration: "120 heures",
     description:
       "Une formation complète, alliant théorie, pratique et terrain, pour comprendre les interactions entre le vivant et son environnement. Développez les compétences nécessaires pour analyser les influences d'un lieu, identifier les principales perturbations environnementales et mettre en œuvre des méthodes d'harmonisation de l'habitat",
@@ -136,6 +137,9 @@ export default function ProgrammesPage() {
                 <h3 className="mt-4 font-display text-2xl font-semibold text-forest-900">
                   {program.title}
                 </h3>
+                {"subtitle" in program && (
+                  <p className="mt-1 text-sm italic text-ink-soft">{program.subtitle}</p>
+                )}
                 <p className="mt-3 leading-relaxed text-ink-soft">{program.description}</p>
                 <div className="mt-6 flex flex-wrap items-center gap-4">
                   <Link
