@@ -74,6 +74,10 @@ export default async function HomePage() {
           </div>
           </div>
 
+          {/* Pas de `priority` ici : le bloc est en display:none sous lg, et un
+              preload serait quand même déclenché — le mobile téléchargerait un
+              logo jamais affiché, en concurrence avec le LCP (l'image du hero).
+              Le lazy-loading par défaut ne charge rien tant que le bloc est masqué. */}
           <div className="hidden rounded-2xl shrink-0 bg-white p-6 shadow-2xl lg:block">
             <Image
               src="/images/logo.jpg"
@@ -81,7 +85,6 @@ export default async function HomePage() {
               width={324}
               height={324}
               className="object-contain h-auto"
-              priority
             />
           </div>
         </Container>
@@ -110,7 +113,7 @@ export default async function HomePage() {
                       src={domain.image}
                       alt=""
                       fill
-                      sizes="1000px"
+                      sizes="80px"
                       className="object-contain"
                     />
                   </div>
@@ -201,12 +204,15 @@ export default async function HomePage() {
                   className="group overflow-hidden rounded-2xl border border-forest-100 bg-white shadow-sm transition-shadow hover:shadow-md"
                 >
                   {article.coverImage ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={article.coverImage}
-                      alt={article.title}
-                      className="h-44 w-full object-cover"
-                    />
+                    <div className="relative h-44 w-full">
+                      <Image
+                        src={article.coverImage}
+                        alt={article.title}
+                        fill
+                        sizes="(min-width: 640px) 33vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
                   ) : (
                     <PlaceholderImage icon="📰" variant={i} className="h-44 w-full" />
                   )}

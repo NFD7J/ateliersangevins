@@ -35,39 +35,41 @@ export default function SylvotherapiePage() {
       </section>
 
       <section className="py-16">
-        <Container className="max-w-3xl">
-          <SectionHeading
-            eyebrow="L'approche"
-            title="Une rencontre sensible avec le monde forestier"
-          />
-          <p className="mt-4 leading-relaxed text-ink-soft">
-            Cet atelier invite à vivre une expérience immersive en lien avec la forêt, en explorant les résonances entre l&#39;arbre et
-            notre propre parcours de vie.
-          </p>
-          <p className="mt-4 leading-relaxed text-ink-soft">
-            Les racines évoquent nos origines et nos valeurs, le tronc notre stabilité et notre capacité d&#39;adaptation, les branches
-            symbolisent nos chemins de vie et les feuilles notre évolution, nos émotions et notre créativité.
-          </p>
-          <p className="mt-4 leading-relaxed text-ink-soft">
-            Au cœur de cette expérience, une méditation guidée autour de l&#39;arbre favorise le recentrage, l&#39;écoute de soi et la
-            qualité de présence. Un temps privilégié pour renouer avec la nature, développer son ressenti et retrouver un
-            équilibre intérieur, dans le respect du vivant.
-          </p>
-        </Container>
-      </section>
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
+            <div>
+              <SectionHeading
+                eyebrow="L'approche"
+                title="Une rencontre sensible avec le monde forestier"
+              />
+              <p className="mt-4 leading-relaxed text-ink-soft">
+                Cet atelier invite à vivre une expérience immersive en lien avec la forêt, en explorant les résonances entre l&#39;arbre et
+                notre propre parcours de vie.
+              </p>
+              <p className="mt-4 leading-relaxed text-ink-soft">
+                Les racines évoquent nos origines et nos valeurs, le tronc notre stabilité et notre capacité d&#39;adaptation, les branches
+                symbolisent nos chemins de vie et les feuilles notre évolution, nos émotions et notre créativité.
+              </p>
+              <p className="mt-4 leading-relaxed text-ink-soft">
+                Au cœur de cette expérience, une méditation guidée autour de l&#39;arbre favorise le recentrage, l&#39;écoute de soi et la
+                qualité de présence. Un temps privilégié pour renouer avec la nature, développer son ressenti et retrouver un
+                équilibre intérieur, dans le respect du vivant.
+              </p>
+            </div>
 
-      <section className="bg-forest-100 py-20">
-        <Container className="max-w-xl">
-          <PracticalInfo
-            items={[
-              { label: "Tarif", value: "150 €" },
-              { label: "Durée", value: "1 jour" },
-              { label: "Accueil", value: "8h30" },
-              { label: "Repas", value: "non inclus" },
-              { label: "Lieu", value: "Centre Xian, La Haute Jeannière, 49220 Thorigné-d'Anjou" },
-            ]}
-            pdfInscription="/documents/inscription-modules-complementaires-2026.pdf"
-          />
+            <div className="mx-auto w-full max-w-md">
+              <PracticalInfo
+                items={[
+                  { label: "Tarif", value: "150 €" },
+                  { label: "Durée", value: "1 jour" },
+                  { label: "Accueil", value: "8h30" },
+                  { label: "Repas", value: "non inclus" },
+                  { label: "Lieu", value: "Centre Xian, La Haute Jeannière, 49220 Thorigné-d'Anjou" },
+                ]}
+                pdfInscription="/documents/inscription-modules-complementaires-2026.pdf"
+              />
+            </div>
+          </div>
         </Container>
       </section>
     </>

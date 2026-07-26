@@ -57,8 +57,8 @@ export async function sendContactEmail( _prev: ContactState, formData: FormData 
 
   try {
     const { error } = await resend.emails.send({
-      from: "Ateliers Angevins <onboarding@resend.dev>",
-      to: "noe.fresneau@gmail.com", // les deux adresses de l'association
+      from: "Ateliers Angevins <contact@ateliersangevins.org>",
+      to: ["noe.fresneau@gmail.com","ateliersangevins@hotmail.com","brissmarie35@gmail.com"], // les deux adresses de l'association
       replyTo: email, // répondre = répondre au visiteur
       subject: `Nouveau message de ${name}`,
       html,

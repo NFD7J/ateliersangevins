@@ -118,19 +118,6 @@ export async function saveEvent(formData: FormData) {
     await prisma.event.create({ data });
   }
 
-  await sendNotificationEmail({
-    type: "event",
-    action: id ? "updated" : "created",
-    title,
-    category,
-    date: data.date,
-    endDate: data.endDate,
-    author: admin.name,
-    description,
-    published,
-    actionUrl: "/espace-equipe/agenda",
-  });
-
   revalidatePath("/agenda");
   revalidatePath("/");
   redirect("/espace-equipe/agenda");
@@ -139,19 +126,6 @@ export async function saveEvent(formData: FormData) {
 export async function deleteEvent(id: string) {
   const admin = await requireAdmin();
   const event = await prisma.event.delete({ where: { id } });
-
-  await sendNotificationEmail({
-    type: "event",
-    action: "deleted",
-    title: event.title,
-    category: event.category,
-    date: event.date,
-    endDate: event.endDate ?? undefined,
-    description: event.description,
-    published: event.published,
-    author: admin.name,
-    actionUrl: "/espace-equipe/agenda",
-  });
 
   revalidatePath("/agenda");
   revalidatePath("/espace-equipe/agenda");

@@ -58,7 +58,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="relative h-full w-full max-w-110 rounded-2xl overflow-hidden">
-            <Image src="/images/logo.jpg" alt="Description" fill sizes="1000px" className="object-contain object-center rounded-2xl" />
+            <Image src="/images/logo.jpg" alt="Description" fill sizes="(max-width: 640px) 100vw, 440px" className="object-contain object-center rounded-2xl" />
           </div>
         </Container>
       </section>
