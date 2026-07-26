@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Fraunces, Manrope } from "next/font/google";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -39,6 +40,13 @@ export default function RootLayout({
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        {/* Umami : chargé après l'hydratation pour ne pas peser sur le LCP.
+            L'identifiant de site est public par nature (il figure dans le HTML). */}
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="fbd3c6ce-c6fd-4bf0-a5dc-e84a448958ce"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

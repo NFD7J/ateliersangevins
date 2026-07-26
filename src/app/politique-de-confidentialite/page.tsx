@@ -69,6 +69,18 @@ export default function PolitiqueConfidentialitePage() {
                 strictement nécessaires au fonctionnement de l&apos;espace de
                 connexion. Ils ne nécessitent pas de consentement préalable.
               </li>
+              <li>
+                <strong className="text-ink">Mesure d&apos;audience</strong> : nous
+                utilisons Umami, un outil de statistiques sans cookie qui ne dépose ni
+                ne lit aucune information sur votre appareil, et qui ne permet ni de
+                vous identifier, ni de vous suivre d&apos;un site à l&apos;autre.
+                Seules des statistiques agrégées sont produites (pages consultées,
+                page de provenance, type d&apos;appareil, pays). Aucune adresse IP
+                n&apos;est conservée. Ce dispositif ne nécessitant aucun accès à votre
+                terminal, il ne requiert pas de consentement préalable. Base légale :
+                intérêt légitime de l&apos;association à mesurer la fréquentation de
+                son site.
+              </li>
             </ul>
           </div>
 
@@ -81,7 +93,9 @@ export default function PolitiqueConfidentialitePage() {
               temps nécessaire au traitement de votre demande, puis archivés ou
               supprimés dans un délai de 12 mois. Les comptes de l&apos;espace équipe
               sont conservés tant que la
-              personne est membre actif de l&apos;association.
+              personne est membre actif de l&apos;association. Les statistiques de
+              fréquentation sont conservées uniquement sous forme agrégée et ne
+              permettent à aucun moment de remonter à une personne identifiable.
             </p>
           </div>
 
@@ -94,9 +108,12 @@ export default function PolitiqueConfidentialitePage() {
               Ateliers Angevins. Elles ne sont ni vendues, ni cédées à des tiers.
               Elles peuvent transiter par nos prestataires techniques, dans le
               strict cadre de la fourniture de leurs services : l&apos;hébergeur{" "}
-              <strong className="text-ink">Netlify, Inc.</strong> et le service
+              <strong className="text-ink">Netlify, Inc.</strong>, le service
               d&apos;envoi d&apos;emails{" "}
-              <strong className="text-ink">Resend</strong> (Resend, Inc.).
+              <strong className="text-ink">Resend</strong> (Resend, Inc.) et le
+              service de mesure d&apos;audience{" "}
+              <strong className="text-ink">Umami</strong> (Umami Software, Inc.),
+              dont les données sont hébergées dans l&apos;Union européenne.
             </p>
           </div>
 
