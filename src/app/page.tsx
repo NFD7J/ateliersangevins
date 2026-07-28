@@ -45,7 +45,7 @@ export default async function HomePage() {
           />
           <div className="absolute inset-0 bg-forest-900/55" />
         </div>
-        <Container className="flex min-h-[34rem] flex-col items-start justify-center gap-12 py-50 text-white lg:flex-row lg:items-center lg:justify-between">
+        <Container className="flex min-h-[34rem] flex-col items-start justify-center gap-8 pt-24 pb-50 text-white lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:pt-50 lg:pb-50">
           <div className="flex flex-col items-start">
           <p className="text-sm font-semibold uppercase tracking-widest text-gold-300">
             Depuis 2005, en Anjou
@@ -74,17 +74,20 @@ export default async function HomePage() {
           </div>
           </div>
 
-          {/* Pas de `priority` ici : le bloc est en display:none sous lg, et un
-              preload serait quand même déclenché — le mobile téléchargerait un
-              logo jamais affiché, en concurrence avec le LCP (l'image du hero).
-              Le lazy-loading par défaut ne charge rien tant que le bloc est masqué. */}
-          <div className="hidden rounded-2xl shrink-0 bg-white p-6 shadow-2xl lg:block">
+          {/* `order-first` remonte le logo au-dessus du texte en mobile sans toucher
+              à l'ordre du JSX ; au-delà de lg, `lg:order-none` rétablit le flux
+              normal (texte à gauche, logo à droite).
+              Pas de `priority` : le LCP reste l'image de fond du hero, qui garde le
+              seul preload. `height` suit le ratio réel du fichier (1560x1246),
+              sinon la place réservée est fausse et décale la mise en page. */}
+          <div className="order-first shrink-0 rounded-2xl bg-white p-4 shadow-2xl lg:order-none lg:p-6">
             <Image
               src="/images/logo.jpg"
               alt="Les Ateliers Angevins"
               width={324}
-              height={324}
-              className="object-contain h-auto"
+              height={259}
+              sizes="(min-width: 1024px) 324px, 160px"
+              className="h-auto w-40 object-contain lg:w-81"
             />
           </div>
         </Container>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { sendContactEmail, type ContactState } from "@/app/contact/actions";
 
 const initialState: ContactState = { ok: false };
@@ -14,6 +14,21 @@ export function ContactForm() {
     initialState
   );
 
+  // Horodatage posé à l'affichage du formulaire, dans un effet plutôt qu'au
+  // rendu : le serveur ne doit pas produire cette valeur, sinon elle mesurerait
+  // l'âge de la page rendue et non le temps de saisie réel.
+  const mountedAt = useRef(0);
+  useEffect(() => {
+    mountedAt.current = Date.now();
+  }, []);
+
+  function submit(formData: FormData) {
+    if (mountedAt.current) {
+      formData.set("elapsed", String(Date.now() - mountedAt.current));
+    }
+    formAction(formData);
+  }
+
   if (state.ok) {
     return (
       <div className="rounded-lg bg-forest-50 p-4 text-sm text-forest-800">
@@ -24,7 +39,17 @@ export function ContactForm() {
   }
 
   return (
-    <form action={formAction} className="space-y-4">
+    <form action={submit} className="space-y-4">
+      {/* Champ leurre. `absolute` le sort du flux (aucun espace ajouté),
+          `aria-hidden` + `tabIndex={-1}` le masquent aux lecteurs d'écran et à
+          la navigation clavier. Un humain ne peut donc pas le remplir par
+          erreur — ne pas le remplacer par `type="hidden"`, que les robots
+          savent ignorer. */}
+      <div className="absolute left-[-9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+        <label htmlFor="website">Ne pas remplir ce champ</label>
+        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-ink">

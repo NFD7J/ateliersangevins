@@ -57,7 +57,11 @@ export default function AboutPage() {
               <strong className="text-forest-800">Former des praticiens compétents, transmettre un savoir d&#39;excellence.</strong>
             </p>
           </div>
-          <div className="relative h-full w-full max-w-110 rounded-2xl overflow-hidden">
+          {/* `fill` étant en position absolue, il ne donne aucune hauteur au parent.
+              Sous lg (grille à une colonne) `h-full` se résoudrait donc à 0 : on
+              impose un ratio. À partir de lg, la rangée de grille est dimensionnée
+              par la colonne de texte et `h-full` reprend la main. */}
+          <div className="relative aspect-[5/4] w-full max-w-110 rounded-2xl overflow-hidden lg:aspect-auto lg:h-full">
             <Image src="/images/logo.jpg" alt="Description" fill sizes="(max-width: 640px) 100vw, 440px" className="object-contain object-center rounded-2xl" />
           </div>
         </Container>
