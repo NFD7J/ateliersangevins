@@ -15,7 +15,7 @@ export const contact = {
     { name: "Marie Brisseau", number: "06 61 75 66 78" },
   ],
   emails: ["ateliersangevins@hotmail.com", "brissmarie35@gmail.com"],
-  facebook: "https://www.facebook.com/",
+  facebook: "https://www.facebook.com/AteliersAngevins",
   youtube: "https://www.youtube.com/@AteliersAngevins-m6q",
   mapsQuery: "47.702725932929404, -0.35775632096358817",
   // Carte Google My Maps (plusieurs marqueurs). Colle ici le `src` de l'iframe
