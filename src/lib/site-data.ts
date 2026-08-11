@@ -137,7 +137,7 @@ export const team: TeamMember[] = [
   {
     name: "Jocelyne Pivette",
     role: "Formatrice",
-    bio: "Praticienne en Feng Shui, Jocelyne accompagne les participants dans la découverte des principes de l'harmonisation spatiale et de l'amélioration de l'environnement pour favoriser le bien-être.",
+    bio: "Intervenante pour le feng shui dans le cursus géobiologie depuis plus de 20 ans.",
     image: "/images/team/Jocelyne-Pivette.png",
   },
 ];
