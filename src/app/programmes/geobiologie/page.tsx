@@ -26,7 +26,7 @@ const modules: Module[] = [
     points: [
       "Découverte des différents outils de détection",
       "Initiation à la radiesthésie",
-      "Évaluation de l'ambiance globale d'un lieu",
+      "Évaluation en tripartition de l'ambiance globale d'un lieu",
       "Premiers protocoles de mesure",
     ],
   },
@@ -48,15 +48,6 @@ const modules: Module[] = [
     ],
   },
   {
-    title: "Qualité de l'environnement intérieur",
-    points: [
-      "Qualité de l'air et de l'eau",
-      "Principaux polluants de l'habitat",
-      "Le radon : mesure, réglementation et recommandations",
-      "Conseils d'amélioration pour les occupants",
-    ],
-  },
-  {
     title: "Champs électromagnétiques basse fréquence",
     points: [
       "Comprendre les champs électriques et magnétiques",
@@ -66,12 +57,12 @@ const modules: Module[] = [
     ],
   },
   {
-    title: "Champs électromagnétiques haute fréquence",
+    title: "Champs électromagnétiques en haute fréquence",
     points: [
-      "Téléphonie mobile, Wi-Fi et objets connectés",
-      "Comprendre les différentes fréquences",
-      "Évaluer leur impact sur le vivant",
-      "Mesures, normes et préconisations",
+      "comprendre les différentes longueurs d'ondes",
+      "L'impact sur le vivant",
+      "Apprendre les mesures importantes",
+      "Connaître les recommandations",
     ],
   },
   {
@@ -93,6 +84,15 @@ const modules: Module[] = [
     ],
   },
   {
+    title: "Qualité de l'air et de l'eau",
+    points: [
+      "Les préconisations pour le client",
+      "Le radon",
+      "Comment opérer une mesure",
+      "Les normes en vigueur",
+    ],
+  },
+  {
     title: "Phénomènes particuliers",
     points: [
       "Empreintes énergétiques",
@@ -102,19 +102,9 @@ const modules: Module[] = [
     ],
   },
   {
-    title: "Phénomènes lié à la géobiologie",
+    title: "La géobiologie dans le monde agricole",
     points: [
-      "Les principes fondamentaux du Feng Shui traditionnel",
-      "Comprendre la circulation des énergies dans l'habitat",
-      "Optimiser l'équilibre énergétique d'un lieu",
-    ],
-  },
-  {
-    title: "Initiation à la géobiologie",
-    points: [
-      "Les principes fondamentaux du Feng Shui traditionnel",
-      "Comprendre la circulation des énergies dans l'habitat",
-      "Optimiser l'équilibre énergétique d'un lieu",
+      "Découvrir et remédier les impacts de différents phénomènes sur la vie végétale et animale.",
     ],
   },
   {
@@ -135,13 +125,20 @@ const modules: Module[] = [
       "Mise en œuvre d'un quadrilatère solsticial",
     ],
   },
-  {
-    title: "Diagnostic complet et harmonisation d'un lieu",
+   {
+    title: "Mise en pratique des outils d’harmonisation",
     points: [
-      "Protocole d'intervention",
-      "Méthodologie de diagnostic",
-      "Mise en pratique sur un cas réel",
-      "Recherche et application des différentes techniques d'harmonisation",
+      "Finaliser une prestation",
+      "Apporter une ambiance harmonieuse a l'abitat",
+    ],
+  },
+  {
+    title: "Protocole théorique d’intervention sur un lieu",
+    points: [
+      "Diagnostic d'un lieu",
+      "Protocole et recherches sur le terrain de diverses technique d'harmonisation",
+      "Ré harmonisation d'un lieu",
+      "Cas réel",
     ],
   },
 ];

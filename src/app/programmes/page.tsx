@@ -86,11 +86,20 @@ const complementaryWorkshops = [
     description:
       "Le tutorat offre un accompagnement personnalisé pour approfondir vos connaissances et compétences dans un domaine spécifique, avec des conseils et un suivi adaptés à vos besoins.",
   },
+  {
+    id: "Feng Shui",
+    href: "/programmes/feng-shui",
+    title: "Feng Shui",
+    icon: "🧭",
+    description:
+      "Offrez-vous une immersion dans l’univers subtil du Feng Shui, un art ancestral qui révèle l’influence profonde de notre environnement sur notre équilibre, notre vitalité et notre qualité de vie.",
+  },
 ];
 
 const detailHrefBySlug: Record<string, string> = {
   radiesthesie: "/programmes/radiesthesie",
   "traces-des-batisseurs": "/programmes/traces-des-batisseurs",
+  "feng-shui": "/programmes/feng-shui",
 };
 
 export default function ProgrammesPage() {

@@ -40,10 +40,6 @@ const modules: Module[] = [
   },
   {
     title: "Dissoudre les blocages énergétiques",
-    points: [
-      "Les blocages énergétiques : qu'est-ce que c'est ?",
-      "D'où viennent-ils ?",
-    ],
   },
   {
     title: "Protocoles de dissolution des blocages énergétiques — partie 1",
@@ -56,7 +52,6 @@ const modules: Module[] = [
   },
   {
     title: "Initiation aux Fleurs de Bach et autres compléments naturels",
-    points: ["Révision et bilan de l'année"],
   },
   {
     title: "Mise en pratique d'une consultation (cas réel) et évaluation",

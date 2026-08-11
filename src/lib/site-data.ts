@@ -134,4 +134,10 @@ export const team: TeamMember[] = [
     bio: "Géobiologue et consultant en magnétisme et thérapies énergétiques, Jérôme transmet une approche pratique et accessible des techniques énergétiques.",
     image: "/images/team/Jerome-Crosnier.jpg",
   },
+  {
+    name: "Jocelyne Pivette",
+    role: "Formatrice",
+    bio: "Praticienne en Feng Shui, Jocelyne accompagne les participants dans la découverte des principes de l'harmonisation spatiale et de l'amélioration de l'environnement pour favoriser le bien-être.",
+    image: "/images/team/Jocelyne-Pivette.png",
+  },
 ];
