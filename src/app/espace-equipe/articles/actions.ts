@@ -8,6 +8,7 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import cloudinary from "@/lib/cloudinary";
 import { slugify } from "@/lib/utils";
+import { ALLOWED_IMAGE_TYPES, MAX_UPLOAD_BYTES, MAX_UPLOAD_LABEL } from "@/lib/upload";
 import { parseArticleBlocks } from "@/lib/article-blocks";
 import { sendNotificationEmail } from "@/lib/send-mail";
 
@@ -20,16 +21,6 @@ async function requireAdmin() {
   // (et non plus `string | null | undefined`).
   return { ...session.user, id: session.user.id, name: session.user.name };
 }
-
-// Image-upload constraints (also enforced by Cloudinary via resource_type).
-const MAX_UPLOAD_BYTES = 5 * 1024 * 1024; // 5 MB
-const ALLOWED_IMAGE_TYPES = new Set([
-  "image/jpeg",
-  "image/png",
-  "image/webp",
-  "image/gif",
-  "image/avif",
-]);
 
 // Only Cloudinary URLs may be stored as a cover image: the value is rendered
 // through next/image, whose remotePatterns are already limited to Cloudinary.
@@ -55,7 +46,7 @@ export async function uploadArticleImage(formData: FormData): Promise<string | n
   if (!(file instanceof File) || file.size === 0) return null;
 
   if (file.size > MAX_UPLOAD_BYTES) {
-    throw new Error("Image trop volumineuse (5 Mo maximum).");
+    throw new Error(`Image trop volumineuse (${MAX_UPLOAD_LABEL} maximum).`);
   }
   if (!ALLOWED_IMAGE_TYPES.has(file.type)) {
     throw new Error("Format d'image non supporté (JPEG, PNG, WebP, GIF ou AVIF).");

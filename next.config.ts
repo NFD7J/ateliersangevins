@@ -30,6 +30,17 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  experimental: {
+    serverActions: {
+      // Les uploads d'images passent par une Server Action, dont le corps est
+      // plafonné à 1 Mo par défaut — trop peu pour une photo de couverture.
+      // 4 Mo est le maximum atteignable en production : Netlify encode le
+      // corps en base64 (+33 %) avant de le passer à la fonction, qui refuse
+      // au-delà de 6 Mo. Toute valeur supérieure ici échouerait en 502 côté
+      // Netlify au lieu d'être refusée proprement par la validation.
+      bodySizeLimit: "4mb",
+    },
+  },
   images: {
     remotePatterns: [
       {

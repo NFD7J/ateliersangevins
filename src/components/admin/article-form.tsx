@@ -6,6 +6,7 @@ import { categoryOptions } from "@/lib/categories";
 import { parseArticleBlocks } from "@/lib/article-blocks";
 import { ArticleBlocksEditor } from "@/components/admin/article-blocks-editor";
 import { saveArticle, uploadArticleImage } from "@/app/espace-equipe/articles/actions";
+import { checkImageFile } from "@/lib/upload";
 
 type ArticleFormValues = {
   id?: string;
@@ -21,18 +22,32 @@ type ArticleFormValues = {
 export function ArticleForm({ article }: { article?: ArticleFormValues }) {
   const [coverImage, setCoverImage] = useState(article?.coverImage ?? "");
   const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
 
+    // Contrôlé ici avant l'envoi : au-delà de la limite, Next coupe la requête
+    // et l'erreur qui remonte est inexploitable (502 en production).
+    const invalid = checkImageFile(file);
+    if (invalid) {
+      setUploadError(invalid);
+      return;
+    }
+
+    setUploadError(null);
     setUploading(true);
     try {
       const formData = new FormData();
       formData.append("file", file);
       const url = await uploadArticleImage(formData);
       if (url) setCoverImage(url);
+    } catch {
+      // Next masque le message des Server Actions en production, on reste donc
+      // volontairement générique plutôt que d'afficher un digest.
+      setUploadError("L'envoi de l'image a échoué. Réessayez.");
     } finally {
       setUploading(false);
     }
@@ -94,6 +109,11 @@ export function ArticleForm({ article }: { article?: ArticleFormValues }) {
             className="hidden"
           />
         </div>
+        {uploadError && (
+          <p role="alert" className="mt-2 text-sm text-red-600">
+            {uploadError}
+          </p>
+        )}
       </div>
 
       <div>
